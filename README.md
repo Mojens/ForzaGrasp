@@ -1,11 +1,10 @@
-# ForzaGrasp
-Datamatiker 1. Semesterprojekt
 <h1> Case: Svømmeklubben Delfinen </h1>
+<h3>Datamatiker 1. Semesterprojekt</h3>
 
 <h2> Gruppe Informationer </h2>
 
-Gruppe Nummer: 7
-Gruppe Navn: ForzaGrasp
+Gruppe Nummer: 7<br>
+Gruppe Navn: ForzaGrasp<br>
 
 Malthe Holm Karlsson <br>
 GitHub brugernavn: IfMalthereturnawesome <br>
