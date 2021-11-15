@@ -1,6 +1,8 @@
+package Ui;
+
 public class MenuRun {
 
-  private void run() {
+  public void run() {
     String[] menuItem = new String[10];
 
     menuItem[1] = "Choose ONE";
