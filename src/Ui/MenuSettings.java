@@ -2,13 +2,13 @@ package Ui;
 
 import java.util.Scanner;
 
-public class Menu {
+public class MenuSettings {
 
   String menuHeader;
   String leadText;
   String[] menuItems;
 
-  public Menu(String menuHeader, String leadText, String[] menuItems) {
+  public MenuSettings(String menuHeader, String leadText, String[] menuItems) {
     this.menuHeader = menuHeader;
     this.leadText = leadText;
     this.menuItems = menuItems;

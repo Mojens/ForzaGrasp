@@ -1,8 +1,10 @@
 package Ui;
 
-public class MenuRun {
+import Interfaces.MenuRun;
 
-  public void run() {
+public class StartMenu implements MenuRun {
+
+  public void menuRun() {
     String[] menuItem = new String[10];
 
     menuItem[1] = "Choose ONE";
@@ -10,10 +12,10 @@ public class MenuRun {
     menuItem[3] = "Choose THREE";
     menuItem[9] = "QUIT";
 
-    Menu menu = new Menu("MENU", "PLEASE CHOOSE HERE: ", menuItem);
-    menu.printMenu();
+    MenuSettings menuSettings = new MenuSettings("MENU", "PLEASE CHOOSE HERE: ", menuItem);
+    menuSettings.printMenu();
 
-    int choice = menu.readChoice();
+    int choice = menuSettings.readChoice();
     boolean checkChoice;
 
     do {
@@ -38,8 +40,8 @@ public class MenuRun {
         default:
           System.out.println("\nIt has to be between 1,2,3 or 9");
           System.out.println("Try again");
-          menu.printMenu();
-          choice = menu.readChoice();
+          menuSettings.printMenu();
+          choice = menuSettings.readChoice();
           checkChoice = false;
       }
     } while (!checkChoice);

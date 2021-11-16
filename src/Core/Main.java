@@ -1,10 +1,12 @@
 package Core;
 
-import Ui.MenuRun;
+import Interfaces.MenuRun;
+import Ui.StartMenu;
 
 public class Main {
   public static void main(String[] args) {
-    new MenuRun().run();
+    MenuRun startPage = new StartMenu();
+    startPage.menuRun();
 
   }
 }
