@@ -6,11 +6,15 @@ import java.util.ArrayList;
  * @Author Malthe, Simon og Mohammad
  */
 public class MemberList {
-  ArrayList<Member> memberList = new ArrayList();
-  ArrayList<Member> competiviveList = new ArrayList();
+  ArrayList<Member> casualList = new ArrayList<>();
+  ArrayList<Member> competitiveList = new ArrayList<>();
 
-  public ArrayList<Member> getCompetiviveList() {
-    return competiviveList;
+  public ArrayList<Member> getCompetitiveList() {
+    return competitiveList;
+  }
+
+  public ArrayList<Member> getCasualList(){
+    return casualList;
   }
 }
 

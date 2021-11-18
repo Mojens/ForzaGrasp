@@ -5,6 +5,7 @@ import Core.Status;
 /**
  * @Author Malthe, Simon og Mohammad
  */
+
 public class Member{
     private String name;
     private int age;
@@ -17,11 +18,10 @@ public class Member{
     private String location;
     private int date;
     private String status;
-    private int counterCasual = 1;
 
     @Override
     public String toString() {
-        return "ID: "+ counterCasual + "Name: "+ name + ", "
+        return "Name: "+ name + ", "
             + "Age: " + age + ", "
             + "Age Group: " + ageGroup + ", "
             + "Balance: " + balance + ", "
@@ -29,19 +29,17 @@ public class Member{
     }
 
     public String toString(String coach) {
-        return "Member{" +
-            "name='" + name + '\'' +
-            ", age=" + age +
-            ", ageGroup='" + ageGroup + '\'' +
-            ", balance=" + balance +
-            ", style='" + style + '\'' +
-            ", distance=" + distance +
-            ", time=" + time +
-            ", place='" + place + '\'' +
-            ", location='" + location + '\'' +
-            ", date=" + date +
-            ", status=" + status +
-            '}';
+        return "Name: " + name + ", "
+        + "Age: " + age + ", "
+        + "Age Group: " + ageGroup + ", "
+        + "Balance: " + balance + ", "
+        + "Style: " + status + ", "
+        + "Distance: " + distance + ", "
+        + "Time: " + time + ", "
+        + "Place: " + place + ", "
+        + "Location: " + location + ", "
+        + "Date: " + date + ", "
+        + "Status: " + status;
     }
 
     public void setStatus(String status) {
