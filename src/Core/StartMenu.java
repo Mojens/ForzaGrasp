@@ -1,5 +1,6 @@
-package Ui;
+package Core;
 
+import Core.MenuSettings;
 import Interfaces.MenuRun;
 
 public class StartMenu implements MenuRun {
@@ -48,5 +49,5 @@ public class StartMenu implements MenuRun {
   }
 }
 /**
- * @Mohammad Adel Murtada
+ * @Author Mohammad Adel Murtada
  */
