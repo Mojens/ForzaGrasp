@@ -30,8 +30,8 @@ public class MenuSettings {
   public int readChoice() {
     Scanner input = new Scanner(System.in);
     while (!input.hasNextInt()) {
-      System.out.println("\nIt has to be between 1,2,3 or 9");
-      System.out.println("Try again");
+      System.out.println("\nDet skal være et tal 1,2,3 eller 9");
+      System.out.println("Prøv igen");
       System.out.println(menuHeader);
 
       for (int i = 0; i < menuItems.length; i++) {
