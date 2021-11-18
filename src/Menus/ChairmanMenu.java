@@ -1,7 +1,9 @@
 package Menus;
 
 import Core.MenuSettings;
+import Core.Status;
 import Interfaces.MenuRun;
+import Operations.Chairman;
 
 /**
  * @Author Mohammad Adel Murtada
@@ -12,6 +14,7 @@ public class ChairmanMenu implements MenuRun {
   public void menuRun() {
     MenuRun startMenu = new StartMenu();
     MenuRun chairmanMenu = new ChairmanMenu();
+    Chairman chairman = new Chairman();
     String[] menuItem = new String[10];
 
     menuItem[1] = "Registrer almindelig Svømmer";
@@ -30,13 +33,13 @@ public class ChairmanMenu implements MenuRun {
       switch (choice) {
         case 1:
           System.out.println("Registrer en almindelig svømmer: \n");
-          //Indtast metode
+          chairman.registerCasual();
           chairmanMenu.menuRun();
           checkChoice = true;
           break;
         case 2:
           System.out.println("Registrer en Konkurrence svømmer: \n");
-          //Indtast metode
+          chairman.registerCompetivive();
           chairmanMenu.menuRun();
           checkChoice = true;
           break;

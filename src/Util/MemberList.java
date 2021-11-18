@@ -8,5 +8,9 @@ import java.util.ArrayList;
 public class MemberList {
   ArrayList<Member> memberList = new ArrayList();
   ArrayList<Member> competiviveList = new ArrayList();
+
+  public ArrayList<Member> getCompetiviveList() {
+    return competiviveList;
+  }
 }
 
