@@ -115,5 +115,5 @@ public class Chairman extends Member {
             System.out.println("#"+counter+", " + MemberList.allMembers.get(i));
          }
     } //Den her skal have en fil som deles med Kasseren,
-      // så der kan ses restance og indbetales.
+      // Så der kan ses restance og indbetales.
 }
