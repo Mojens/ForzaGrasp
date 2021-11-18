@@ -1,10 +1,7 @@
 package Util;
 
-import Core.Status;
+import Operations.Chairman;
 
-import java.sql.Array;
-
-import static Operations.Chairman.counter;
 
 /**
  * @Author Malthe, Simon og Mohammad
@@ -22,32 +19,33 @@ public class Member{
     private String location;
     private int date;
     private String status;
+    private int toStringStatus;
 
     @Override
     public String toString() {
-        return "#" + counter++ + ", "
-            + "Name: "+ name + ", "
-            + "Age: " + age + ", "
-            + "Age Group: " + ageGroup + ", "
-            + "Style: " + style + ", "
-            + "Balance: " + balance + ", "
-            + "Status: " + status;
+        if(getToStringStatus() == 1) {
+            return
+                "Name: " + name + ", "
+                + "Age: " + age + ", "
+                + "Age Group: " + ageGroup + ", "
+                + "Balance: " + balance + ", "
+                + "Status: " + status+"\n";
+
+        }else if(getToStringStatus() == 2){
+            return
+                "Name: "+ name + ", "
+                + "Age: " + age + ", "
+                + "Age Group: " + ageGroup + ", "
+                + "Style: " + style + ", "
+                + "Balance: " + balance + ", "
+                + "Status: " + status+"\n";
+        }else
+            return null;
 
     }
 
-
-    public String toString(String coach) {
-        return "Name: " + name + ", "
-        + "Age: " + age + ", "
-        + "Age Group: " + ageGroup + ", "
-        + "Balance: " + balance + ", "
-        + "Style: " + status + ", "
-        + "Distance: " + distance + ", "
-        + "Time: " + time + ", "
-        + "Place: " + place + ", "
-        + "Location: " + location + ", "
-        + "Date: " + date + ", "
-        + "Status: " + status;
+    public void setToStringStatus(int toStringStatus) {
+        this.toStringStatus = toStringStatus;
     }
 
     public void setStatus(String status) {
@@ -93,6 +91,10 @@ public class Member{
 
     public void setTime(double time) {
         this.time = time;
+    }
+
+    public int getToStringStatus() {
+        return toStringStatus;
     }
 
     public String getName() {
@@ -144,21 +146,23 @@ public class Member{
 
     }
 
-   public Member(String name, int age, String ageGroup, double balance,String status ){
+   public Member(String name, int age, String ageGroup, double balance,String status, int toStringStatus ){
         this.name = name;
         this.age = age;
         this.ageGroup = ageGroup;
         this.balance = balance;
         this.status = status;
+        this.toStringStatus = toStringStatus;
     }
 
-    public Member(String name, int age, String ageGroup, String style, double balance, String status){
+    public Member(String name, int age, String ageGroup, String style, double balance, String status, int toStringStatus){
         this.name = name;
         this.age = age;
         this.ageGroup = ageGroup;
         this.style = style;
         this.balance = balance;
         this.status = status;
+        this.toStringStatus = toStringStatus;
 
     }
 

@@ -5,21 +5,10 @@ import java.util.ArrayList;
 /**
  * @Author Malthe, Simon og Mohammad
  */
+
 public class MemberList {
-  ArrayList<Member> allMembers = new ArrayList<>();
-  ArrayList<Member> casualList = new ArrayList<>();
-  ArrayList<Member> competitiveList = new ArrayList<>();
-
-  public ArrayList<Member> getCompetitiveList() {
-    return competitiveList;
-  }
-
-  public ArrayList<Member> getCasualList(){
-    return casualList;
-  }
-
-  public ArrayList<Member> getAllMembers() {
-    return allMembers;
-  }
+  public static ArrayList<Member> allMembers = new ArrayList<>();
+  public static ArrayList<Member> casualList = new ArrayList<>();
+  public static ArrayList<Member> competitiveList = new ArrayList<>();
 }
 

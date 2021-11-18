@@ -1,7 +1,6 @@
 package Util;
 
 import java.util.ArrayList;
-
 /**
  * @Author Malthe, Simon og Mohammad
  */

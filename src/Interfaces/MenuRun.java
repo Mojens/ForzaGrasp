@@ -1,6 +1,6 @@
 package Interfaces;
 /**
- * @Author Mohammad Adel Murtada
+ * @Author Mohammad og Malthe
  */
 public interface MenuRun {
 
