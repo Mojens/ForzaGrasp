@@ -2,7 +2,7 @@ package Core;
 /**
  * @Author Malthe, Simon og Mohammad
  */
-import Interfaces.*;
+import Interfaces.MenuRun;
 import Menus.StartMenu;
 
 public class Application {
