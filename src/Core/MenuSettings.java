@@ -1,6 +1,6 @@
 package Core;
 /**
- * @Author Mohammad Adel Murtada
+ * @Author Mohammad
  */
 import java.util.Scanner;
 

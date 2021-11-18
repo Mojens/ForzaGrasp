@@ -4,7 +4,7 @@ import Core.MenuSettings;
 import Interfaces.MenuRun;
 
 /**
- * @Author Mohammad Adel Murtada
+ * @Author Simon, Malthe og Mohammad
  */
 public class CashierMenu implements MenuRun {
   @Override

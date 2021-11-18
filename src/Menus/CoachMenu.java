@@ -4,7 +4,7 @@ import Core.MenuSettings;
 import Interfaces.MenuRun;
 
 /**
- * @Author Mohammad Adel Murtada
+ * @Author Simon og Mohammad
  */
 public class CoachMenu implements MenuRun {
   @Override

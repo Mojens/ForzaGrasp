@@ -1,10 +1,10 @@
 package Menus;
-/**
- * @Author Mohammad Adel Murtada
- */
 
 import Core.MenuSettings;
 import Interfaces.MenuRun;
+/**
+ * @Author Mohammad
+ */
 
 public class StartMenu implements MenuRun {
 

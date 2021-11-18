@@ -2,9 +2,8 @@ package Util;
 
 import Operations.Chairman;
 
-
 /**
- * @Author Malthe, Simon og Mohammad
+ * @Author Malthe og Mohammad
  */
 
 public class Member{

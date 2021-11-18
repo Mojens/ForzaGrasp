@@ -6,7 +6,7 @@ import Interfaces.MenuRun;
 import Operations.Chairman;
 
 /**
- * @Author Mohammad Adel Murtada
+ * @Author Malthe
  */
 public class ChairmanMenu implements MenuRun {
 
