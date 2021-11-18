@@ -16,5 +16,9 @@ public class MemberList {
   public ArrayList<Member> getCasualList(){
     return casualList;
   }
+
+  public ArrayList<Member> getMemberList() {
+    return memberList;
+  }
 }
 
