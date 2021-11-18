@@ -10,7 +10,6 @@ public class Member{
     private int age;
     private String ageGroup;
     private double balance;
-    private String level;
     private String style;
     private double distance;
     private double time;
@@ -151,9 +150,10 @@ public class Member{
         this.name = name;
         this.age = age;
         this.ageGroup = ageGroup;
-        this.level = level;
         this.style = style;
-
+        this.balance = balance;
 
     }
+
+
 }
