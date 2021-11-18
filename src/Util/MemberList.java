@@ -17,8 +17,5 @@ public class MemberList {
     return casualList;
   }
 
-  public ArrayList<Member> getMemberList() {
-    return memberList;
-  }
 }
 
