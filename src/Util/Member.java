@@ -1,4 +1,7 @@
 package Util;
+
+import Core.Status;
+
 /**
  * @Author Malthe, Simon og Mohammad
  */
