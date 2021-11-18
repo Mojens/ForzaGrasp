@@ -12,5 +12,9 @@ public class MemberList {
   public ArrayList<Member> getCompetiviveList() {
     return competiviveList;
   }
+
+  public ArrayList<Member> getMemberList() {
+    return memberList;
+  }
 }
 
