@@ -1,5 +1,7 @@
 package Core;
-
+/**
+ * @Author Malthe, Simon og Mohammad
+ */
 import Interfaces.MenuRun;
 
 public class Application {

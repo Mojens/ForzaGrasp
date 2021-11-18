@@ -1,5 +1,7 @@
 package Core;
-
+/**
+ * @Author Mohammad Adel Murtada
+ */
 import java.util.Scanner;
 
 public class MenuSettings {

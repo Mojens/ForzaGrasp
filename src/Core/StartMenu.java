@@ -1,6 +1,8 @@
 package Core;
+/**
+ * @Author Mohammad Adel Murtada
+ */
 
-import Core.MenuSettings;
 import Interfaces.MenuRun;
 
 public class StartMenu implements MenuRun {
