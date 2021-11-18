@@ -8,4 +8,7 @@ import java.util.ArrayList;
 public class TrainingResults {
   ArrayList<Member> trainingList = new ArrayList<>();
 
+  public ArrayList<Member> getTrainingList() {
+    return trainingList;
+  }
 }
