@@ -2,6 +2,8 @@ package Util;
 
 import Core.Status;
 
+import static Operations.Chairman.counter;
+
 /**
  * @Author Malthe, Simon og Mohammad
  */
@@ -21,12 +23,14 @@ public class Member{
 
     @Override
     public String toString() {
-        return "Name: "+ name + ", "
+        return "#" + counter++ + ", "
+            + "Name: "+ name + ", "
             + "Age: " + age + ", "
             + "Age Group: " + ageGroup + ", "
             + "Balance: " + balance + ", "
             + "Status: " + status;
     }
+
 
     public String toString(String coach) {
         return "Name: " + name + ", "

@@ -7,28 +7,19 @@ import Util.MemberList;
 import java.util.Scanner;
 
 public class Chairman extends Member {
-    static int competitiveCounter = 1;
-    static int casualCounter = 1;
+    public static int counter = 1;
 
     MemberList competitiveList = new MemberList();
     MemberList casualList = new MemberList();
 
-    public static int getCasualCounter() {
-        return casualCounter;
+    public static int getCounter() {
+        return counter;
     }
 
-    public static int getCompetitiveCounter() {
-        return competitiveCounter;
-
+    public static void setCounter(int counter) {
+        Chairman.counter = counter;
     }
 
-    public static void setCasualCounter(int casualCounter) {
-        Chairman.casualCounter = casualCounter;
-    }
-
-    public static void setCompetitiveCounter(int competitiveCounter) {
-        Chairman.competitiveCounter = competitiveCounter;
-    }
 
     public void registerCasual() {
         Scanner input = new Scanner(System.in);
@@ -49,9 +40,9 @@ public class Chairman extends Member {
 
         System.out.println("Type if Junior, Senior or Pensioner");
 
-        if (getAge() <= 18) {
+        if (getAge() < 18) {
             setAgeGroup("Junior");
-        } else if (getAge() > 18 || getAge() < 60) {
+        } else if (getAge() >= 18 && getAge() < 60) {
             setAgeGroup("Senior");
         } else
             setAgeGroup("Pensioner");
@@ -67,7 +58,11 @@ public class Chairman extends Member {
 
         Member member = new Member(getName(), getAge(), getStatus(), getAgeGroup(), getBalance());
         casualList.getCasualList().add(member);
-        System.out.println(casualList.getCasualList());
+        for (Member cleaned : casualList.getCasualList()){
+            System.out.println(cleaned.toString());
+        }
+
+        //System.out.println(casualList.getCasualList());
     }
 
     public void registerCompetivive() {
@@ -84,7 +79,7 @@ public class Chairman extends Member {
 
         if (getAge() < 18) {
             setAgeGroup("Junior");
-        } else if (getAge() >= 18) {
+        } else if (getAge() >= 18 && getAge() < 60) {
             setAgeGroup("Senior");
         } else if (getAge() >= 60) {
             setAgeGroup("Pensioner");
