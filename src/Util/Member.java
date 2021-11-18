@@ -5,7 +5,7 @@ import Core.Status;
 /**
  * @Author Malthe, Simon og Mohammad
  */
-public class Member {
+public class Member{
     private String name;
     private int age;
     private String ageGroup;
