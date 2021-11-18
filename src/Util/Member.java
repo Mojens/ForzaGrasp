@@ -2,6 +2,8 @@ package Util;
 
 import Core.Status;
 
+import java.sql.Array;
+
 import static Operations.Chairman.counter;
 
 /**
@@ -27,8 +29,10 @@ public class Member{
             + "Name: "+ name + ", "
             + "Age: " + age + ", "
             + "Age Group: " + ageGroup + ", "
+            + "Style: " + style + ", "
             + "Balance: " + balance + ", "
             + "Status: " + status;
+
     }
 
 
@@ -140,7 +144,7 @@ public class Member{
 
     }
 
-    public Member(String name, int age, String status, String ageGroup, double balance ){
+   public Member(String name, int age, String ageGroup, double balance,String status ){
         this.name = name;
         this.age = age;
         this.ageGroup = ageGroup;
@@ -148,12 +152,13 @@ public class Member{
         this.status = status;
     }
 
-    public Member(String name, int age, String status, String ageGroup, String style, double balance){
+    public Member(String name, int age, String ageGroup, String style, double balance, String status){
         this.name = name;
         this.age = age;
         this.ageGroup = ageGroup;
         this.style = style;
         this.balance = balance;
+        this.status = status;
 
     }
 

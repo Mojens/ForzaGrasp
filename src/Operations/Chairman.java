@@ -4,6 +4,7 @@ import Core.Status;
 import Util.Member;
 import Util.MemberList;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Chairman extends Member {
@@ -11,6 +12,7 @@ public class Chairman extends Member {
 
     MemberList competitiveList = new MemberList();
     MemberList casualList = new MemberList();
+    MemberList allMembers = new MemberList();
 
     public static int getCounter() {
         return counter;
@@ -32,13 +34,14 @@ public class Chairman extends Member {
         System.out.println("Type if active or passive");
         String statusString = input.nextLine();
 
+        setStyle("None");
+
         if (statusString.equalsIgnoreCase("Active")) {
             setStatus(statusString);
         } else {
             setStatus(statusString);
         }
 
-        System.out.println("Type if Junior, Senior or Pensioner");
 
         if (getAge() < 18) {
             setAgeGroup("Junior");
@@ -56,13 +59,15 @@ public class Chairman extends Member {
         } else
             setBalance(-500);
 
-        Member member = new Member(getName(), getAge(), getStatus(), getAgeGroup(), getBalance());
+        Member member = new Member(getName(), getAge(), getAgeGroup(), getStyle(), getBalance(), getStatus());
         casualList.getCasualList().add(member);
+        allMembers.getAllMembers().add(member);
+
         for (Member cleaned : casualList.getCasualList()){
+
             System.out.println(cleaned.toString());
         }
 
-        //System.out.println(casualList.getCasualList());
     }
 
     public void registerCompetivive() {
@@ -73,6 +78,9 @@ public class Chairman extends Member {
 
         System.out.println("Enter age: ");
         setAge(Integer.parseInt(input.nextLine()));
+
+        System.out.println("Enter Style: ");
+        setStyle(input.nextLine());
 
         System.out.println("Enter if the person is active or passive");
         setStatus(input.nextLine());
@@ -94,12 +102,21 @@ public class Chairman extends Member {
         } else
             setBalance(-500);
 
-        Member member = new Member(getName(), getAge(), getStatus(), getAgeGroup(), getBalance());
+
+        Member member = new Member(getName(), getAge(), getAgeGroup(), getStyle(), getBalance(),getStatus());
         competitiveList.getCompetitiveList().add(member);
+        allMembers.getAllMembers().add(member);
         System.out.println(competitiveList.getCompetitiveList()); //Denne er kun for at tjekke om Medlemmen blev tilføjet i
         //ArrayListen
     }
-}
+
+    public void showAllMembers(){
+    for (Member cleaned: allMembers.getAllMembers() ){
+        System.out.println(cleaned.toString());
+        }
+    }
+    }
+
 
 
 
