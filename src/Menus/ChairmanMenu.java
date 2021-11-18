@@ -30,15 +30,18 @@ public class ChairmanMenu implements MenuRun {
       switch (choice) {
         case 1:
           System.out.println("Registrer en almindelig svømmer: \n");
+          //Indtast metode
           chairmanMenu.menuRun();
           checkChoice = true;
           break;
         case 2:
           System.out.println("Registrer en Konkurrence svømmer: \n");
+          //Indtast metode
           chairmanMenu.menuRun();
           checkChoice = true;
           break;
         case 3:
+          System.out.println("Logger ud \n");
           startMenu.menuRun();
           checkChoice = true;
           break;

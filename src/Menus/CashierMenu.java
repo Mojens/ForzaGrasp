@@ -30,16 +30,19 @@ public class CashierMenu implements MenuRun {
       switch (choice) {
         case 1:
           System.out.println("Kommende Indbetalinger: \n");
+          //Indtast metode
           cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 2:
           System.out.println("Nuværende medlemmer med restance: \n");
+          //Indtast metode
           cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 3:
           System.out.println("Foretag Indbetaling: \n");
+          //Indtast metode
           cashierMenu.menuRun();
           checkChoice = true;
           break;

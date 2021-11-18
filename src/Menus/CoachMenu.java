@@ -31,25 +31,30 @@ public class CoachMenu implements MenuRun {
       switch (choice) {
         case 1:
           System.out.println("Registrer Træningstid: \n");
+          //Indtast metode
           coachMenu.menuRun();
           checkChoice = true;
           break;
         case 2:
           System.out.println("Registrer Konkurrence informationer: \n");
+          //Indtast metode
           coachMenu.menuRun();
           checkChoice = true;
           break;
         case 3:
           System.out.println("top 5 Svømmere: \n");
+          //Indtast metode
           coachMenu.menuRun();
           checkChoice = true;
           break;
         case 4:
           System.out.println("Medlemdsliste: \n");
+          //Indtast metode
           coachMenu.menuRun();
           checkChoice = true;
           break;
         case 5:
+          System.out.println("Logger ud \n");
           startMenu.menuRun();
           checkChoice = true;
           break;
