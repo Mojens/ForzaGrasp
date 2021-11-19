@@ -2,6 +2,8 @@ package Util;
 
 import Operations.Chairman;
 
+import java.util.Scanner;
+
 /**
  * @Author Malthe og Mohammad
  */
@@ -38,6 +40,8 @@ public class Member{
                 + "Style: " + style + ", "
                 + "Balance: " + balance + ", "
                 + "Status: " + status+"\n";
+        }else if (getToStringStatus() == 3){
+            return "";
         }else
             return null;
 
@@ -74,7 +78,6 @@ public class Member{
     public void setDistance(double distance) {
         this.distance = distance;
     }
-
 
     public void setLocation(String location) {
         this.location = location;
@@ -124,7 +127,6 @@ public class Member{
         return ageGroup;
     }
 
-
     public String getLocation() {
         return location;
     }
@@ -143,6 +145,16 @@ public class Member{
 
     public Member(){
 
+    }
+
+    public void setDataFromAllMemberLine(String line){
+        Scanner sc = new Scanner(line);
+        name = sc.next();
+        age = sc.nextInt();
+        ageGroup = sc.next();
+        balance = sc.nextDouble();
+        status = sc.next();
+        toStringStatus = sc.nextInt();
     }
 
    public Member(String name, int age, String ageGroup, double balance,String status, int toStringStatus ){
