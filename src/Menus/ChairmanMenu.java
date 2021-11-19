@@ -5,6 +5,8 @@ import Core.Status;
 import Interfaces.MenuRun;
 import Operations.Chairman;
 
+import java.io.IOException;
+
 /**
  * @Author Malthe
  */
@@ -34,13 +36,21 @@ public class ChairmanMenu implements MenuRun {
       switch (choice) {
         case 1:
           System.out.println("Registrer en almindelig svømmer: \n");
-          chairman.registerCasual();
+          try {
+            chairman.registerCasual();
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
           chairmanMenu.menuRun();
           checkChoice = true;
           break;
         case 2:
           System.out.println("Registrer en Konkurrence svømmer: \n");
-          chairman.registerCompetivive();
+          try {
+            chairman.registerCompetivive();
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
           chairmanMenu.menuRun();
           checkChoice = true;
           break;
