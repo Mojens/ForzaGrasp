@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class Chairman extends Member {
     public final String competiviveFile = "C:\\Users\\mholm\\ForzaGrasp\\src\\Files\\CompetiviveList.txt";
-    private final String allMembersFile = "AllMembers.txt";
+    private final String allMembersFile = "C:\\Users\\mholm\\ForzaGrasp\\src\\Files\\AllMembers.txt";
 
     public void registerCasual() throws IOException{
         setToStringStatus(1);
