@@ -2,13 +2,12 @@ package Operations;
 /**
  * @Author Mohammad og Malthe
  */
+
 import Util.Member;
 import Util.MemberList;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Chairman extends Member {
