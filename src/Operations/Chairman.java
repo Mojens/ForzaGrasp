@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Chairman extends Member {
-    public final String competiviveFile = "CompetiviveList.txt";
+    public final String competiviveFile = "C:\\Users\\mholm\\ForzaGrasp\\src\\Files\\CompetiviveList.txt";
     private final String allMembersFile = "AllMembers.txt";
 
     public void registerCasual() throws IOException{
