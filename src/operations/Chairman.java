@@ -1,10 +1,10 @@
-package Operations;
+package operations;
 /**
  * @Author Mohammad og Malthe
  */
 
-import Util.Member;
-import Util.MemberList;
+import util.Member;
+import util.MemberList;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,6 +13,10 @@ import java.util.Scanner;
 public class Chairman extends Member {
     public final String competiviveFile = "C:\\Users\\mholm\\ForzaGrasp\\src\\Files\\CompetiviveList.txt";
     private final String allMembersFile = "C:\\Users\\mholm\\ForzaGrasp\\src\\Files\\AllMembers.txt";
+    //Det virker ikke at gøre det sådan her, nu er det kun din computer der kan tilføje noget til de filer.
+    //Den tilføjer ikke filerne inde i Package files
+
+
 
     public void registerCasual() throws IOException{
         setToStringStatus(1);
@@ -96,6 +100,7 @@ public class Chairman extends Member {
 
         Member member = new Member(getName(), getAge(), getAgeGroup(), getStyle(), getBalance(),getStatus(),getToStringStatus());
         MemberList.competitiveList.add(member);
+        System.out.println(MemberList.competitiveList);
         MemberList.allMembers.add(member);
         new Chairman().addToCompetitiveFile(member);
         new Chairman().addToAllMembersFile(member);
@@ -125,6 +130,17 @@ public class Chairman extends Member {
         bufferedWriter.write(member.toString());
         bufferedWriter.close();
         fileWriter.close();
+    }
+
+    public void loadToAllMembersFile() throws IOException{//Virker ikke
+        Scanner reader = new Scanner((competiviveFile));
+        while(reader.hasNext()){
+            String lines = reader.nextLine();
+            Member member = new Member();
+            member.setDataFromCompetiviveMember(lines);
+            MemberList.allMembers.add(member);
+
+        }
     }
 
 }

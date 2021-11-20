@@ -1,1 +1,0 @@
-Name: mal, Age: 23, Age Group: Senior, Style: sd, Balance: -1600.0, Status: active

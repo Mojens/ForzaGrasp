@@ -1,9 +1,8 @@
-package Menus;
+package menus;
 
-import Core.MenuSettings;
-import Core.Status;
-import Interfaces.MenuRun;
-import Operations.Chairman;
+import core.MenuSettings;
+import interfaces.MenuRun;
+import operations.Chairman;
 
 import java.io.IOException;
 

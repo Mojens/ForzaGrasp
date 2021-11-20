@@ -1,23 +1,22 @@
-package Menus;
+package menus;
 
-import Core.MenuSettings;
-import Interfaces.MenuRun;
+import core.MenuSettings;
+import interfaces.MenuRun;
 
 /**
- * @Author Simon og Mohammad
+ * @Author Simon, Malthe og Mohammad
  */
-public class CoachMenu implements MenuRun {
+public class CashierMenu implements MenuRun {
   @Override
   public void menuRun() {
     MenuRun startMenu = new StartMenu();
-    MenuRun coachMenu = new CoachMenu();
+    MenuRun cashierMenu = new CashierMenu();
     String[] menuItem = new String[10];
 
-    menuItem[1] = "Registrer Træningstid";
-    menuItem[2] = "Registrer Konkurrence informationer";
-    menuItem[3] = "Se top 5 Svømmere";
-    menuItem[4] = "Se Medlemdsliste";
-    menuItem[5] = "Log Ud";
+    menuItem[1] = "Se kommende Indbetalinger";
+    menuItem[2] = "Se Restance";
+    menuItem[3] = "Foretag indbetaling";
+    menuItem[4] = "Log Ud";
     menuItem[9] = "Luk programmet";
 
     MenuSettings menuSettings = new MenuSettings("Venligst vælg en af de muligheder\n",
@@ -30,30 +29,24 @@ public class CoachMenu implements MenuRun {
     do {
       switch (choice) {
         case 1:
-          System.out.println("Registrer Træningstid: \n");
+          System.out.println("Kommende Indbetalinger: \n");
           //Indtast metode
-          coachMenu.menuRun();
+          cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 2:
-          System.out.println("Registrer Konkurrence informationer: \n");
+          System.out.println("Nuværende medlemmer med restance: \n");
           //Indtast metode
-          coachMenu.menuRun();
+          cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 3:
-          System.out.println("top 5 Svømmere: \n");
+          System.out.println("Foretag Indbetaling: \n");
           //Indtast metode
-          coachMenu.menuRun();
+          cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 4:
-          System.out.println("Medlemdsliste: \n");
-          //Indtast metode
-          coachMenu.menuRun();
-          checkChoice = true;
-          break;
-        case 5:
           System.out.println("Logger ud \n");
           startMenu.menuRun();
           checkChoice = true;

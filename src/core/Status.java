@@ -1,6 +1,4 @@
-package Core;
-
-import Util.Member;
+package core;
 
 /**
  * @Author Mohammad

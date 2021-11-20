@@ -1,4 +1,4 @@
-package Interfaces;
+package interfaces;
 /**
  * @Author Mohammad og Malthe
  */

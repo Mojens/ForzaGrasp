@@ -1,7 +1,7 @@
-package Menus;
+package menus;
 
-import Core.MenuSettings;
-import Interfaces.MenuRun;
+import core.MenuSettings;
+import interfaces.MenuRun;
 /**
  * @Author Mohammad
  */

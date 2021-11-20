@@ -1,7 +1,4 @@
-package Util;
-
-import Operations.Chairman;
-
+package util;
 import java.util.Scanner;
 
 /**
@@ -32,16 +29,19 @@ public class Member{
                 + "Balance: " + balance + ", "
                 + "Status: " + status+"\n";
 
-        }else if(getToStringStatus() == 2){
+        }else if(getToStringStatus() == 2) {
             return
-                "Name: "+ name + ", "
-                + "Age: " + age + ", "
-                + "Age Group: " + ageGroup + ", "
-                + "Style: " + style + ", "
-                + "Balance: " + balance + ", "
-                + "Status: " + status+"\n";
+                "Name: " + name + ", "
+                    + "Age: " + age + ", "
+                    + "Age Group: " + ageGroup + ", "
+                    + "Style: " + style + ", "
+                    + "Balance: " + balance + ", "
+                    + "Status: " + status + "\n";
+
         }else if (getToStringStatus() == 3){
-            return "";
+            return name + ", " + age + ", "
+                + ageGroup + ", " + style + ", "
+                + balance + ", " + status+"\n";
         }else
             return null;
 
@@ -147,17 +147,22 @@ public class Member{
 
     }
 
-    public void setDataFromAllMemberLine(String line){
-        Scanner sc = new Scanner(line);
+
+    public void setDataFromCompetiviveMember(String line){
+        Scanner sc = new Scanner(line).useDelimiter(", ");
+
         name = sc.next();
         age = sc.nextInt();
         ageGroup = sc.next();
+        style = sc.next();
         balance = sc.nextDouble();
         status = sc.next();
-        toStringStatus = sc.nextInt();
-    }
 
-   public Member(String name, int age, String ageGroup, double balance,String status, int toStringStatus ){
+    } //Virker ikke
+
+
+
+    public Member(String name, int age, String ageGroup, double balance,String status, int toStringStatus ){
         this.name = name;
         this.age = age;
         this.ageGroup = ageGroup;
