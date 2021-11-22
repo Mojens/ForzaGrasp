@@ -23,20 +23,20 @@ public class Member{
     public String toString() {
         if(getToStringStatus() == 1) {
             return
-                "Name: " + name + ", "
-                + "Age: " + age + ", "
-                + "Age Group: " + ageGroup + ", "
-                + "Balance: " + balance + ", "
-                + "Status: " + status+"\n";
+                name + ", "
+                    + age + ", "
+                    + ageGroup + ", "
+                    + balance + ", "
+                    + status+"\n";
 
         }else if(getToStringStatus() == 2) {
             return
-                "Name: " + name + ", "
-                    + "Age: " + age + ", "
-                    + "Age Group: " + ageGroup + ", "
-                    + "Style: " + style + ", "
-                    + "Balance: " + balance + ", "
-                    + "Status: " + status + "\n";
+                name + ", "
+                    + age + ", "
+                    + ageGroup + ", "
+                    + style + ", "
+                    + balance + ", "
+                    + status + "\n";
 
         }else if (getToStringStatus() == 3){
             return name + ", " + age + ", "
@@ -46,6 +46,7 @@ public class Member{
             return null;
 
     }
+
 
     public void setToStringStatus(int toStringStatus) {
         this.toStringStatus = toStringStatus;
@@ -143,35 +144,26 @@ public class Member{
         return status;
     }
 
+
     public Member(){
 
     }
 
 
-    public void setDataFromCompetiviveMember(String line){
+    public void setDataFromLine(String line){
         Scanner sc = new Scanner(line).useDelimiter(", ");
 
-        name = sc.next();
-        age = sc.nextInt();
-        ageGroup = sc.next();
-        style = sc.next();
-        balance = sc.nextDouble();
-        status = sc.next();
+        this.name = sc.next();
+        this.age = sc.nextInt();
+        this.ageGroup = sc.next();
+        this.style = sc.next();
+        this.balance = Double.parseDouble(sc.next());
+        this.status = sc.next();
+        this.toStringStatus = 2;
 
-    } //Virker ikke
-
-
-
-    public Member(String name, int age, String ageGroup, double balance,String status, int toStringStatus ){
-        this.name = name;
-        this.age = age;
-        this.ageGroup = ageGroup;
-        this.balance = balance;
-        this.status = status;
-        this.toStringStatus = toStringStatus;
     }
 
-    public Member(String name, int age, String ageGroup, String style, double balance, String status, int toStringStatus){
+    public Member(String name, int age, String ageGroup,String style, double balance, String status, int toStringStatus){
         this.name = name;
         this.age = age;
         this.ageGroup = ageGroup;

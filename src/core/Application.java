@@ -6,18 +6,14 @@ import interfaces.MenuRun;
 import menus.StartMenu;
 import operations.Chairman;
 
+import java.io.IOException;
+
 public class Application {
   public static void main(String[] args) {
-    Chairman chairman = new Chairman();
     MenuRun startPage = new StartMenu();
 
-/*
-    try {
-      chairman.loadToAllMembersFile();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
- */ // virker ikke
+
+ // virker ikke
 
     startPage.menuRun();
 
