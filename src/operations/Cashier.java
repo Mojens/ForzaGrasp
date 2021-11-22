@@ -21,7 +21,13 @@ Chairman chairman = new Chairman();
       if (member.getBalance()<0)
       sum = sum + member.getBalance();
     }
-    System.out.println("\033[0;1m" + "Amount of total debt: " + "\033[0;0m" + "\n" + sum + "kr.\n");
+    System.out.println("\033[0;1m" + "Amount of total debt: " + "\033[0;0m" + sum + "kr.\n");
+    System.out.println("the members that are in debt: \n");
+    for(Member member : MemberList.allMembers){
+      if (member.getBalance()<0){
+        System.out.println(member);
+      }
+    }
 
   }
 
