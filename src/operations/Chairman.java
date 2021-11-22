@@ -63,7 +63,7 @@ public class Chairman extends Member {
         MemberList.allMembers.add(member);
         new Chairman().addToAllMembersFile(member);
 
-        System.out.println(getName() + "is now added to the Casuallist");
+        System.out.println(getName() + "is now added to the casuallist");
 
     }
 
