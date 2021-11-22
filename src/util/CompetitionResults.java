@@ -6,6 +6,7 @@ import java.util.ArrayList;
  */
 
 public class CompetitionResults {
-  ArrayList<Member> competitionList = new ArrayList<>();
+
+  public static ArrayList<Member> competitionList = new ArrayList<>();
 
 }

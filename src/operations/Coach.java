@@ -1,8 +1,7 @@
 package operations;
+import util.CompetitionResults;
 import util.Member;
 import util.TrainingResults;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -11,22 +10,36 @@ import java.util.Scanner;
 
 public class Coach extends Member{
 
-
-
     public void recordPractise(){
         setToStringStatus(4);
         Scanner input = new Scanner(System.in);
         System.out.println("Medlems ID: ");
         setMedlemsID(input.nextLine());
+        System.out.println("Style: ");
+        setStyle(input.nextLine());
         System.out.println("Trænings tid: ");
-        setPractiseTime(Integer.parseInt(input.nextLine()));
+        setPracticeTime(Integer.parseInt(input.nextLine()));
         System.out.println("Træningstid registreret");
-        Member member = new Member(getMedlemsID(), getPractiseTime(),getToStringStatus());
-        TrainingResults.practiseTime.add(member);
+        Member member = new Member(getMedlemsID(),getStyle(), getPracticeTime(),getToStringStatus());
+        TrainingResults.practiceTime.add(member);
 
-        for (Member cleaned: TrainingResults.practiseTime) {
+        //test af code
+        for (Member cleaned: TrainingResults.practiceTime) {
             System.out.println(cleaned.toString());
         }
 
+    }
+    public void recordCompetion() {
+        setToStringStatus(4);
+        Scanner input = new Scanner(System.in);
+        System.out.println("Medlems ID: ");
+        setMedlemsID(input.nextLine());
+        System.out.println("Style: ");
+        setStyle(input.nextLine());
+        System.out.println("Trænings tid: ");
+        setPracticeTime(Integer.parseInt(input.nextLine()));
+        System.out.println("Træningstid registreret");
+        Member member = new Member(getMedlemsID(), getStyle(), getPracticeTime(), getToStringStatus());
+        CompetitionResults.competitionList.add(member);
     }
 }
