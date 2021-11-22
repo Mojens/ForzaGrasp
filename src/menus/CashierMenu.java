@@ -37,7 +37,7 @@ public class CashierMenu implements MenuRun {
       switch (choice) {
         case 1:
           System.out.println("Kommende Indbetalinger: \n");
-          //Indtast metode
+          cashier.forecastRev();
           cashierMenu.menuRun();
           checkChoice = true;
           break;

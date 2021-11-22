@@ -11,7 +11,19 @@ import java.io.IOException;
 public class Cashier {
 Chairman chairman = new Chairman();
   public void forecastRev(){
-
+    double sum = 0;
+    for (Member member : MemberList.allMembers) {
+      if (member.getAgeGroup().equalsIgnoreCase("Junior") && member.getStatus().equalsIgnoreCase("Active")) {
+        sum = sum + 1000;
+      }else if (member.getAgeGroup().equalsIgnoreCase("Senior") && member.getStatus().equalsIgnoreCase("Active")){
+        sum = sum + 1600;
+      }else if (member.getAgeGroup().equalsIgnoreCase("Pensioner") && member.getStatus().equalsIgnoreCase("Active")){
+        sum = sum + 1600/1.25;
+      }else{
+        sum = sum + 500;
+      }
+    }
+    System.out.println("\033[0;1m" + "Forecast Revenue for this year: " + "\033[0;0m" + sum + "kr.\n");
 
   }
 
