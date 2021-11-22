@@ -55,8 +55,7 @@ public class CoachMenu implements MenuRun {
           break;
         case 4:
           System.out.println("Medlemdsliste: \n");
-
-          toString(members);
+          coach.showAllMembers();
           coachMenu.menuRun();
           checkChoice = true;
           break;
