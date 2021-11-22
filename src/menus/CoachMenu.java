@@ -2,6 +2,10 @@ package menus;
 
 import core.MenuSettings;
 import interfaces.MenuRun;
+import operations.Coach;
+import util.MemberList;
+
+import java.io.IOException;
 
 /**
  * @Author Simon og Mohammad
@@ -11,6 +15,8 @@ public class CoachMenu implements MenuRun {
   public void menuRun() {
     MenuRun startMenu = new StartMenu();
     MenuRun coachMenu = new CoachMenu();
+    Coach coach = new Coach();
+    MemberList members = new MemberList();
     String[] menuItem = new String[10];
 
     menuItem[1] = "Registrer Træningstid";
@@ -31,7 +37,7 @@ public class CoachMenu implements MenuRun {
       switch (choice) {
         case 1:
           System.out.println("Registrer Træningstid: \n");
-          //Indtast metode
+          coach.recordPractise();
           coachMenu.menuRun();
           checkChoice = true;
           break;
@@ -50,6 +56,7 @@ public class CoachMenu implements MenuRun {
         case 4:
           System.out.println("Medlemdsliste: \n");
           //Indtast metode
+          toString(members);
           coachMenu.menuRun();
           checkChoice = true;
           break;
@@ -72,5 +79,8 @@ public class CoachMenu implements MenuRun {
       }
     } while (!checkChoice);
   }
+
+  private void toString(MemberList members) {
   }
+}
 

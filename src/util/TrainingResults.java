@@ -6,9 +6,5 @@ import java.util.ArrayList;
  * @Author Malthe, Simon og Mohammad
  */
 public class TrainingResults {
-  ArrayList<Member> trainingList = new ArrayList<>();
-
-  public ArrayList<Member> getTrainingList() {
-    return trainingList;
-  }
+  public static ArrayList<Member> practiseTime = new ArrayList<>();
 }

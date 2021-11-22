@@ -1,8 +1,8 @@
 package operations;
 import util.Member;
-import util.MemberList;
+import util.TrainingResults;
 
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -11,11 +11,23 @@ import java.util.Scanner;
 
 public class Coach extends Member{
 
-    public void memberTime() throws IOException{
-        setToStringStatus(1);
+
+
+    public void recordPractise(){
+        setToStringStatus(4);
         Scanner input = new Scanner(System.in);
-        System.out.println("type name");
+        System.out.println("Medlems ID: ");
+        setMedlemsID(input.nextLine());
+        System.out.println("Trænings tid: ");
+        setPractiseTime(Integer.parseInt(input.nextLine()));
+        System.out.println("Træningstid registreret");
+        Member member = new Member(getMedlemsID(), getPractiseTime());
+        TrainingResults.practiseTime.add(member);
 
+        for (Member cleaned:
+             TrainingResults.practiseTime) {
+            System.out.println(cleaned.toString());
+        }
+        System.out.println(TrainingResults.practiseTime);
     }
-
 }

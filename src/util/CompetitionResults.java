@@ -8,7 +8,4 @@ import java.util.ArrayList;
 public class CompetitionResults {
   ArrayList<Member> competitionList = new ArrayList<>();
 
-  public ArrayList<Member> getCompetitionList() {
-    return competitionList;
-  }
 }

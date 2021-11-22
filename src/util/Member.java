@@ -18,6 +18,8 @@ public class Member{
     private int date;
     private String status;
     private int toStringStatus;
+    private String medlemsID;
+    private int practiseTime;
 
     @Override
     public String toString() {
@@ -38,10 +40,13 @@ public class Member{
                     + balance + ", "
                     + status + "\n";
 
-        }else if (getToStringStatus() == 3){
+        }else if (getToStringStatus() == 3) {
             return name + ", " + age + ", "
-                + ageGroup + ", " + style + ", "
-                + balance + ", " + status+"\n";
+                    + ageGroup + ", " + style + ", "
+                    + balance + ", " + status + "\n";
+        }else if (getToStringStatus() == 4){
+            return medlemsID + ", "
+                    + practiseTime;
         }else
             return null;
 
@@ -149,6 +154,21 @@ public class Member{
 
     }
 
+    public String getMedlemsID() {
+        return medlemsID;
+    }
+
+    public int getPractiseTime() {
+        return practiseTime;
+    }
+
+    public void setMedlemsID(String medlemsID) {
+        this.medlemsID = medlemsID;
+    }
+
+    public void setPractiseTime(int practiseTime) {
+        this.practiseTime = practiseTime;
+    }
 
     public void setDataFromLine(String line){
         Scanner sc = new Scanner(line).useDelimiter(", ");
@@ -172,6 +192,10 @@ public class Member{
         this.status = status;
         this.toStringStatus = toStringStatus;
 
+    }
+    public Member(String medlemsID, int practiseTime){
+        this.medlemsID = medlemsID;
+        this.practiseTime = practiseTime;
     }
 
 
