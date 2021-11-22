@@ -152,8 +152,9 @@ public class Chairman extends Member {
             String lines = reader.nextLine();
             Member member = new Member();
             member.setDataFromLine(lines);
-            System.out.println(member);
+
             MemberList.allMembers.add(member);
+            //System.out.println(member);
             //allTestMembers.add(member);
         }
     }

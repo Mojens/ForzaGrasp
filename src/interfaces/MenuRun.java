@@ -1,10 +1,13 @@
 package interfaces;
+
+import java.io.IOException;
+
 /**
  * @Author Mohammad og Malthe
  */
 public interface MenuRun {
 
-  void menuRun();
+  void menuRun() throws IOException;
 
 }
 

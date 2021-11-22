@@ -9,12 +9,12 @@ import operations.Chairman;
 import java.io.IOException;
 
 public class Application {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     MenuRun startPage = new StartMenu();
-
+    Chairman chairman = new Chairman();
 
  // virker ikke
-
+    chairman.loadFromAllMemberfileToAllMembersList();
     startPage.menuRun();
 
 

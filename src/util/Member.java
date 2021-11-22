@@ -23,22 +23,15 @@ public class Member{
 
     @Override
     public String toString() {
-        if(getToStringStatus() == 1) {
-            return
-                name + ", "
-                    + age + ", "
-                    + ageGroup + ", "
-                    + balance + ", "
-                    + status+"\n";
 
-        }else if(getToStringStatus() == 2) {
+        if(getToStringStatus() == 2) {
             return
                 name + ", "
                     + age + ", "
                     + ageGroup + ", "
                     + style + ", "
                     + balance + ", "
-                    + status + "\n";
+                    + status;
 
         }else if (getToStringStatus() == 3) {
             return name + ", " + age + ", "
@@ -192,13 +185,12 @@ public class Member{
         this.balance = balance;
         this.status = status;
         this.toStringStatus = toStringStatus;
-
     }
+
     public Member(String medlemsID, int practiseTime, int toStringStatus){
         this.medlemsID = medlemsID;
         this.practiseTime = practiseTime;
         this.toStringStatus = toStringStatus;
     }
-
 
 }

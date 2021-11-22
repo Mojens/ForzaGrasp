@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class CoachMenu implements MenuRun {
   @Override
-  public void menuRun() {
+  public void menuRun() throws IOException {
     MenuRun startMenu = new StartMenu();
     MenuRun coachMenu = new CoachMenu();
     Coach coach = new Coach();

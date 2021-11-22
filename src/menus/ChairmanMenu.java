@@ -12,7 +12,7 @@ import java.io.IOException;
 public class ChairmanMenu implements MenuRun {
 
   @Override
-  public void menuRun() {
+  public void menuRun() throws IOException {
     MenuRun startMenu = new StartMenu();
     MenuRun chairmanMenu = new ChairmanMenu();
     Chairman chairman = new Chairman();
@@ -62,22 +62,20 @@ public class ChairmanMenu implements MenuRun {
           break;
         case 4:
           System.out.println("Logger ud \n");
-          try {
-            chairman.loadFromCompetiviveFileToAllMembersList();
+        /* try {
+            chairman.loadFromAllMemberfileToAllMembersList();
           } catch (IOException e) {
             e.printStackTrace();
-          }
+          }*/
           startMenu.menuRun();
           checkChoice = true;
           break;
         case 5:
-          try {
-            chairman.loadFromAllMemberfileToAllMembersList();
-          } catch (IOException e) {
-            e.printStackTrace();
-          }
-          startMenu.menuRun();
+          //chairman.loadFromAllMemberfileToAllMembersList();
+          chairman.showAllMembers();
+          chairmanMenu.menuRun();
           checkChoice = true;
+          break;
         case 9:
           System.out.println("Programmet Lukker ned");
           checkChoice = true;

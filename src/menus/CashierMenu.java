@@ -2,21 +2,28 @@ package menus;
 
 import core.MenuSettings;
 import interfaces.MenuRun;
+import operations.Cashier;
+import operations.Chairman;
+
+import java.io.IOException;
 
 /**
  * @Author Simon, Malthe og Mohammad
  */
 public class CashierMenu implements MenuRun {
   @Override
-  public void menuRun() {
+  public void menuRun() throws IOException {
     MenuRun startMenu = new StartMenu();
     MenuRun cashierMenu = new CashierMenu();
+    Cashier cashier = new Cashier();
+    Chairman chairman = new Chairman();
     String[] menuItem = new String[10];
 
     menuItem[1] = "Se kommende Indbetalinger";
     menuItem[2] = "Se Restance";
     menuItem[3] = "Foretag indbetaling";
     menuItem[4] = "Log Ud";
+    menuItem[5] = "Show all members";
     menuItem[9] = "Luk programmet";
 
     MenuSettings menuSettings = new MenuSettings("Venligst vælg en af de muligheder\n",
@@ -43,12 +50,25 @@ public class CashierMenu implements MenuRun {
         case 3:
           System.out.println("Foretag Indbetaling: \n");
           //Indtast metode
+
+          //cashier.makePayment();
           cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 4:
           System.out.println("Logger ud \n");
+          /*try {
+            chairman.loadFromAllMemberfileToAllMembersList();
+          } catch (IOException e) {
+            e.printStackTrace();
+          }*/
           startMenu.menuRun();
+          checkChoice = true;
+          break;
+        case 5:
+          System.out.println("Show all members");
+          cashier.showAllMemberss();
+          cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 9:

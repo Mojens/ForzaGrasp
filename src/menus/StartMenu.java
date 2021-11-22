@@ -2,16 +2,21 @@ package menus;
 
 import core.MenuSettings;
 import interfaces.MenuRun;
+import operations.Chairman;
+
+import java.io.IOException;
+
 /**
  * @Author Mohammad
  */
 
 public class StartMenu implements MenuRun {
 
-  public void menuRun() {
+  public void menuRun() throws IOException {
     MenuRun cashierMenu = new CashierMenu();
     MenuRun coachMenu = new CoachMenu();
     MenuRun chairmanMenu = new ChairmanMenu();
+    Chairman chairman = new Chairman();
     String[] menuItem = new String[10];
 
     menuItem[1] = "Kasserer";
@@ -30,6 +35,7 @@ public class StartMenu implements MenuRun {
       switch (choice) {
         case 1:
           System.out.println("Du logger ind som Kasserer\n");
+
           cashierMenu.menuRun();
           checkChoice = true;
           break;
