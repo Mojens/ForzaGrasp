@@ -43,7 +43,7 @@ public class CoachMenu implements MenuRun {
           break;
         case 2:
           System.out.println("Registrer Konkurrence informationer: \n");
-          //Indtast metode
+          coach.recordCompetion();
           coachMenu.menuRun();
           checkChoice = true;
           break;
@@ -55,7 +55,7 @@ public class CoachMenu implements MenuRun {
           break;
         case 4:
           System.out.println("Medlemdsliste: \n");
-          //Indtast metode
+
           toString(members);
           coachMenu.menuRun();
           checkChoice = true;

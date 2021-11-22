@@ -19,19 +19,26 @@ public class Member{
     private String status;
     private int toStringStatus;
     private String medlemsID;
-    private int practiseTime;
+    private int practiceTime;
 
     @Override
     public String toString() {
+        if(getToStringStatus() == 1) {
+            return
+                name + ", "
+                    + age + ", "
+                    + ageGroup + ", "
+                    + balance + ", "
+                    + status+"\n";
 
-        if(getToStringStatus() == 2) {
+        }else if(getToStringStatus() == 2) {
             return
                 name + ", "
                     + age + ", "
                     + ageGroup + ", "
                     + style + ", "
                     + balance + ", "
-                    + status;
+                    + status + "\n";
 
         }else if (getToStringStatus() == 3) {
             return name + ", " + age + ", "
@@ -39,7 +46,7 @@ public class Member{
                     + balance + ", " + status + "\n";
         }else if (getToStringStatus() == 4){
             return medlemsID + ", "
-                    + practiseTime;
+                    + practiceTime;
         }else
             return null;
 
@@ -146,16 +153,16 @@ public class Member{
         return medlemsID;
     }
 
-    public int getPractiseTime() {
-        return practiseTime;
+    public int getPracticeTime() {
+        return practiceTime;
     }
 
     public void setMedlemsID(String medlemsID) {
         this.medlemsID = medlemsID;
     }
 
-    public void setPractiseTime(int practiseTime) {
-        this.practiseTime = practiseTime;
+    public void setPracticeTime(int practiceTime) {
+        this.practiceTime = practiceTime;
     }
 
 
@@ -185,11 +192,12 @@ public class Member{
         this.balance = balance;
         this.status = status;
         this.toStringStatus = toStringStatus;
-    }
 
-    public Member(String medlemsID, int practiseTime, int toStringStatus){
+    }
+    public Member(String medlemsID,String style, int practiceTime, int toStringStatus){
         this.medlemsID = medlemsID;
-        this.practiseTime = practiseTime;
+        this.style = style;
+        this.practiceTime = practiceTime;
         this.toStringStatus = toStringStatus;
     }
 
