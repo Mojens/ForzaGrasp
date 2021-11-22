@@ -15,14 +15,14 @@ import java.util.Scanner;
 public class Chairman extends Member {
     public final String competiviveFile = "CompetiviveList.csv";
     private final String allMembersFile = "AllMembers.csv";
-    ArrayList<Member> allTestMembers = MemberList.allMembers;
+    //ArrayList<Member> allTestMembers = MemberList.allMembers;
     //Det virker ikke at gøre det sådan her, nu er det kun din computer der kan tilføje noget til de filer.
     //Den tilføjer ikke filerne inde i Package files
 
 
     public void registerCasual() throws IOException {
-        setToStringStatus(1);
-        setStyle("None");
+        setToStringStatus(2);
+
         Scanner input = new Scanner(System.in);
         System.out.println("Type name");
         setName(input.nextLine());
@@ -32,7 +32,7 @@ public class Chairman extends Member {
 
         System.out.println("Type if active or passive");
         String statusString = input.nextLine();
-
+        setStyle("None");
 
         if (statusString.equalsIgnoreCase("Active")) {
             setStatus(statusString);
@@ -105,15 +105,19 @@ public class Chairman extends Member {
         MemberList.competitiveList.add(member);
         System.out.println(MemberList.competitiveList);
         MemberList.allMembers.add(member);
-        allTestMembers.add(member);
+        //allTestMembers.add(member);
         new Chairman().addToCompetitiveFile(member);
         new Chairman().addToAllMembersFile(member);
 
         System.out.println(getName() + " is now added to the list");
     }
 
-    public void showAllMembers() {
-        System.out.println(allTestMembers);
+    public void showAllMembers(){
+        int counter = 0 ;
+        for (int i = 0; i < MemberList.allMembers.size(); i++){
+            counter++;
+            System.out.println("#"+counter+", " + MemberList.allMembers.get(i));
+        }
     }
 
     public void addToCompetitiveFile(Member member) throws IOException {
@@ -149,7 +153,8 @@ public class Chairman extends Member {
             Member member = new Member();
             member.setDataFromLine(lines);
             System.out.println(member);
-            allTestMembers.add(member);
+            MemberList.allMembers.add(member);
+            //allTestMembers.add(member);
         }
     }
 }
