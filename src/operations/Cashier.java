@@ -16,8 +16,15 @@ Chairman chairman = new Chairman();
   }
 
   public void checkDebt(){
+    double sum = 0;
+    for (Member member : MemberList.allMembers) {
+      if (member.getBalance()<0)
+      sum = sum + member.getBalance();
+    }
+    System.out.println("\033[0;1m" + "Amount of debt: " + "\033[0;0m" + "\n" + sum + "kr.\n");
 
   }
+
 
   public void makePayment() throws IOException {
     System.out.println(MemberList.allMembers);

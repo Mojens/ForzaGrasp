@@ -43,7 +43,7 @@ public class CashierMenu implements MenuRun {
           break;
         case 2:
           System.out.println("Nuværende medlemmer med restance: \n");
-          //Indtast metode
+          cashier.checkDebt();
           cashierMenu.menuRun();
           checkChoice = true;
           break;

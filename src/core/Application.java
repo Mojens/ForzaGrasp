@@ -13,7 +13,6 @@ public class Application {
     MenuRun startPage = new StartMenu();
     Chairman chairman = new Chairman();
 
- // virker ikke
     chairman.loadFromAllMemberfileToAllMembersList();
     startPage.menuRun();
 
