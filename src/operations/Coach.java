@@ -3,9 +3,6 @@ import util.CompetitionResults;
 import util.Member;
 import util.MemberList;
 import util.TrainingResults;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -48,16 +45,7 @@ public class Coach extends Member{
         Member member = new Member(getMedlemsID(), getStyle(), getPracticeTime(), getToStringStatus());
         CompetitionResults.competitionList.add(member);
     }
-    public void loadAllMembersFile()throws IOException{
-        Scanner reader = new Scanner(new File(allMembersFile));
-        while (reader.hasNext()) {
-            String lines = reader.nextLine();
-            Member member = new Member();
-            member.setDataFromLine(lines);
-            System.out.println(member);
-            MemberList.allMembers.add(member);
-        }
-    }
+
     public void showAllMembers(){
         int counter = 0 ;
         for (int i = 0; i < MemberList.allMembers.size(); i++){
