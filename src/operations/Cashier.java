@@ -10,6 +10,7 @@ import java.io.IOException;
  */
 public class Cashier {
 Chairman chairman = new Chairman();
+
   public void forecastRev(){
     double sum = 0;
     for (Member member : MemberList.allMembers) {
