@@ -1,7 +1,11 @@
 package operations;
 import util.CompetitionResults;
 import util.Member;
+import util.MemberList;
 import util.TrainingResults;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -9,6 +13,8 @@ import java.util.Scanner;
  */
 
 public class Coach extends Member{
+
+    private final String allMembersFile = "AllMembers.csv";
 
     public void recordPractise(){
         setToStringStatus(4);
@@ -41,5 +47,22 @@ public class Coach extends Member{
         System.out.println("Træningstid registreret");
         Member member = new Member(getMedlemsID(), getStyle(), getPracticeTime(), getToStringStatus());
         CompetitionResults.competitionList.add(member);
+    }
+    public void loadAllMembersFile()throws IOException{
+        Scanner reader = new Scanner(new File(allMembersFile));
+        while (reader.hasNext()) {
+            String lines = reader.nextLine();
+            Member member = new Member();
+            member.setDataFromLine(lines);
+            System.out.println(member);
+            MemberList.allMembers.add(member);
+        }
+    }
+    public void showAllMembers(){
+        int counter = 0 ;
+        for (int i = 0; i < MemberList.allMembers.size(); i++){
+            counter++;
+            System.out.println("#"+counter+", " + MemberList.allMembers.get(i));
+        }
     }
 }
