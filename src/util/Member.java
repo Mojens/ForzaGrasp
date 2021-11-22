@@ -149,11 +149,6 @@ public class Member{
         return status;
     }
 
-
-    public Member(){
-
-    }
-
     public String getMedlemsID() {
         return medlemsID;
     }
@@ -169,6 +164,12 @@ public class Member{
     public void setPractiseTime(int practiseTime) {
         this.practiseTime = practiseTime;
     }
+
+
+    public Member(){
+
+    }
+
 
     public void setDataFromLine(String line){
         Scanner sc = new Scanner(line).useDelimiter(", ");
@@ -193,9 +194,10 @@ public class Member{
         this.toStringStatus = toStringStatus;
 
     }
-    public Member(String medlemsID, int practiseTime){
+    public Member(String medlemsID, int practiseTime, int toStringStatus){
         this.medlemsID = medlemsID;
         this.practiseTime = practiseTime;
+        this.toStringStatus = toStringStatus;
     }
 
 

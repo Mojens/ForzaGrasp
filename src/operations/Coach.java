@@ -21,13 +21,12 @@ public class Coach extends Member{
         System.out.println("Trænings tid: ");
         setPractiseTime(Integer.parseInt(input.nextLine()));
         System.out.println("Træningstid registreret");
-        Member member = new Member(getMedlemsID(), getPractiseTime());
+        Member member = new Member(getMedlemsID(), getPractiseTime(),getToStringStatus());
         TrainingResults.practiseTime.add(member);
 
-        for (Member cleaned:
-             TrainingResults.practiseTime) {
+        for (Member cleaned: TrainingResults.practiseTime) {
             System.out.println(cleaned.toString());
         }
-        System.out.println(TrainingResults.practiseTime);
+
     }
 }
