@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class Coach extends Member{
 
-    private final String allMembersFile = "AllMembers.csv";
 
     public void recordPractise(){
         setToStringStatus(4);

@@ -49,6 +49,7 @@ public class Member{
                     + balance + ", " + status + "\n";
         }else if (getToStringStatus() == 4){
             return medlemsID + ", "
+                    +style + ", "
                     + practiceTime;
         }else
             return null;
@@ -155,6 +156,9 @@ public class Member{
     }
 
     public String getStyle() {
+        return style;
+    }
+    public String setStyle() {
         return style;
     }
 
