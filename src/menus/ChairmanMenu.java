@@ -47,7 +47,7 @@ public class ChairmanMenu implements MenuRun {
         case 2:
           System.out.println("Registrer en Konkurrence svømmer: \n");
           try {
-            chairman.registerCompetivive();
+            chairman.registerCompetitive();
           } catch (IOException e) {
             e.printStackTrace();
           }

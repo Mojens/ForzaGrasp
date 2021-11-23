@@ -87,7 +87,7 @@ public class Chairman extends Member {
 
     }
 
-    public void registerCompetivive() throws IOException {
+    public void registerCompetitive() throws IOException {
         setToStringStatus(2);
         setMemberType("Competitive");
         Scanner input = new Scanner(System.in);
