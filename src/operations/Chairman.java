@@ -119,7 +119,6 @@ public class Chairman extends Member {
             }
         }
 
-
         while (secondDone){
             System.out.println("Enter if the person is active or passive: ");
             String statusString = input.nextLine();
