@@ -1,7 +1,9 @@
 package core;
+
 /**
  * @Author Malthe, Simon og Mohammad
  */
+
 import interfaces.MenuRun;
 import menus.StartMenu;
 import operations.Chairman;

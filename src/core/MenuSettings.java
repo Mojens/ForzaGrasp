@@ -1,7 +1,9 @@
 package core;
+
 /**
  * @Author Mohammad
  */
+
 import java.util.Scanner;
 
 public class MenuSettings {
