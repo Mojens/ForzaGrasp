@@ -28,27 +28,37 @@ Risikoanalyse og risikoplan
 
 <h3> Project Rapport </h3>
 
-* Requirements list   
+* Full Requirements list   
 
-* Liste over Functional/Non-Functionalor
+* Liste over Functional/Non-Functionals
 
 * Use Case diagram med alle identificerede Actors og Use Cases  
 
 * Vision, Glossary & Domain Model   
 
-* Fully dressed Use Cases
+* 4 Fully dressed Use Cases
+   - UCO3 - Registrer Medlem 
+   - UC04 - Forventet Indbetaling
+   - UC05 - Restance Overblik
+   - UC06 - Registrer Konkurrence Info
   
-* System Sequence Diagram af main success scenarie 
-  
+* 4 System Sequence Diagram af main success scenarie 
+   - Registrer Medlem - SSD
+   - Forventet Indbetaling - SSD
+   - Restance Overblik - SSD
+   - Registrer Konkurrence Info - SSD
+   
 * Liste med Operation Contracts  
 
 * Class Diagram **VISION**
 
 * Class Diagram **FINAL**
 
-* 3 Sequence Diagramer 
+* 3 Sequence Diagrams 
 
 * Matrix Diagram
+
+* Beskrivelse af hvordan GRASP er blevet implementeret i programet 
 
 <h2> Programmering  </h2>
 
