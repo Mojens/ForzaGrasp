@@ -22,7 +22,6 @@ public class ChairmanMenu implements MenuRun {
     menuItem[2] = "Registrer Konkurrence Svømmer";
     menuItem[3] = "Se alle medlemmer";
     menuItem[4] = "Log Ud";
-    menuItem[5] = "Test load";
     menuItem[9] = "Luk programmet";
 
     MenuSettings menuSettings = new MenuSettings("Venligst vælg en af de muligheder \n",
@@ -62,18 +61,7 @@ public class ChairmanMenu implements MenuRun {
           break;
         case 4:
           System.out.println("Logger ud \n");
-        /* try {
-            chairman.loadFromAllMemberfileToAllMembersList();
-          } catch (IOException e) {
-            e.printStackTrace();
-          }*/
           startMenu.menuRun();
-          checkChoice = true;
-          break;
-        case 5:
-          //chairman.loadFromAllMemberfileToAllMembersList();
-          chairman.showAllMembers();
-          chairmanMenu.menuRun();
           checkChoice = true;
           break;
         case 9:
