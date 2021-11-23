@@ -57,7 +57,7 @@ private final String allMembersFile = "AllMembers.csv";
     boolean done = true;
 
     while (done){
-      System.out.println("Pick name. Type 'done' when you are finished");
+      System.out.println("Pick name. \nType 'done' when you are finished");
       String name = input.nextLine();
 
       for (Member edit: MemberList.allMembers){

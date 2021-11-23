@@ -15,29 +15,45 @@ import java.util.Scanner;
 public class Chairman extends Member {
     public final String competiviveFile = "CompetiviveList.csv";
     private final String allMembersFile = "AllMembers.csv";
-    //ArrayList<Member> allTestMembers = MemberList.allMembers;
-    //Det virker ikke at gøre det sådan her, nu er det kun din computer der kan tilføje noget til de filer.
-    //Den tilføjer ikke filerne inde i Package files
-
+    boolean done = true;
+    boolean second = true;
 
     public void registerCasual() throws IOException {
+        Scanner input = new Scanner(System.in);
         setToStringStatus(2);
         setMemberType("Casual");
-        Scanner input = new Scanner(System.in);
+        setStyle("None");
+
         System.out.println("Type name");
         setName(input.nextLine());
 
+        while (done){
         System.out.println("Type age");
-        setAge(Integer.parseInt(input.nextLine()));
-
-        System.out.println("Type if active or passive");
-        String statusString = input.nextLine();
-        setStyle("None");
-
-        if (statusString.equalsIgnoreCase("Active")) {
-            setStatus(statusString);
+        int age = Integer.parseInt(input.nextLine());
+        if (age<100){
+            setAge(age);
+            done = false;
         } else {
-            setStatus(statusString);
+            System.out.println("Over 100?");
+            done = true;
+        }
+
+        }
+
+        while (second){
+            System.out.println("Enter if the person is active or passive");
+            String statusString = input.nextLine();
+
+            if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Active")) {
+                setStatus("Active");
+                second = false;
+            } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passive")||statusString.contains("Passive")) {
+                setStatus("Passive");
+                second = false;
+            } else {
+                System.out.println("Try again");
+                second = true;
+            }
         }
 
 
@@ -45,9 +61,11 @@ public class Chairman extends Member {
             setAgeGroup("Junior");
         } else if (getAge() >= 18 && getAge() < 60) {
             setAgeGroup("Senior");
-        } else {
+        } else if (getAge() >= 60 && getAge() < 101){
             setAgeGroup("Pensioner");
         }
+
+
         if (getAgeGroup().equalsIgnoreCase("Junior") && getStatus().equalsIgnoreCase("Active")) {
             setBalance(-1000);
         } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Active")) {
@@ -63,7 +81,7 @@ public class Chairman extends Member {
         MemberList.allMembers.add(member);
         new Chairman().addToAllMembersFile(member);
 
-        System.out.println(getName() + "is now added to the casuallist");
+        System.out.println(getName() + " is now added to the list");
 
     }
 
@@ -75,22 +93,49 @@ public class Chairman extends Member {
         System.out.println("Enter name: ");
         setName(input.nextLine());
 
-        System.out.println("Enter age: ");
-        setAge(Integer.parseInt(input.nextLine()));
+        while (done){
+            System.out.println("Type age");
+            int age = Integer.parseInt(input.nextLine());
+            if (age<100){
+                setAge(age);
+                done = false;
+            } else {
+                System.out.println("Over 100?");
+                done = true;
+            }
+
+        }
 
         System.out.println("Enter Style: ");
         setStyle(input.nextLine());
 
-        System.out.println("Enter if the person is active or passive");
-        setStatus(input.nextLine());
+        while (second){
+            System.out.println("Enter if the person is active or passive");
+            String statusString = input.nextLine();
+
+            if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Active")) {
+                setStatus("Active");
+                second = false;
+            } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passive")||statusString.contains("Passive")) {
+                setStatus("Passive");
+                second = false;
+            } else {
+                System.out.println("Try again");
+                second = true;
+            }
+        }
+
 
         if (getAge() < 18) {
             setAgeGroup("Junior");
         } else if (getAge() >= 18 && getAge() < 60) {
             setAgeGroup("Senior");
-        } else if (getAge() >= 60) {
-            setAgeGroup("Pensioner");
+        } else if (getAge() >= 60 && getAge() < 100) {
+            setAgeGroup("Senior");
+        } else if (getAge() > 100){
+            System.out.println("Error");
         }
+
 
         if (getAgeGroup().equalsIgnoreCase("Junior") && getStatus().equalsIgnoreCase("Active")) {
             setBalance(-1000);
@@ -106,7 +151,7 @@ public class Chairman extends Member {
         MemberList.competitiveList.add(member);
         System.out.println(MemberList.competitiveList);
         MemberList.allMembers.add(member);
-        //allTestMembers.add(member);
+
         new Chairman().addToCompetitiveFile(member);
         new Chairman().addToAllMembersFile(member);
 
