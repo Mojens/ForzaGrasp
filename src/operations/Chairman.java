@@ -17,6 +17,7 @@ public class Chairman extends Member {
     private final String allMembersFile = "AllMembers.csv";
     boolean done = true;
     boolean second = true;
+    boolean styleInput = true;
 
     public void registerCasual() throws IOException {
         Scanner input = new Scanner(System.in);
@@ -24,11 +25,11 @@ public class Chairman extends Member {
         setMemberType("Casual");
         setStyle("None");
 
-        System.out.println("Type name");
+        System.out.println("Enter full name: ");
         setName(input.nextLine());
 
         while (done){
-        System.out.println("Type age");
+        System.out.println("Enter age: ");
         int age = Integer.parseInt(input.nextLine());
         if (age<100){
             setAge(age);
@@ -41,7 +42,7 @@ public class Chairman extends Member {
         }
 
         while (second){
-            System.out.println("Enter if the person is active or passive");
+            System.out.println("Enter if the person is active or passive: ");
             String statusString = input.nextLine();
 
             if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Active")) {
@@ -90,11 +91,11 @@ public class Chairman extends Member {
         setMemberType("Competitive");
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Enter name: ");
+        System.out.println("Enter full name: ");
         setName(input.nextLine());
 
         while (done){
-            System.out.println("Type age");
+            System.out.println("Enter age: ");
             int age = Integer.parseInt(input.nextLine());
             if (age<100){
                 setAge(age);
@@ -106,11 +107,24 @@ public class Chairman extends Member {
 
         }
 
+
+        while (styleInput){
         System.out.println("Enter Style: ");
-        setStyle(input.nextLine());
+        String inputStyle = input.nextLine();
+        if (inputStyle.equalsIgnoreCase("Crawl")||inputStyle.equalsIgnoreCase("Breast")
+            ||inputStyle.equalsIgnoreCase("Backstroke")||inputStyle.equalsIgnoreCase("Back")
+            ||inputStyle.equalsIgnoreCase("Breaststroke")||inputStyle.equalsIgnoreCase("Butterfly")
+            ||inputStyle.equalsIgnoreCase("Butter")){
+            setStyle(inputStyle);
+            styleInput = true;
+
+        } else if (inputStyle.equals("")||inputStyle.equalsIgnoreCase("done")){
+            styleInput = false;
+        }
+        }
 
         while (second){
-            System.out.println("Enter if the person is active or passive");
+            System.out.println("Enter if the person is active or passive: ");
             String statusString = input.nextLine();
 
             if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Active")) {
@@ -128,9 +142,7 @@ public class Chairman extends Member {
 
         if (getAge() < 18) {
             setAgeGroup("Junior");
-        } else if (getAge() >= 18 && getAge() < 60) {
-            setAgeGroup("Senior");
-        } else if (getAge() >= 60 && getAge() < 100) {
+        } else if (getAge() >= 18 && getAge() < 100) {
             setAgeGroup("Senior");
         } else if (getAge() > 100){
             System.out.println("Error");
