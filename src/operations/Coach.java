@@ -17,18 +17,21 @@ public class Coach extends Member{
         Scanner input = new Scanner(System.in);
         System.out.println("Medlems ID: ");
         setMedlemsID(input.nextLine());
+        System.out.println("Junior eller senior: ");
+        setAgeGroup(input.nextLine());
         System.out.println("Style: ");
         setStyle(input.nextLine());
         System.out.println("Trænings tid: ");
         setPracticeTime(Integer.parseInt(input.nextLine()));
         System.out.println("Træningstid registreret");
         Member member = new Member(getMedlemsID(),getStyle(), getPracticeTime(),getToStringStatus());
-        TrainingResults.practiceTime.add(member);
+        if (input.nextLine().equalsIgnoreCase("crawl")){
+            TrainingResults.jrCrawl.add(member);
 
-        //test af code
-        for (Member cleaned: TrainingResults.practiceTime) {
-            System.out.println(cleaned.toString());
         }
+        /*for (Member cleaned: TrainingResults.practiceTime) {
+            System.out.println(cleaned.toString());
+        }*/
 
     }
     public void recordCompetion() {
@@ -36,6 +39,8 @@ public class Coach extends Member{
         Scanner input = new Scanner(System.in);
         System.out.println("Medlems ID: ");
         setMedlemsID(input.nextLine());
+        System.out.println("Junior eller senior: ");
+        setAgeGroup(input.nextLine());
         System.out.println("Style: ");
         setStyle(input.nextLine());
         System.out.println("Trænings tid: ");
