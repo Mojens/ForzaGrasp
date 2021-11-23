@@ -37,7 +37,7 @@ https://github.com/chinesethunder
 * Vision, Glossary & Domain Model   
 
 * 4 Fully dressed Use Cases
-   - UCO3 - Registrer Medlem 
+   - UC03 - Registrer Medlem 
    - UC04 - Forventet Indbetaling
    - UC05 - Restance Overblik
    - UC06 - Registrer Konkurrence Info
