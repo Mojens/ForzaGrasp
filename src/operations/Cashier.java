@@ -14,7 +14,6 @@ import java.util.Scanner;
  */
 
 public class Cashier extends Member{
-Chairman chairman = new Chairman();
 
 private final String allMembersFile = "Files/AllMembers.csv";
 
