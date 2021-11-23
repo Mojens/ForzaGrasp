@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class Cashier extends Member{
 Chairman chairman = new Chairman();
-private final String allMembersFile = "AllMembers.csv";
+private final String allMembersFile = "Files/AllMembers.csv";
 
   public void forecastRev(){
     double sum = 0;

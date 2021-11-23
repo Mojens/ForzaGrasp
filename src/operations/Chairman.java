@@ -14,8 +14,8 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Chairman extends Member {
-    public final String competiviveFile = "CompetiviveList.csv";
-    private final String allMembersFile = "AllMembers.csv";
+    public final String competiviveFile = "Files/CompetiviveList.csv";
+    private final String allMembersFile = "Files/AllMembers.csv";
     boolean done = true;
     boolean secondDone = true;
     boolean styleInput = true;
