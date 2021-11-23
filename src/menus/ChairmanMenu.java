@@ -9,6 +9,7 @@ import java.io.IOException;
 /**
  * @Author Malthe
  */
+
 public class ChairmanMenu implements MenuRun {
 
   @Override

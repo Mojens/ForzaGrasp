@@ -10,13 +10,13 @@ import java.io.IOException;
 /**
  * @Author Simon, Malthe og Mohammad
  */
+
 public class CashierMenu implements MenuRun {
   @Override
   public void menuRun() throws IOException {
     MenuRun startMenu = new StartMenu();
     MenuRun cashierMenu = new CashierMenu();
     Cashier cashier = new Cashier();
-    Chairman chairman = new Chairman();
     String[] menuItem = new String[10];
 
     menuItem[1] = "Se kommende Indbetalinger";

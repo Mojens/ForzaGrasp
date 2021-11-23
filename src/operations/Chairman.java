@@ -1,4 +1,5 @@
 package operations;
+
 /**
  * @Author Mohammad og Malthe
  */

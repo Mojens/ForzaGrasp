@@ -4,19 +4,18 @@ import core.MenuSettings;
 import interfaces.MenuRun;
 import operations.Coach;
 import util.MemberList;
-
 import java.io.IOException;
 
 /**
  * @Author Simon og Mohammad
  */
+
 public class CoachMenu implements MenuRun {
   @Override
   public void menuRun() throws IOException {
     MenuRun startMenu = new StartMenu();
     MenuRun coachMenu = new CoachMenu();
     Coach coach = new Coach();
-    MemberList members = new MemberList();
     String[] menuItem = new String[10];
 
     menuItem[1] = "Registrer Træningstid";

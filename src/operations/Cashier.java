@@ -12,6 +12,7 @@ import java.util.Scanner;
 /**
  * @Author Mohammad og Malthe
  */
+
 public class Cashier extends Member{
 Chairman chairman = new Chairman();
 private final String allMembersFile = "AllMembers.csv";
