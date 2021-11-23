@@ -6,6 +6,7 @@ import util.MemberList;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -90,7 +91,7 @@ private final String allMembersFile = "AllMembers.csv";
   public void addToAllMembersFile() throws IOException {
     FileWriter fileWriter = new FileWriter(allMembersFile, false);
     BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-    bufferedWriter.write(MemberList.allMembers.toString().replace("[","").replace("]",""));
+    bufferedWriter.write(MemberList.allMembers.toString().replace("[","").replace("]","").replace("\n, ", "\n"));
     bufferedWriter.close();
     fileWriter.close();
   }

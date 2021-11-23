@@ -1,6 +1,2 @@
-Malthe, 18, Senior, None, 200.0, active
-, lasse, 20, Senior, crawl, -500.0, active
-, Kasper, 30, Senior, Crawl, 0.0, active
-, Mo, 68, Pensioner, None, -10000.0, passive
-, LilleMo, 15, Junior, None, 400.0, active
-, GammelMo, 68, Pensioner, None, -500.0, active
+malthe, 22, Senior, Casual, None, 0.0, active 
+lasse, 42, Senior, Competitive, crawl, -1600.0, active 

@@ -20,6 +20,7 @@ public class Member{
     private int toStringStatus;
     private String medlemsID;
     private int practiceTime;
+    private String memberType;
 
     @Override
     public String toString() {
@@ -29,20 +30,22 @@ public class Member{
                     + age + ", "
                     + ageGroup + ", "
                     + balance + ", "
-                    + status+"\n";
+                    + status+" \n";
 
         }else if(getToStringStatus() == 2) {
             return
                 name + ", "
                     + age + ", "
                     + ageGroup + ", "
+                    + memberType + ", "
                     + style + ", "
                     + balance + ", "
-                    + status + "\n";
+                    + status + " \n";
 
         }else if (getToStringStatus() == 3) {
             return name + ", " + age + ", "
-                    + ageGroup + ", " + style + ", "
+                    + ageGroup + ", " + memberType + ", "
+                    + style + ", "
                     + balance + ", " + status + "\n";
         }else if (getToStringStatus() == 4){
             return medlemsID + ", "
@@ -100,6 +103,16 @@ public class Member{
     public void setTime(double time) {
         this.time = time;
     }
+
+    public void setMemberType(String memberType) {
+        this.memberType = memberType;
+    }
+
+    public String getMemberType() {
+        return memberType;
+    }
+
+
 
     public int getToStringStatus() {
         return toStringStatus;
@@ -177,6 +190,7 @@ public class Member{
         this.name = sc.next();
         this.age = sc.nextInt();
         this.ageGroup = sc.next();
+        this.memberType = sc.next();
         this.style = sc.next();
         this.balance = Double.parseDouble(sc.next());
         this.status = sc.next();
@@ -184,10 +198,11 @@ public class Member{
 
     }
 
-    public Member(String name, int age, String ageGroup,String style, double balance, String status, int toStringStatus){
+    public Member(String name, int age, String ageGroup, String memberType, String style, double balance, String status, int toStringStatus){
         this.name = name;
         this.age = age;
         this.ageGroup = ageGroup;
+        this.memberType = memberType;
         this.style = style;
         this.balance = balance;
         this.status = status;

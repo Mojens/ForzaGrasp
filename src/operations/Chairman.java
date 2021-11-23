@@ -22,7 +22,7 @@ public class Chairman extends Member {
 
     public void registerCasual() throws IOException {
         setToStringStatus(2);
-
+        setMemberType("Casual");
         Scanner input = new Scanner(System.in);
         System.out.println("Type name");
         setName(input.nextLine());
@@ -58,7 +58,7 @@ public class Chairman extends Member {
             setBalance(-500);
         }
 
-        Member member = new Member(getName(), getAge(), getAgeGroup(), getStyle(),getBalance(), getStatus(), getToStringStatus());
+        Member member = new Member(getName(), getAge(), getAgeGroup(), getMemberType(), getStyle(),getBalance(), getStatus(), getToStringStatus());
         MemberList.casualList.add(member);
         MemberList.allMembers.add(member);
         new Chairman().addToAllMembersFile(member);
@@ -69,6 +69,7 @@ public class Chairman extends Member {
 
     public void registerCompetivive() throws IOException {
         setToStringStatus(2);
+        setMemberType("Competitive");
         Scanner input = new Scanner(System.in);
 
         System.out.println("Enter name: ");
@@ -101,7 +102,7 @@ public class Chairman extends Member {
             setBalance(-500);
 
 
-        Member member = new Member(getName(), getAge(), getAgeGroup(),getStyle(), getBalance(), getStatus(), getToStringStatus());
+        Member member = new Member(getName(), getAge(), getAgeGroup(),getMemberType(),getStyle(), getBalance(), getStatus(), getToStringStatus());
         MemberList.competitiveList.add(member);
         System.out.println(MemberList.competitiveList);
         MemberList.allMembers.add(member);
