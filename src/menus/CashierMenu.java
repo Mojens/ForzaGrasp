@@ -50,8 +50,7 @@ public class CashierMenu implements MenuRun {
         case 3:
           System.out.println("Foretag Indbetaling: \n");
           //Indtast metode
-
-          //cashier.makePayment();
+          cashier.makePayment();
           cashierMenu.menuRun();
           checkChoice = true;
           break;

@@ -3,13 +3,17 @@ package operations;
 import util.Member;
 import util.MemberList;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * @Author Mohammad og Malthe
  */
-public class Cashier {
+public class Cashier extends Member{
 Chairman chairman = new Chairman();
+private final String allMembersFile = "AllMembers.csv";
 
   public void forecastRev(){
     double sum = 0;
@@ -48,7 +52,29 @@ Chairman chairman = new Chairman();
 
 
   public void makePayment() throws IOException {
-    System.out.println(MemberList.allMembers);
+    Scanner input = new Scanner(System.in);
+    boolean done = true;
+
+    while (done){
+      System.out.println("Pick name. Type 'done' when you are finished");
+      String name = input.nextLine();
+
+      for (Member edit: MemberList.allMembers){
+
+        if (name.equalsIgnoreCase(edit.getName())){
+          System.out.println("Edit balance");
+          double changeBalance = Double.parseDouble(input.nextLine());
+          edit.setBalance(changeBalance);
+          System.out.println(edit);
+          if (MemberList.allMembers.contains(edit)){
+            addToAllMembersFile();
+          }
+        } else if (name.equals("done")){
+            done = false;
+          }
+
+      }
+    }
 
   }
 
@@ -59,6 +85,14 @@ Chairman chairman = new Chairman();
       counter++;
       System.out.println("#"+counter+", " + MemberList.allMembers.get(i));
     }
+  }
+
+  public void addToAllMembersFile() throws IOException {
+    FileWriter fileWriter = new FileWriter(allMembersFile, false);
+    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+    bufferedWriter.write(MemberList.allMembers.toString().replace("[","").replace("]",""));
+    bufferedWriter.close();
+    fileWriter.close();
   }
 
 }
