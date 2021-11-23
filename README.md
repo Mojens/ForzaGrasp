@@ -20,8 +20,8 @@ https://github.com/chinesethunder
 
 
 <h2> Virksomhed </h2>
-
-Risikoanalyse og risikoplan
+* Interessantanalyse
+* Risikoanalyse og udvidet riskotabel (risiko plan)
 
 
 <h2> Systemudvikling  </h2>
