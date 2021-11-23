@@ -7,6 +7,13 @@ import java.util.ArrayList;
  */
 public class TrainingResults {
 
-  public static ArrayList<Member> practiceTime = new ArrayList<>();
+  public static ArrayList <Member> jrButtrfly = new ArrayList<>();
+  public static ArrayList <Member> jrCrawl = new ArrayList<>();
+  public static ArrayList <Member> jrRygcrawl = new ArrayList<>();
+  public static ArrayList <Member> jrBrystsvømning = new ArrayList<>();
 
+  public static ArrayList <Member> seniorButtrfly = new ArrayList<>();
+  public static ArrayList <Member> seniorCrawl = new ArrayList<>();
+  public static ArrayList <Member> seniorRygcrawl = new ArrayList<>();
+  public static ArrayList <Member> seniorBrystsvømning = new ArrayList<>();
 }
