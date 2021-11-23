@@ -49,25 +49,18 @@ public class CashierMenu implements MenuRun {
           break;
         case 3:
           System.out.println("Foretag Indbetaling: \n");
-          //Indtast metode
-          cashier.showAllMemberss();
           cashier.makePayment();
           cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 4:
           System.out.println("Logger ud \n");
-          /*try {
-            chairman.loadFromAllMemberfileToAllMembersList();
-          } catch (IOException e) {
-            e.printStackTrace();
-          }*/
           startMenu.menuRun();
           checkChoice = true;
           break;
         case 5:
           System.out.println("Show all members");
-          cashier.showAllMemberss();
+          cashier.showAllMembers();
           cashierMenu.menuRun();
           checkChoice = true;
           break;

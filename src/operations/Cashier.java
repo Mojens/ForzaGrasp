@@ -51,36 +51,39 @@ private final String allMembersFile = "AllMembers.csv";
 
   }
 
-
   public void makePayment() throws IOException {
     Scanner input = new Scanner(System.in);
     boolean done = true;
+    int counter  = -1;
 
-    while (done){
-      System.out.println("Pick name. \nType 'done' when you are finished");
-      String name = input.nextLine();
-
-      for (Member edit: MemberList.allMembers){
-
-        if (name.equalsIgnoreCase(edit.getName())){
-          System.out.println("Edit balance");
-          double changeBalance = Double.parseDouble(input.nextLine());
-          edit.setBalance(changeBalance);
-          System.out.println(edit);
-          if (MemberList.allMembers.contains(edit)){
-            addToAllMembersFile();
-          }
-        } else if (name.equals("done")){
-            done = false;
-          }
-
+    for (Member member : MemberList.allMembers){
+      counter++;
+      if (member.getBalance()<0) {
+        System.out.println("#" + counter + ", " + member);
       }
     }
 
+    while (done){
+      System.out.println("Enter the Member Id of the person that are making a deposit: ");
+      int memberID = input.nextInt();
+      System.out.println("Enter the new balance: ");
+      double deposit = Double.parseDouble(input.next());
+      MemberList.allMembers.get(memberID).setBalance(deposit);
+      addToAllMembersFile();
+      System.out.println("Are you done? ");
+      input.nextLine();
+      String isDone = input.nextLine();
+      if (isDone.equalsIgnoreCase("yes")){
+        done = false;
+      }else{
+        done = true;
+      }
+    }
+
+
   }
 
-  public void showAllMemberss() throws IOException {
-
+  public void showAllMembers(){
     int counter = 0 ;
     for (int i = 0; i < MemberList.allMembers.size(); i++){
       counter++;

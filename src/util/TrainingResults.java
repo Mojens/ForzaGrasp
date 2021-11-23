@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * @Author Malthe, Simon og Mohammad
  */
+
 public class TrainingResults {
 
   public static ArrayList <Member> jrButtrfly = new ArrayList<>();
@@ -16,4 +17,6 @@ public class TrainingResults {
   public static ArrayList <Member> seniorCrawl = new ArrayList<>();
   public static ArrayList <Member> seniorRygcrawl = new ArrayList<>();
   public static ArrayList <Member> seniorBrystsvømning = new ArrayList<>();
+
+
 }
