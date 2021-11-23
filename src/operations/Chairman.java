@@ -9,14 +9,14 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Chairman extends Member {
     public final String competiviveFile = "CompetiviveList.csv";
     private final String allMembersFile = "AllMembers.csv";
     boolean done = true;
-    boolean second = true;
+    boolean secondDone = true;
     boolean styleInput = true;
 
     public void registerCasual() throws IOException {
@@ -41,19 +41,19 @@ public class Chairman extends Member {
 
         }
 
-        while (second){
+        while (secondDone){
             System.out.println("Enter if the person is active or passive: ");
             String statusString = input.nextLine();
 
             if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Active")) {
                 setStatus("Active");
-                second = false;
+                secondDone = false;
             } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passive")||statusString.contains("Passive")) {
                 setStatus("Passive");
-                second = false;
+                secondDone = false;
             } else {
                 System.out.println("Try again");
-                second = true;
+                secondDone = true;
             }
         }
 
@@ -82,7 +82,7 @@ public class Chairman extends Member {
         MemberList.allMembers.add(member);
         new Chairman().addToAllMembersFile(member);
 
-        System.out.println(getName() + " is now added to the list");
+        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " is now added to the list");
 
     }
 
@@ -107,35 +107,32 @@ public class Chairman extends Member {
 
         }
 
-
         while (styleInput){
-        System.out.println("Enter Style: ");
-        String inputStyle = input.nextLine();
-        if (inputStyle.equalsIgnoreCase("Crawl")||inputStyle.equalsIgnoreCase("Breast")
-            ||inputStyle.equalsIgnoreCase("Backstroke")||inputStyle.equalsIgnoreCase("Back")
-            ||inputStyle.equalsIgnoreCase("Breaststroke")||inputStyle.equalsIgnoreCase("Butterfly")
-            ||inputStyle.equalsIgnoreCase("Butter")){
-            setStyle(inputStyle);
-            styleInput = true;
-
-        } else if (inputStyle.equals("")||inputStyle.equalsIgnoreCase("done")){
-            styleInput = false;
-        }
+            System.out.println("Enter active styles, seperated by comma or space: ");
+            String inputStyle = input.nextLine();
+            if (inputStyle.startsWith("crawl")||inputStyle.startsWith("breast")||inputStyle.startsWith("back")||inputStyle.contains("butterfly")){
+                setStyle(inputStyle.toUpperCase(Locale.ROOT));
+                styleInput = false;
+            } else if (inputStyle.equalsIgnoreCase("No")||inputStyle.equalsIgnoreCase("None")){
+                setStyle("NONE");
+                styleInput = true;
+            }
         }
 
-        while (second){
+
+        while (secondDone){
             System.out.println("Enter if the person is active or passive: ");
             String statusString = input.nextLine();
 
             if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Active")) {
                 setStatus("Active");
-                second = false;
+                secondDone = false;
             } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passive")||statusString.contains("Passive")) {
                 setStatus("Passive");
-                second = false;
+                secondDone = false;
             } else {
                 System.out.println("Try again");
-                second = true;
+                secondDone = true;
             }
         }
 
@@ -161,13 +158,12 @@ public class Chairman extends Member {
 
         Member member = new Member(getName(), getAge(), getAgeGroup(),getMemberType(),getStyle(), getBalance(), getStatus(), getToStringStatus());
         MemberList.competitiveList.add(member);
-        System.out.println(MemberList.competitiveList);
         MemberList.allMembers.add(member);
 
         new Chairman().addToCompetitiveFile(member);
         new Chairman().addToAllMembersFile(member);
 
-        System.out.println(getName() + " is now added to the list");
+        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " is now added to the list");
     }
 
     public void showAllMembers(){
@@ -216,4 +212,5 @@ public class Chairman extends Member {
             //allTestMembers.add(member);
         }
     }
+
 }
