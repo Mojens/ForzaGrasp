@@ -116,6 +116,11 @@ public class Coach extends Member {
             if (medlemsId > 0) {
                 setMedlemsID(medlemsId);
             }
+            System.out.println("Placering:");
+            int place = Integer.parseInt(input.nextLine());
+            if (place != 0){
+                setPlace(place);
+            }
             System.out.println("Date:");
             int dateOfComp = Integer.parseInt(input.nextLine());
             if (dateOfComp != 0){
@@ -149,7 +154,7 @@ public class Coach extends Member {
             if (time > 0 && time < 9999) {
                 setTime(time);
             }
-            addMemberCom(medlemsId, ageGroup, style, time,location,dateOfComp);
+            addMemberCom(medlemsId,place, ageGroup, style, time,location,dateOfComp);
             System.out.println("Are you done?");
             String finish = input.nextLine();
             if (finish.equalsIgnoreCase("yes")) {
