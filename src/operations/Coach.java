@@ -368,5 +368,7 @@ public class Coach extends Member {
             list.add(member);
         }
     }
-
+    public void collumInfo(){
+        System.out.println("Memberid:   "); //Nået her til
+    }
 }
