@@ -59,15 +59,15 @@ public class Coach extends Member {
         }
 
         while (done) {
-            System.out.println("Medlems ID: ");
+            System.out.println("Indtast MedlemsID: ");
             int medlemsId = Integer.parseInt(input.nextLine());
             if (medlemsId > 0) {
                 setMedlemsID(medlemsId);
             }
-            System.out.println("Date:");
+            System.out.println("Indtast Dato:");
             int dateOfPrac = Integer.parseInt(input.nextLine());
             setDate(dateOfPrac);
-            System.out.println("Junior eller Senior?");
+            System.out.println("Er personen en Junior eller Senior svømmer?");
             String ageGroup = input.nextLine();
             if (ageGroup.startsWith("J") || ageGroup.startsWith("j")) {
                 setAgeGroup("Junior");
@@ -75,7 +75,7 @@ public class Coach extends Member {
                 setAgeGroup("Senior");
             }
 
-            System.out.println("Style:");
+            System.out.println("Indtast Svømmedisciplin: ");
             String style = input.nextLine();
             if (style.startsWith("Cr") || style.startsWith("cr")) {
                 setStyle("Crawl");
@@ -87,15 +87,15 @@ public class Coach extends Member {
                 setStyle("Backstroke");
             }
 
-            System.out.println("Practice time");
+            System.out.println("Indtast tid:");
             int time = Integer.parseInt(input.nextLine());
             if (time > 0 && time < 9999) {
                 setTime(time);
             }
             addMember(medlemsId, dateOfPrac, ageGroup, style, time);
-            System.out.println("Are you done?");
+            System.out.println("Er du færdig?");
             String finish = input.nextLine();
-            if (finish.equalsIgnoreCase("yes")) {
+            if (finish.equalsIgnoreCase("ja")) {
                 done = false;
             }
         }
@@ -163,25 +163,25 @@ public class Coach extends Member {
         Scanner input = new Scanner(System.in);
 
         while (doneComp) {
-            System.out.println("Medlems ID:");
+            System.out.println("Indtast MedlemsID:");
             int medlemsId = Integer.parseInt(input.nextLine());
             if (medlemsId > 0) {
                 setMedlemsID(medlemsId);
             }
-            System.out.println("Placering:");
+            System.out.println("Indtast Placering:");
             int place = Integer.parseInt(input.nextLine());
             if (place != 0){
                 setPlace(place);
             }
-            System.out.println("Date:");
+            System.out.println("Indtast Dato:");
             int dateOfComp = Integer.parseInt(input.nextLine());
             if (dateOfComp != 0){
                 setDate(dateOfComp);
             }
-            System.out.println("Location of competition");
+            System.out.println("Indtast hvilken stævne det er:");
             String location = input.nextLine();
             setLocation(location);
-            System.out.println("Junior eller Senior?");
+            System.out.println("Er personen en Junior eller Senior svømmer?");
             String ageGroup = input.nextLine();
             if (ageGroup.startsWith("J") || ageGroup.startsWith("j")) {
                 setAgeGroup("Junior");
@@ -189,7 +189,7 @@ public class Coach extends Member {
                 setAgeGroup("Senior");
             }
 
-            System.out.println("Style:");
+            System.out.println("Indtast Svømmedisciplin: ");
             String style = input.nextLine();
             if (style.startsWith("Cr") || style.startsWith("cr")) {
                 setStyle("Crawl");
@@ -201,15 +201,15 @@ public class Coach extends Member {
                 setStyle("Backstroke");
             }
 
-            System.out.println("Competition time");
+            System.out.println("Indtast tid:");
             int time = Integer.parseInt(input.nextLine());
             if (time > 0 && time < 9999) {
                 setTime(time);
             }
             addMemberCom(medlemsId,place, ageGroup, style, time,location,dateOfComp);
-            System.out.println("Are you done?");
+            System.out.println("Er du færdig?");
             String finish = input.nextLine();
-            if (finish.equalsIgnoreCase("yes")) {
+            if (finish.equalsIgnoreCase("ja")) {
                 doneComp = false;
             }
         }
@@ -265,6 +265,8 @@ public class Coach extends Member {
     }
 
     public void showAllMembers() {
+        System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
+            "Svømmedisciplin:, Saldo:, Status:"+ "\033[0;0m");
         int counter = 0;
         for (int i = 0; i < MemberList.competitiveList.size(); i++) {
             counter++;

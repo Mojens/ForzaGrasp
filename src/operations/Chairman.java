@@ -25,14 +25,14 @@ public class Chairman extends Member {
     public void registerCasual() throws IOException {
         Scanner input = new Scanner(System.in);
         setToStringStatus(2);
-        setMemberType("Casual");
-        setStyle("None");
+        setMemberType("Motionist");
+        setStyle("Ingen");
 
-        System.out.println("Enter full name: ");
+        System.out.println("Indtast fulde navn: ");
         setName(input.nextLine());
 
         while (done){
-        System.out.println("Enter age: ");
+        System.out.println("Indtast alder: ");
         int age = Integer.parseInt(input.nextLine());
         if (age<100){
             setAge(age);
@@ -45,17 +45,17 @@ public class Chairman extends Member {
         }
 
         while (secondDone){
-            System.out.println("Enter if the person is active or passive: ");
+            System.out.println("Indtast om personen er aktiv eller passiv: ");
             String statusString = input.nextLine();
 
             if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Active")) {
-                setStatus("Active");
+                setStatus("Aktiv");
                 secondDone = false;
             } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passive")||statusString.contains("Passive")) {
-                setStatus("Passive");
+                setStatus("Passiv");
                 secondDone = false;
             } else {
-                System.out.println("Try again");
+                System.out.println("Prøv Igen");
                 secondDone = true;
             }
         }
@@ -66,7 +66,7 @@ public class Chairman extends Member {
         } else if (getAge() >= 18 && getAge() < 60) {
             setAgeGroup("Senior");
         } else if (getAge() >= 60 && getAge() < 101){
-            setAgeGroup("Pensioner");
+            setAgeGroup("Pensionist");
         }
 
 
@@ -74,7 +74,7 @@ public class Chairman extends Member {
             setBalance(-1000);
         } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Active")) {
             setBalance(-1600);
-        } else if (getAgeGroup().equalsIgnoreCase("Pensioner") && getStatus().equalsIgnoreCase("Active")) {
+        } else if (getAgeGroup().equalsIgnoreCase("Pensionist") && getStatus().equalsIgnoreCase("Active")) {
             setBalance(-1200);
         } else {
             setBalance(-500);
@@ -85,20 +85,20 @@ public class Chairman extends Member {
         MemberList.allMembers.add(member);
         new Chairman().addToAllMembersFile(member);
 
-        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " is now added to the list");
+        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen");
 
     }
 
     public void registerCompetitive() throws IOException {
         setToStringStatus(2);
-        setMemberType("Competitive");
+        setMemberType("Konkurrence");
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Enter full name: ");
+        System.out.println("Indtast fulde navn: ");
         setName(input.nextLine());
 
         while (done){
-            System.out.println("Enter age: ");
+            System.out.println("Indtast alder: ");
             int age = Integer.parseInt(input.nextLine());
             if (age<100){
                 setAge(age);
@@ -111,7 +111,8 @@ public class Chairman extends Member {
         }
 
         while (styleInput){
-            System.out.println("Enter active styles, seperated by comma or space: ");
+            System.out.println("Indtast svømmediscplinen såldes hvis der er mere end 1");
+            System.out.println("'Crawl Butterfly' Altså seperet med et mellemrum");
             String inputStyle = input.nextLine();
             if (inputStyle.startsWith("crawl")||inputStyle.startsWith("breast")||inputStyle.startsWith("back")||inputStyle.contains("butterfly")){
                 setStyle(inputStyle.toUpperCase(Locale.ROOT));
@@ -123,17 +124,17 @@ public class Chairman extends Member {
         }
 
         while (secondDone){
-            System.out.println("Enter if the person is active or passive: ");
+            System.out.println("Indtast om personen er aktiv eller passiv: ");
             String statusString = input.nextLine();
 
             if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Active")) {
-                setStatus("Active");
+                setStatus("Aktiv");
                 secondDone = false;
             } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passive")||statusString.contains("Passive")) {
-                setStatus("Passive");
+                setStatus("Passiv");
                 secondDone = false;
             } else {
-                System.out.println("Try again");
+                System.out.println("Prøv igen");
                 secondDone = true;
             }
         }
@@ -144,7 +145,7 @@ public class Chairman extends Member {
         } else if (getAge() >= 18 && getAge() < 100) {
             setAgeGroup("Senior");
         } else if (getAge() > 100){
-            System.out.println("Error");
+            System.out.println("Fejl");
         }
 
 
@@ -152,7 +153,7 @@ public class Chairman extends Member {
             setBalance(-1000);
         } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Active")) {
             setBalance(-1600);
-        } else if (getAgeGroup().equalsIgnoreCase("Pensioner") && getStatus().equalsIgnoreCase("Active")) {
+        } else if (getAgeGroup().equalsIgnoreCase("Pensionist") && getStatus().equalsIgnoreCase("Active")) {
             setBalance(-1200);
         } else
             setBalance(-500);
@@ -165,11 +166,12 @@ public class Chairman extends Member {
         new Chairman().addToCompetitiveFile(member);
         new Chairman().addToAllMembersFile(member);
 
-        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " is now added to the list");
+        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen");
     }
 
     public void showAllMembers(){
-        System.out.println("\033[0;1m" +"Navn:, Alder:, aldersgruppe:, Medlems type:, Svømmedisciplin:, Saldo:, Status:"+ "\033[0;0m");
+        System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
+            "Svømmedisciplin:, Saldo:, Status:"+ "\033[0;0m");
         int counter = 0 ;
         for (int i = 0; i < MemberList.allMembers.size(); i++){
             counter++;

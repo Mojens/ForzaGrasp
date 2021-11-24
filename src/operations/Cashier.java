@@ -30,12 +30,12 @@ private final String allMembersFile = "Files/AllMembers.csv";
         sum = sum + 500;
       }
     }
-    System.out.println("\033[0;1m" + "Forecast Revenue for this year: " + "\033[0;0m" + sum + "kr.\n");
+    System.out.println("\033[0;1m" + "Forventede indtægter dette år: " + "\033[0;0m" + sum + "kr.\n");
 
   }
 
   public void checkDebt(){
-    System.out.println("the members that are in debt: \n");
+    System.out.println("\033[0;1m" +"medlemmer, der er i gæld:"+ "\033[0;0m"+"\n");
     int counter = 0;
     for(Member member : MemberList.allMembers){
       counter++;
@@ -48,43 +48,46 @@ private final String allMembersFile = "Files/AllMembers.csv";
       if (member.getBalance()<0)
         sum = sum + member.getBalance();
     }
-    System.out.println("\033[0;1m" + "Amount of total debt: " + "\033[0;0m" + sum + "kr.\n");
+    System.out.println("\033[0;1m" + "Samlet gældsbeløb: " + "\033[0;0m" + sum + "kr.\n");
 
   }
 
   public void makePayment() throws IOException {
     Scanner input = new Scanner(System.in);
     boolean done = true;
-    int counter  = -1;
-
-    for (Member member : MemberList.allMembers){
+    System.out.println("\033[0;1m" + "medlemmer, der er i gæld:" + "\033[0;0m" + "\n");
+    System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
+        "Svømmedisciplin:, Saldo:, Status:"+ "\033[0;0m");
+    int counter = -1;
+    for (Member member : MemberList.allMembers) {
       counter++;
-      if (member.getBalance()<0) {
-        System.out.println("#" + counter + ", " + member);
+      if (member.getBalance() < 0) {
+        System.out.println("\033[0;1m" + "#" + counter + "\033[0;0m" + " " + member);
       }
-    }
 
-    while (done){
-      System.out.println("Enter the Member Id of the person that are making a deposit: ");
-      int memberID = input.nextInt();
-      System.out.println("Enter the new balance: ");
-      double deposit = Double.parseDouble(input.next());
-      MemberList.allMembers.get(memberID).setBalance(deposit);
-      addToAllMembersFile();
-      System.out.println("Are you done? ");
-      input.nextLine();
-      String isDone = input.nextLine();
-      if (isDone.equalsIgnoreCase("yes")){
-        done = false;
-      }else{
-        done = true;
+      while (done) {
+        System.out.println("Skriv Memberid'et på den person du vil indbetale til: ");
+        int memberID = input.nextInt();
+        System.out.println("Skriv den nye saldo: ");
+        double deposit = Double.parseDouble(input.next());
+        MemberList.allMembers.get(memberID).setBalance(deposit);
+        addToAllMembersFile();
+        System.out.println("Er du færdig? ");
+        input.nextLine();
+        String isDone = input.nextLine();
+        if (isDone.equalsIgnoreCase("ja")) {
+          done = false;
+        } else {
+          done = true;
+        }
       }
-    }
 
+    }
   }
 
   public void showAllMembers(){
-    System.out.println("\033[0;1m" +"Navn:, Alder:, aldersgruppe:, Medlems type:, Svømmedisciplin:, Saldo:, Status:"+ "\033[0;0m");
+    System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
+        "Svømmedisciplin:, Saldo:, Status:"+ "\033[0;0m");
     int counter = 0 ;
     for (int i = 0; i < MemberList.allMembers.size(); i++){
       counter++;
