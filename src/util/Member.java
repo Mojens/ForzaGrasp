@@ -18,9 +18,10 @@ public class Member{
     private int date;
     private String status;
     private int toStringStatus;
-    private String medlemsID;
+    private int medlemsID;
     private int practiceTime;
     private String memberType;
+    private int compTime;
 
     @Override
     public String toString() {
@@ -49,9 +50,19 @@ public class Member{
                     + balance + ", " + status + "\n";
         }else if (getToStringStatus() == 4){
             return medlemsID + ", "
-                    +style + ", "
+                    +ageGroup + ", "
+                    + style + ", "
+                    + date + ", "
                     + practiceTime;
-        }else
+        } else if(getToStringStatus() == 5){
+            return medlemsID + ", "
+                    +ageGroup + ", "
+                    + style + ", "
+                    + compTime + ", "
+                    + location + ", "
+                    + date;
+        }
+        else
             return null;
 
     }
@@ -113,7 +124,13 @@ public class Member{
         return memberType;
     }
 
+    public int getCompTime() {
+        return compTime;
+    }
 
+    public void setCompTime(int compTime) {
+        this.compTime = compTime;
+    }
 
     public int getToStringStatus() {
         return toStringStatus;
@@ -166,7 +183,7 @@ public class Member{
         return status;
     }
 
-    public String getMedlemsID() {
+    public int getMedlemsID() {
         return medlemsID;
     }
 
@@ -174,7 +191,7 @@ public class Member{
         return practiceTime;
     }
 
-    public void setMedlemsID(String medlemsID) {
+    public void setMedlemsID(int medlemsID) {
         this.medlemsID = medlemsID;
     }
 
@@ -213,11 +230,22 @@ public class Member{
         this.toStringStatus = toStringStatus;
 
     }
-    public Member(String medlemsID,String style, int practiceTime, int toStringStatus){
+    public Member(int medlemsID,String ageGroup, String style, int practiceTime, int date, int toStringStatus){
         this.medlemsID = medlemsID;
         this.style = style;
         this.ageGroup = ageGroup;
         this.practiceTime = practiceTime;
+        this.date = date;
+        this.toStringStatus = toStringStatus;
+    }
+
+    public Member(int medlemsID, String ageGroup, String style, int compTime, String location, int date, int toStringStatus){
+        this.medlemsID = medlemsID;
+        this.style = style;
+        this.ageGroup = ageGroup;
+        this.compTime = compTime;
+        this.location = location;
+        this.date = date;
         this.toStringStatus = toStringStatus;
     }
 
