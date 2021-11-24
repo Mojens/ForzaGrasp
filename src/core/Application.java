@@ -1,7 +1,7 @@
 package core;
 
 /**
- * @Author Malthe, Simon og Mohammad
+ * @Author Malthe og Mohammad
  */
 
 import interfaces.MenuRun;

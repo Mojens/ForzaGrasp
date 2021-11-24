@@ -3,7 +3,7 @@ package util;
 import java.util.ArrayList;
 
 /**
- * @Author Malthe, Simon og Mohammad
+ * @Author Simon og Mohammad
  */
 
 public class MemberList {

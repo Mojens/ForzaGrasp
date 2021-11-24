@@ -1,7 +1,7 @@
 package core;
 
 /**
- * @Author Mohammad
+ * @Author Mohammad og Malthe
  */
 
 public enum Status {

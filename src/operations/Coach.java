@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
- * @Author Simon
+ * @Author Simon, Malthe og Mohammad
  */
 
 public class Coach extends Member {

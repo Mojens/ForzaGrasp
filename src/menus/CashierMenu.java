@@ -8,7 +8,7 @@ import operations.Chairman;
 import java.io.IOException;
 
 /**
- * @Author Simon, Malthe og Mohammad
+ * @Author Malthe og Mohammad
  */
 
 public class CashierMenu implements MenuRun {

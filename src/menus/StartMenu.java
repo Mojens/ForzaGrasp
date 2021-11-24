@@ -7,7 +7,7 @@ import operations.Chairman;
 import java.io.IOException;
 
 /**
- * @Author Mohammad
+ * @Author Mohammad og Malthe
  */
 
 public class StartMenu implements MenuRun {

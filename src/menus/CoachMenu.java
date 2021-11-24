@@ -7,7 +7,7 @@ import util.MemberList;
 import java.io.IOException;
 
 /**
- * @Author Simon og Mohammad
+ * @Author Malthe, Simon og Mohammad
  */
 
 public class CoachMenu implements MenuRun {

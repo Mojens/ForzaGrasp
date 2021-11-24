@@ -1,7 +1,7 @@
 package operations;
 
 /**
- * @Author Mohammad og Malthe
+ * @Author Simon, Mohammad og Malthe
  */
 
 import util.Member;

@@ -2,7 +2,7 @@ package util;
 import java.util.Scanner;
 
 /**
- * @Author Malthe,simon og Mohammad
+ * @Author Malthe, simon og Mohammad
  */
 
 public class Member implements Comparable{
