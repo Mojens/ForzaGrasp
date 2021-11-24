@@ -48,7 +48,7 @@ public class CoachMenu implements MenuRun {
           break;
         case 3:
           System.out.println("top 5 Svømmere: \n");
-          //Indtast metode
+          coach.showTop5();
           coachMenu.menuRun();
           checkChoice = true;
           break;

@@ -2,7 +2,7 @@ package util;
 import java.util.Scanner;
 
 /**
- * @Author Malthe og Mohammad
+ * @Author Malthe,simon og Mohammad
  */
 
 public class Member{
@@ -187,8 +187,8 @@ public class Member{
         return medlemsID;
     }
 
-    public int getPracticeTime() {
-        return practiceTime;
+    public double getTime() {
+        return time;
     }
 
     public void setMedlemsID(int medlemsID) {

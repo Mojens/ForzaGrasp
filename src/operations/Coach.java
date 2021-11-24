@@ -57,9 +57,9 @@ public class Coach extends Member {
             }
 
             System.out.println("Practice time");
-            int pracTime = Integer.parseInt(input.nextLine());
-            if (pracTime > 0 && pracTime < 9999) {
-                setPracticeTime(pracTime);
+            int time = Integer.parseInt(input.nextLine());
+            if (time > 0 && time < 9999) {
+                setTime(time);
             }
             addMember(medlemsId, dateOfPrac, ageGroup, style, pracTime);
             System.out.println("Are you done?");
@@ -145,11 +145,11 @@ public class Coach extends Member {
             }
 
             System.out.println("Competition time");
-            int compTime = Integer.parseInt(input.nextLine());
-            if (compTime > 0 && compTime < 9999) {
-                setCompTime(compTime);
+            int time = Integer.parseInt(input.nextLine());
+            if (time > 0 && time < 9999) {
+                setTime(time);
             }
-            addMemberCom(medlemsId, ageGroup, style, compTime,location,dateOfComp);
+            addMemberCom(medlemsId, ageGroup, style, time,location,dateOfComp);
             System.out.println("Are you done?");
             String finish = input.nextLine();
             if (finish.equalsIgnoreCase("yes")) {
