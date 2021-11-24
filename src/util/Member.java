@@ -12,7 +12,7 @@ public class Member implements Comparable{
     private double balance;
     private String style;
     private double distance;
-    private double time;
+    private int time;
     private int place;
     private String location;
     private int date;
@@ -52,7 +52,7 @@ public class Member implements Comparable{
                     +ageGroup + ", "
                     + style + ", "
                     + date + ", "
-                    + time;
+                    + time+"\n";
         } else if(getToStringStatus() == 5){
             return medlemsID + ", "
                     + place + ", "
@@ -60,7 +60,7 @@ public class Member implements Comparable{
                     + style + ", "
                     + time + ", "
                     + location + ", "
-                    + date;
+                    + date+"\n";
         }
         else
             return null;
@@ -112,7 +112,7 @@ public class Member implements Comparable{
         this.style = style;
     }
 
-    public void setTime(double time) {
+    public void setTime(int time) {
         this.time = time;
     }
 
@@ -177,7 +177,7 @@ public class Member implements Comparable{
         return medlemsID;
     }
 
-    public double getTime() {
+    public int getTime() {
         return time;
     }
 

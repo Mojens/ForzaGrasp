@@ -200,6 +200,18 @@ public class Chairman extends Member {
             member.setDataFromLine(lines);
 
             MemberList.allMembers.add(member);
+
+        }
+    }
+
+    public void loadFromCompetitionListToAllCompetitionList() throws IOException {
+        Scanner reader = new Scanner(new File(allMembersFile));
+        while (reader.hasNext()) {
+            String lines = reader.nextLine();
+            Member member = new Member();
+            member.setDataFromLine(lines);
+
+            MemberList.competitiveList.add(member);
             //System.out.println(member);
             //allTestMembers.add(member);
         }

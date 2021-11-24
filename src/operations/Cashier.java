@@ -81,7 +81,6 @@ private final String allMembersFile = "Files/AllMembers.csv";
       }
     }
 
-
   }
 
   public void showAllMembers(){
