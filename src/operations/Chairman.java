@@ -169,6 +169,7 @@ public class Chairman extends Member {
     }
 
     public void showAllMembers(){
+        System.out.println("\033[0;1m" +"Name:, Age:, Agegroup:, MemberType:, Style:, Balance:, Status:"+ "\033[0;0m");
         int counter = 0 ;
         for (int i = 0; i < MemberList.allMembers.size(); i++){
             counter++;
@@ -212,8 +213,6 @@ public class Chairman extends Member {
             member.setDataFromLine(lines);
 
             MemberList.competitiveList.add(member);
-            //System.out.println(member);
-            //allTestMembers.add(member);
         }
     }
 

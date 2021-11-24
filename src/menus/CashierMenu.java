@@ -22,8 +22,8 @@ public class CashierMenu implements MenuRun {
     menuItem[1] = "Se kommende Indbetalinger";
     menuItem[2] = "Se Restance";
     menuItem[3] = "Foretag indbetaling";
-    menuItem[4] = "Log Ud";
-    menuItem[5] = "Show all members";
+    menuItem[4] = "Se alle medlemmere";
+    menuItem[5] = "Log Ud";
     menuItem[9] = "Luk programmet";
 
     MenuSettings menuSettings = new MenuSettings("Venligst vælg en af de muligheder\n",
@@ -54,14 +54,14 @@ public class CashierMenu implements MenuRun {
           checkChoice = true;
           break;
         case 4:
-          System.out.println("Logger ud \n");
-          startMenu.menuRun();
+          System.out.println("Se alle Medlemmer: \n");
+          cashier.showAllMembers();
+          cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 5:
-          System.out.println("Show all members");
-          cashier.showAllMembers();
-          cashierMenu.menuRun();
+          System.out.println("Logger ud \n");
+          startMenu.menuRun();
           checkChoice = true;
           break;
         case 9:

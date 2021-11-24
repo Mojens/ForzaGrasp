@@ -84,6 +84,7 @@ private final String allMembersFile = "Files/AllMembers.csv";
   }
 
   public void showAllMembers(){
+    System.out.println("\033[0;1m" +"Name:, Age:, Agegroup:, MemberType:, Style:, Balance:, Status:"+ "\033[0;0m");
     int counter = 0 ;
     for (int i = 0; i < MemberList.allMembers.size(); i++){
       counter++;
