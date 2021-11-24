@@ -54,7 +54,7 @@ public class Coach extends Member {
         for (Member member : MemberList.competitiveList) {
             counter++;
             if (member.getBalance() < 0) {
-                System.out.println("#" + counter + ", " + member);
+                System.out.println("\033[0;1m" +"#" + counter + ", " + "\033[0;0m"+ member);
             }
         }
 
@@ -161,6 +161,13 @@ public class Coach extends Member {
     public void recordCompetion() throws IOException {
         setToStringStatus(5);
         Scanner input = new Scanner(System.in);
+        int counter = -1;
+        for (Member member : MemberList.competitiveList) {
+            counter++;
+            if (member.getBalance() < 0) {
+                System.out.println("\033[0;1m" +"#" + counter + ", " + "\033[0;0m"+ member);
+            }
+        }
 
         while (doneComp) {
             System.out.println("Indtast MedlemsID:");
