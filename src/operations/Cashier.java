@@ -20,11 +20,11 @@ private final String allMembersFile = "Files/AllMembers.csv";
   public void forecastRev(){
     double sum = 0;
     for (Member member : MemberList.allMembers) {
-      if (member.getAgeGroup().equalsIgnoreCase("Junior") && member.getStatus().equalsIgnoreCase("Active")) {
+      if (member.getAgeGroup().equalsIgnoreCase("Junior") && member.getStatus().equalsIgnoreCase("Aktiv")) {
         sum = sum + 1000;
-      }else if (member.getAgeGroup().equalsIgnoreCase("Senior") && member.getStatus().equalsIgnoreCase("Active")){
+      }else if (member.getAgeGroup().equalsIgnoreCase("Senior") && member.getStatus().equalsIgnoreCase("Aktiv")){
         sum = sum + 1600;
-      }else if (member.getAgeGroup().equalsIgnoreCase("Pensioner") && member.getStatus().equalsIgnoreCase("Active")){
+      }else if (member.getAgeGroup().equalsIgnoreCase("Pensionist") && member.getStatus().equalsIgnoreCase("Aktiv")){
         sum = sum + 1600/1.25;
       }else{
         sum = sum + 500;
