@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @Author Mohammad og Malthe
  */
 
-public class Cashier extends Member{
+public class Cashier extends Member {
 
 private final String allMembersFile = "Files/AllMembers.csv";
 

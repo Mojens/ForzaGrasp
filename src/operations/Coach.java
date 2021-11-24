@@ -266,47 +266,68 @@ public class Coach extends Member {
         }
     }
 
-    public void top5JrBreastStroke(){
-        line();
-        System.out.println("\u001B[0;1m"+"Crawl"+ "\033[0;0m"+"\n" +" Top 5 for Junior: ");
+    public void top5JrCrawl(){
         Collections.sort(TrainingResults.jrCrawl);
         int counterOne = 1;
-        for (Member jrCrawl : TrainingResults.jrCrawl) {
+        for (Member jrCrawl : TrainingResults.jrCrawl.subList(0,5)) {
             System.out.println("\033[0;1m" + "#" + counterOne++ + "\033[0;0m" + ": " + jrCrawl);
         }
-        line();
-        System.out.println("\u001B[0;1m"+"Butterfly"+ "\033[0;0m"+" top 5 for Junior: ");
-        Collections.sort(TrainingResults.jrButterfly);
-        int counterTwo = 1;
-        for (Member jrButterfly : TrainingResults.jrButterfly) {
-            System.out.println("\033[0;1m" + "#" + counterTwo++ + "\033[0;0m" + ": " + jrButterfly);
+    }
+
+    public void top5JrBreastStroke(){
+        Collections.sort(TrainingResults.jrBreaststroke);
+        int counterFour = 1;
+        for (Member jrBreastStroke : TrainingResults.jrBreaststroke) {
+            System.out.println("\033[0;1m" + "#" + counterFour++ + "\033[0;0m" + ": " + jrBreastStroke);
         }
-        line();
-        System.out.println("\u001B[0;1m"+"RygCrawl"+ "\033[0;0m" +" top 5 for Junior: ");
+    }
+
+    public void top5JrBackStroke(){
         Collections.sort(TrainingResults.jrBackstroke);
         int counterThree = 1;
         for (Member jrBackStroke : TrainingResults.jrBackstroke) {
             System.out.println("\033[0;1m" + "#" + counterThree++ + "\033[0;0m" + ": " + jrBackStroke);
         }
-        line();
-        System.out.println("\u001B[0;1m"+"Brystsvmøning"+"\033[0;0m"+ " top 5 for Junior: ");
-        int counterFour = 1;
-        for (Member jrBreastStroke : TrainingResults.jrBreaststroke) {
-            System.out.println("\033[0;1m" + "#" + counterFour++ + "\033[0;0m" + ": " + jrBreastStroke);
-        }
-        line();
-    }
-
-    public void top5JrCrawl(){
-
-    }
-
-    public void top5JrBackStroke(){
-
     }
 
     public void top5JrButterfly(){
+        Collections.sort(TrainingResults.jrButterfly);
+        int counterTwo = 1;
+        for (Member jrButterfly : TrainingResults.jrButterfly) {
+            System.out.println("\033[0;1m" + "#" + counterTwo++ + "\033[0;0m" + ": " + jrButterfly);
+        }
+    }
 
+    public void top5SrCrawl(){
+        Collections.sort(TrainingResults.seniorCrawl);
+        int counterTwo = 1;
+        for (Member seniorCrawl : TrainingResults.seniorCrawl) {
+            System.out.println("\033[0;1m" + "#" + counterTwo++ + "\033[0;0m" + ": " + seniorCrawl);
+        }
+    }
+
+    public void top5SrBreastStroke(){
+        Collections.sort(TrainingResults.seniorBreaststroke);
+        int counterTwo = 1;
+        for (Member seniorBreastStroke : TrainingResults.seniorBreaststroke) {
+            System.out.println("\033[0;1m" + "#" + counterTwo++ + "\033[0;0m" + ": " + seniorBreastStroke);
+        }
+    }
+
+    public void top5SrBackStroke(){
+        Collections.sort(TrainingResults.seniorBackstroke);
+        int counterTwo = 1;
+        for (Member seniorBackStroke : TrainingResults.seniorBackstroke) {
+            System.out.println("\033[0;1m" + "#" + counterTwo++ + "\033[0;0m" + ": " + seniorBackStroke);
+        }
+    }
+
+    public void topSrButterfly(){
+        Collections.sort(TrainingResults.seniorButterfly);
+        int counterTwo = 1;
+        for (Member seniorButterfly : TrainingResults.seniorButterfly) {
+            System.out.println("\033[0;1m" + "#" + counterTwo++ + "\033[0;0m" + ": " + seniorButterfly);
+        }
     }
 
     public void addToPracticeTimes(ArrayList<Member> list, String file) throws IOException {
@@ -316,7 +337,8 @@ public class Coach extends Member {
         bufferedWriter.close();
         fileWriter.close();
     }
-    private void line() {
+
+    public void line() {
         System.out.println("\n----------------------------" +
                 "-------------------------------" + "\n");
     }

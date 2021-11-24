@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -189,16 +190,6 @@ public class Chairman extends Member {
         bufferedWriter.write(member.toString());
         bufferedWriter.close();
         fileWriter.close();
-    }
-
-    public void loadFromCompetiviveFileToAllMembersList() throws IOException {
-        Scanner reader = new Scanner(new File(competiviveFile));
-        while (reader.hasNext()) {
-            String lines = reader.nextLine();
-            Member member = new Member();
-            member.setDataFromLine(lines);
-            MemberList.allMembers.add(member);
-        }
     }
 
     public void loadFromAllMemberfileToAllMembersList() throws IOException {

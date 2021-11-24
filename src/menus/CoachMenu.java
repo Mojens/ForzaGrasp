@@ -79,6 +79,7 @@ public class CoachMenu implements MenuRun {
 
   public void top5MenuRun() throws IOException{
     String[] menuItem = new String[10];
+    Coach coach = new Coach();
 
     menuItem[1] = "Top 5 - Junior - Crawl";
     menuItem[2] = "Top 5 - Junior - Rygcrawl";
@@ -99,42 +100,71 @@ public class CoachMenu implements MenuRun {
     do {
       switch (choice){
       case 1:
-        System.out.println("\u001B[0;1m"+"Crawl"+ "\033[0;0m"+"\n" +" Top 5 for Junior: \n");
+        coach.line();
+        System.out.println("\u001B[0;1m"+"Crawl"+ "\033[0;0m"  +" Top 5 for Junior: \n");
         System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
+        coach.top5JrCrawl();
+        top5MenuRun();
           checkChoice = true;
           break;
         case 2:
-          System.out.println("\u001B[0;1m"+"Rygcrawl"+ "\033[0;0m"+"\n" +" Top 5 for Junior: \n");
+          coach.line();
+          System.out.println("\u001B[0;1m"+"Rygcrawl"+ "\033[0;0m" +" Top 5 for Junior: \n");
           System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
+          coach.top5JrBackStroke();
+          top5MenuRun();
           checkChoice = true;
           break;
         case 3:
-          System.out.println("\u001B[0;1m"+"Butterfly"+ "\033[0;0m"+"\n" +"Top 5 for Junior: \n");
+          coach.line();
+          System.out.println("\u001B[0;1m"+"Butterfly"+ "\033[0;0m" +"Top 5 for Junior: \n");
           System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
+          coach.top5JrButterfly();
+          top5MenuRun();
           checkChoice = true;
           break;
         case 4:
-          System.out.println("\u001B[0;1m"+"Brystsvømming"+ "\033[0;0m"+"\n" + "Top 5 for Junior: \n");
-          System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
+          coach.line();
+          System.out.println("\u001B[0;1m"+"Brystsvømming"+ "\033[0;0m" + "Top 5 for Junior: \n");
+          System.out.println("\033[0;1m"+"Crawl"+ "\033[0;0m" +" Top 5 for Junior: ");
+          coach.top5SrBreastStroke();
+          top5MenuRun();
           checkChoice = true;
           break;
         case 5:
-          System.out.println("\u001B[0;1m"+"Crawl"+ "\033[0;0m"+"\n" +" Top 5 for Senior: \n");
+          coach.line();
+          System.out.println("\u001B[0;1m"+"Crawl"+ "\033[0;0m" +" Top 5 for Senior: \n");
+          System.out.println("\033[0;1m"+"Crawl"+ "\033[0;0m" +" Top 5 for Senior: ");
+          coach.top5SrCrawl();
+          top5MenuRun();
           checkChoice = true;
           break;
         case 6:
-          System.out.println("\u001B[0;1m"+"Rygcrawl"+ "\033[0;0m"+"\n" +" Top 5 for Senior: \n");
+          coach.line();
+          System.out.println("\u001B[0;1m"+"Rygcrawl"+ "\033[0;0m" +" Top 5 for Senior: \n");
+          System.out.println("\033[0;1m"+"Crawl"+ "\033[0;0m" +" Top 5 for Senior: ");
+          coach.top5SrBackStroke();
+          top5MenuRun();
           checkChoice = true;
           break;
         case 7:
-          System.out.println("\u001B[0;1m"+"Butterfly"+ "\033[0;0m"+"\n" +" Top 5 for Senior: \n");
+          coach.line();
+          System.out.println("\u001B[0;1m"+"Butterfly"+ "\033[0;0m" +" Top 5 for Senior: \n");
+          System.out.println("\033[0;1m"+"Crawl"+ "\033[0;0m" +" Top 5 for Senior: ");
+          coach.topSrButterfly();
+          top5MenuRun();
           checkChoice = true;
           break;
         case 8:
-          System.out.println("\u001B[0;1m"+"Brystsvømming"+ "\033[0;0m"+"\n" +" Top 5 for Senior: \n");
+          coach.line();
+          System.out.println("\u001B[0;1m"+"Brystsvømming"+ "\033[0;0m" +" Top 5 for Senior: \n");
+          System.out.println("\033[0;1m"+"Crawl"+ "\033[0;0m" +" Top 5 for Senior: ");
+          coach.top5JrBreastStroke();
+          top5MenuRun();
           checkChoice = true;
           break;
         case 9:
+          coach.line();
           System.out.println("Går tilbage til Træner forside");
           menuRun();
           checkChoice = true;

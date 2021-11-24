@@ -185,12 +185,9 @@ public class Member implements Comparable{
         this.medlemsID = medlemsID;
     }
 
-
-
     public Member(){
 
     }
-
 
     public void setDataFromLine(String line){
         Scanner sc = new Scanner(line).useDelimiter(", ");
@@ -209,7 +206,7 @@ public class Member implements Comparable{
     public void setDataFromLinePrac(String line){
         Scanner sc = new Scanner(line).useDelimiter(", ");
 
-        this.medlemsID = sc.nextInt();
+        this.medlemsID = Integer.parseInt(sc.next());
         this.style = sc.next();
         this.ageGroup = sc.next();
         this.time = Integer.parseInt(sc.next());
@@ -256,7 +253,7 @@ public class Member implements Comparable{
 
     }
     // practice Times
-    public Member(int medlemsID,String ageGroup, String style, double time, int date, int toStringStatus){
+    public Member(int medlemsID,String ageGroup, String style, int time, int date, int toStringStatus){
         this.medlemsID = medlemsID;
         this.style = style;
         this.ageGroup = ageGroup;
@@ -265,7 +262,7 @@ public class Member implements Comparable{
         this.toStringStatus = toStringStatus;
     }
         //Comptetition info and times
-    public Member(int medlemsID, int place, String ageGroup, String style, double time, String location, int date, int toStringStatus){
+    public Member(int medlemsID, int place, String ageGroup, String style, int time, String location, int date, int toStringStatus){
         this.medlemsID = medlemsID;
         this.place = place;
         this.style = style;
