@@ -29,20 +29,20 @@ public class Coach extends Member {
     public static final String jrBackstroke = "Files/JuniorBackstrokeTimes.csv";
     public static final String jrbreaststroke = "Files/JuniorBreaststrokeTimes.csv";
 
-    private final String seniorCrawl = "Files/seniorCrawlTimes.csv";
-    private final String seniorButterfly = "Files/seniorButterflyTimes.csv";
-    private final String seniorBackstroke = "Files/seniorBackstrokeTimes.csv";
-    private final String seniorbreaststroke = "Files/seniorBreaststrokeTimes.csv";
+    public static final String seniorCrawl = "Files/seniorCrawlTimes.csv";
+    public static final String seniorButterfly = "Files/seniorButterflyTimes.csv";
+    public static final String seniorBackstroke = "Files/seniorBackstrokeTimes.csv";
+    public static final String seniorbreaststroke = "Files/seniorBreaststrokeTimes.csv";
 
-    private final String jrCrawlComp = "Files/JuniorCrawlCompTimes.csv";
-    private final String jrButterflyComp = "Files/JuniorButterflyCompTimes.csv";
-    private final String jrBackstrokeComp = "Files/JuniorBackstrokeCompTimes.csv";
-    private final String jrbreaststrokeComp = "Files/JuniorBreaststrokeCompTimes.csv";
+    public static final String jrCrawlComp = "Files/JuniorCrawlCompTimes.csv";
+    public static final String jrButterflyComp = "Files/JuniorButterflyCompTimes.csv";
+    public static final String jrBackstrokeComp = "Files/JuniorBackstrokeCompTimes.csv";
+    public static final String jrbreaststrokeComp = "Files/JuniorBreaststrokeCompTimes.csv";
 
-    private final String seniorCrawlComp = "Files/seniorCrawlCompTimes.csv";
-    private final String seniorButterflyComp = "Files/seniorButterflyCompTimes.csv";
-    private final String seniorBackstrokeComp = "Files/seniorBackstrokeCompTimes.csv";
-    private final String seniorbreaststrokeComp = "Files/seniorBreaststrokeCompTimes.csv";
+    public static final String seniorCrawlComp = "Files/seniorCrawlCompTimes.csv";
+    public static final String seniorButterflyComp = "Files/seniorButterflyCompTimes.csv";
+    public static final String seniorBackstrokeComp = "Files/seniorBackstrokeCompTimes.csv";
+    public static final String seniorbreaststrokeComp = "Files/seniorBreaststrokeCompTimes.csv";
 
 
 
@@ -253,9 +253,9 @@ public class Coach extends Member {
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
         } else if (medlemsId > 0 && ageGroup.startsWith("s") || ageGroup.startsWith("S") && style.equalsIgnoreCase("br") || style.equalsIgnoreCase("Br") && time < 7000 && time > 0) {
             Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
-            CompetitionResults.SeniorBreaststroke.add(member);
-            addToPracticeTimes(CompetitionResults.SeniorBreaststroke,seniorbreaststrokeComp);
-            addToPracticeTimes(CompetitionResults.competitionList,allCompetitionTimes);
+            CompetitionResults.seniorBreaststroke.add(member);
+            addTimes(CompetitionResults.seniorBreaststroke,seniorbreaststrokeComp);
+            addTimes(CompetitionResults.competitionList,allCompetitionTimes);
         } else if (medlemsId > 0 && ageGroup.startsWith("s") || ageGroup.startsWith("S") && style.equalsIgnoreCase("ba") || style.equalsIgnoreCase("Ba") && time < 7000 && time > 0) {
             Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
             CompetitionResults.seniorBackstroke.add(member);

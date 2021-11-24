@@ -19,6 +19,6 @@ public class CompetitionResults {
   public static ArrayList <Member> seniorButterfly = new ArrayList<>();
   public static ArrayList <Member> seniorCrawl = new ArrayList<>();
   public static ArrayList <Member> seniorBackstroke = new ArrayList<>();
-  public static ArrayList <Member> SeniorBreaststroke = new ArrayList<>();
+  public static ArrayList <Member> seniorBreaststroke = new ArrayList<>();
 
 }
