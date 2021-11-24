@@ -272,6 +272,7 @@ public class Coach extends Member {
         }
     }
 
+    //Junior top 5 Crawl
     public void top5JrCrawl(){
         Collections.sort(TrainingResults.jrCrawl);
         int counterOne = 1;
@@ -280,6 +281,7 @@ public class Coach extends Member {
         }
     }
 
+    //Junior top 5 BreastStroke
     public void top5JrBreastStroke(){
         Collections.sort(TrainingResults.jrBreaststroke);
         int counterFour = 1;
@@ -288,6 +290,7 @@ public class Coach extends Member {
         }
     }
 
+    //Junior top 5 BackStroke
     public void top5JrBackStroke(){
         Collections.sort(TrainingResults.jrBackstroke);
         int counterThree = 1;
@@ -296,6 +299,7 @@ public class Coach extends Member {
         }
     }
 
+    //Junior top 5 Butterfly
     public void top5JrButterfly(){
         Collections.sort(TrainingResults.jrButterfly);
         int counterTwo = 1;
@@ -304,6 +308,7 @@ public class Coach extends Member {
         }
     }
 
+    //Senioer top 5 Crawl
     public void top5SrCrawl(){
         Collections.sort(TrainingResults.seniorCrawl);
         int counterTwo = 1;
@@ -312,6 +317,7 @@ public class Coach extends Member {
         }
     }
 
+    //Senioer top 5 BreastStroke
     public void top5SrBreastStroke(){
         Collections.sort(TrainingResults.seniorBreaststroke);
         int counterTwo = 1;
@@ -320,6 +326,7 @@ public class Coach extends Member {
         }
     }
 
+    //Senioer top 5 BackStroke
     public void top5SrBackStroke(){
         Collections.sort(TrainingResults.seniorBackstroke);
         int counterTwo = 1;
@@ -328,6 +335,7 @@ public class Coach extends Member {
         }
     }
 
+    //Senioer top 5 Butterfly
     public void topSrButterfly(){
         Collections.sort(TrainingResults.seniorButterfly);
         int counterTwo = 1;
