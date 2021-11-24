@@ -216,6 +216,7 @@ public class Member{
     public Member(String medlemsID,String style, int practiceTime, int toStringStatus){
         this.medlemsID = medlemsID;
         this.style = style;
+        this.ageGroup = ageGroup;
         this.practiceTime = practiceTime;
         this.toStringStatus = toStringStatus;
     }
