@@ -5,7 +5,7 @@ import java.util.Scanner;
  * @Author Malthe,simon og Mohammad
  */
 
-public class Member{
+public class Member implements Comparable{
     private String name;
     private int age;
     private String ageGroup;

@@ -26,7 +26,7 @@ public class ChairmanMenu implements MenuRun {
     menuItem[9] = "Luk programmet";
 
     MenuSettings menuSettings = new MenuSettings("Venligst vælg en af de muligheder \n",
-        "Skriv her: ", menuItem);
+            "Skriv her: ", menuItem);
     menuSettings.printMenu();
 
     int choice = menuSettings.readChoice();

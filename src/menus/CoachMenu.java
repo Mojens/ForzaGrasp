@@ -48,8 +48,7 @@ public class CoachMenu implements MenuRun {
           break;
         case 3:
           System.out.println("top 5 Svømmere: \n");
-          coach.showTop5();
-          coachMenu.menuRun();
+          top5MenuRun();
           checkChoice = true;
           break;
         case 4:
@@ -78,7 +77,77 @@ public class CoachMenu implements MenuRun {
     } while (!checkChoice);
   }
 
-  private void toString(MemberList members) {
+  public void top5MenuRun() throws IOException{
+    String[] menuItem = new String[10];
+
+    menuItem[1] = "Top 5 - Junior - Crawl";
+    menuItem[2] = "Top 5 - Junior - Rygcrawl";
+    menuItem[3] = "Top 5 - Junior - Butterfly";
+    menuItem[4] = "top 5 - Junior - Brystsvømming";
+    menuItem[5] = "Top 5 - Senior - Crawl";
+    menuItem[6] = "Top 5 - Senior - Rygcrawl";
+    menuItem[7] = "Top 5 - Senior - Butterfly";
+    menuItem[8] = "Top 5 - Senior - Brystsvømming";
+    menuItem[9] = "Tilbage";
+
+    MenuSettings menuSettings = new MenuSettings("Venligst vælg en af de muligheder\n",
+            "Skriv her: ", menuItem);
+    menuSettings.printMenu();
+
+    int choice = menuSettings.readChoice();
+    boolean checkChoice;
+    do {
+      switch (choice){
+      case 1:
+        System.out.println("\u001B[0;1m"+"Crawl"+ "\033[0;0m"+"\n" +" Top 5 for Junior: \n");
+        System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
+          checkChoice = true;
+          break;
+        case 2:
+          System.out.println("\u001B[0;1m"+"Rygcrawl"+ "\033[0;0m"+"\n" +" Top 5 for Junior: \n");
+          System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
+          checkChoice = true;
+          break;
+        case 3:
+          System.out.println("\u001B[0;1m"+"Butterfly"+ "\033[0;0m"+"\n" +"Top 5 for Junior: \n");
+          System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
+          checkChoice = true;
+          break;
+        case 4:
+          System.out.println("\u001B[0;1m"+"Brystsvømming"+ "\033[0;0m"+"\n" + "Top 5 for Junior: \n");
+          System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
+          checkChoice = true;
+          break;
+        case 5:
+          System.out.println("\u001B[0;1m"+"Crawl"+ "\033[0;0m"+"\n" +" Top 5 for Senior: \n");
+          checkChoice = true;
+          break;
+        case 6:
+          System.out.println("\u001B[0;1m"+"Rygcrawl"+ "\033[0;0m"+"\n" +" Top 5 for Senior: \n");
+          checkChoice = true;
+          break;
+        case 7:
+          System.out.println("\u001B[0;1m"+"Butterfly"+ "\033[0;0m"+"\n" +" Top 5 for Senior: \n");
+          checkChoice = true;
+          break;
+        case 8:
+          System.out.println("\u001B[0;1m"+"Brystsvømming"+ "\033[0;0m"+"\n" +" Top 5 for Senior: \n");
+          checkChoice = true;
+          break;
+        case 9:
+          System.out.println("Går tilbage til Træner forside");
+          menuRun();
+          checkChoice = true;
+          break;
+
+        default:
+          System.out.println("\nDet skal være et tal 1,2,3 eller 9");
+          System.out.println("Prøv igen");
+          menuSettings.printMenu();
+          choice = menuSettings.readChoice();
+          checkChoice = false;
+      }
+    } while (!checkChoice);
   }
 }
 
