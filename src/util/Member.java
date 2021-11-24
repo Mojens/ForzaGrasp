@@ -13,15 +13,14 @@ public class Member{
     private String style;
     private double distance;
     private double time;
-    private String place;
+    private int place;
     private String location;
     private int date;
     private String status;
     private int toStringStatus;
     private int medlemsID;
-    private int practiceTime;
     private String memberType;
-    private int compTime;
+
 
     @Override
     public String toString() {
@@ -53,12 +52,13 @@ public class Member{
                     +ageGroup + ", "
                     + style + ", "
                     + date + ", "
-                    + practiceTime;
+                    + time;
         } else if(getToStringStatus() == 5){
             return medlemsID + ", "
+                    + place + ", "
                     +ageGroup + ", "
                     + style + ", "
-                    + compTime + ", "
+                    + time + ", "
                     + location + ", "
                     + date;
         }
@@ -104,7 +104,7 @@ public class Member{
         this.location = location;
     }
 
-    public void setPlace(String place) {
+    public void setPlace(int place) {
         this.place = place;
     }
 
@@ -124,13 +124,6 @@ public class Member{
         return memberType;
     }
 
-    public int getCompTime() {
-        return compTime;
-    }
-
-    public void setCompTime(int compTime) {
-        this.compTime = compTime;
-    }
 
     public int getToStringStatus() {
         return toStringStatus;
@@ -148,9 +141,6 @@ public class Member{
         return distance;
     }
 
-    public double getTime() {
-        return time;
-    }
 
     public int getAge() {
         return age;
@@ -168,7 +158,7 @@ public class Member{
         return location;
     }
 
-    public String getPlace() {
+    public int getPlace() {
         return place;
     }
 
@@ -195,9 +185,6 @@ public class Member{
         this.medlemsID = medlemsID;
     }
 
-    public void setPracticeTime(int practiceTime) {
-        this.practiceTime = practiceTime;
-    }
 
 
     public Member(){
@@ -219,6 +206,44 @@ public class Member{
 
     }
 
+    public void setDataFromLinePrac(String line){
+        Scanner sc = new Scanner(line).useDelimiter(", ");
+
+        this.medlemsID = sc.nextInt();
+        this.style = sc.next();
+        this.ageGroup = sc.next();
+        this.time = Integer.parseInt(sc.next());
+        this.date = Integer.parseInt(sc.next());
+        this.toStringStatus = 4;
+
+    }
+
+    public void setDataFromLineComp(String line){
+        Scanner sc = new Scanner(line).useDelimiter(", ");
+
+        this.medlemsID = sc.nextInt();
+        this.place = Integer.parseInt(sc.next());
+        this.style = sc.next();
+        this.ageGroup = sc.next();
+        this.time = Integer.parseInt(sc.next());
+        this.location = sc.next();
+        this.date = Integer.parseInt(sc.next());
+        this.toStringStatus = 5;
+
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Member){
+            if (time<((Member) o).time){//Laveste tid først
+                return -1;
+            }else if (time>((Member) o).time){//Den største tid til sidst
+                return 1;
+            }
+        }
+        return 0;
+    }
+
     public Member(String name, int age, String ageGroup, String memberType, String style, double balance, String status, int toStringStatus){
         this.name = name;
         this.age = age;
@@ -230,20 +255,22 @@ public class Member{
         this.toStringStatus = toStringStatus;
 
     }
-    public Member(int medlemsID,String ageGroup, String style, int practiceTime, int date, int toStringStatus){
+    // practice Times
+    public Member(int medlemsID,String ageGroup, String style, double time, int date, int toStringStatus){
         this.medlemsID = medlemsID;
         this.style = style;
         this.ageGroup = ageGroup;
-        this.practiceTime = practiceTime;
+        this.time = time;
         this.date = date;
         this.toStringStatus = toStringStatus;
     }
-
-    public Member(int medlemsID, String ageGroup, String style, int compTime, String location, int date, int toStringStatus){
+        //Comptetition info and times
+    public Member(int medlemsID, int place, String ageGroup, String style, double time, String location, int date, int toStringStatus){
         this.medlemsID = medlemsID;
+        this.place = place;
         this.style = style;
         this.ageGroup = ageGroup;
-        this.compTime = compTime;
+        this.time = time;
         this.location = location;
         this.date = date;
         this.toStringStatus = toStringStatus;

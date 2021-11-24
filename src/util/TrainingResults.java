@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class TrainingResults {
+  public static ArrayList <Member> allPracticesTimes = new ArrayList<>();
 
   public static ArrayList <Member> jrButterfly = new ArrayList<>();
   public static ArrayList <Member> jrCrawl = new ArrayList<>();
