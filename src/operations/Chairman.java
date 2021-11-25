@@ -105,8 +105,6 @@ public class Chairman extends Member {
 
     }*/
 
-
-
     /*public void registerCompetitive() throws IOException {
         setToStringStatus(2);
         setMemberType("Konkurrence");
@@ -401,7 +399,7 @@ public class Chairman extends Member {
     }
 
     public void loadFromCompetitionListToAllCompetitionList() throws IOException {
-        Scanner reader = new Scanner(new File(allMembersFile));
+        Scanner reader = new Scanner(new File(competiviveFile));
         while (reader.hasNext()) {
             String lines = reader.nextLine();
             Member member = new Member();

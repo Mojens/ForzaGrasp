@@ -8,9 +8,9 @@ import java.util.Scanner;
 public class Member implements Comparable{
     private String name;
     private int age;
-    private String ageGroup;
+    public String ageGroup;
     private double balance;
-    private String style;
+    public String style;
     private double distance;
     private int time;
     private int place;

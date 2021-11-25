@@ -38,13 +38,13 @@ public class CoachMenu implements MenuRun {
       switch (choice) {
         case 1:
           System.out.println("Registrer Træningstid: \n");
-          coach.recordPractise();
+          coach.recordPractice();
           coachMenu.menuRun();
           checkChoice = true;
           break;
         case 2:
           System.out.println("Registrer Konkurrence informationer: \n");
-          coach.recordCompetion();
+          coach.recordCompetition();
           coachMenu.menuRun();
           checkChoice = true;
           break;

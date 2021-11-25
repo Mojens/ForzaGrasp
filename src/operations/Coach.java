@@ -21,6 +21,7 @@ import java.util.Scanner;
 public class Coach extends Member {
     private boolean done = true;
     private boolean doneComp = true;
+    private Scanner input = new Scanner(System.in);
 
     public static final String allPracticeTimes = "Files/AllPracticeTimes.csv";
     public static final String allCompetitionTimes = "Files/AllCompetitionTimes.csv";
@@ -45,63 +46,115 @@ public class Coach extends Member {
     public static final String seniorBackstrokeComp = "Files/seniorBackstrokeCompTimes.csv";
     public static final String seniorbreaststrokeComp = "Files/seniorBreaststrokeCompTimes.csv";
 
-    public void recordPractise() throws IOException{
+
+    public void recordPractice() throws IOException {
         setToStringStatus(4);
-        Scanner input = new Scanner(System.in);
+        showAllMembers();
 
-        int counter = -1;
-        for (Member member : MemberList.competitiveList) {
-            counter++;
-            if (member.getBalance() < 0) {
-                System.out.println("\033[0;1m" +"#" + counter + ", " + "\033[0;0m"+ member);
-            }
-        }
-
-        while (done) {
-            System.out.println("Indtast MedlemsID: ");
-            int medlemsId = Integer.parseInt(input.nextLine());
-            if (medlemsId > 0) {
-                setMedlemsID(medlemsId);
-            }
-            System.out.println("Indtast Dato:");
-            System.out.println("Det skal skrives således: 24112021");
-            int dateOfPrac = Integer.parseInt(input.nextLine());
-            setDate(dateOfPrac);
-            System.out.println("Er personen en Junior eller Senior svømmer?");
-            String ageGroup = input.nextLine().toLowerCase(Locale.ROOT);
-            if (ageGroup.toLowerCase().startsWith("j")) {
-                setAgeGroup("Junior");
-            } else if (ageGroup.startsWith("s")) {
-                setAgeGroup("Senior");
-            }
-
-            System.out.println("Indtast Svømmedisciplin: ");
-            System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
-            String style = input.nextLine().toLowerCase(Locale.ROOT);
-            if (style.toLowerCase().startsWith("cr")) {
-                setStyle("Crawl");
-            } else if (style.toLowerCase().startsWith("bu")) {
-                setStyle("Butterfly");
-            } else if (style.toLowerCase().startsWith("br")) {
-                setStyle("Brystsvømning");
-            } else if (style.toLowerCase().startsWith("ryg")||style.toLowerCase().startsWith("back")) {
-                setStyle("Rygcrawl");
-            }
-
-            System.out.println("Indtast tid:");
-            int time = Integer.parseInt(input.nextLine());
-            if (time > 0 && time < 999999) {
-                setTime(time);
-            }
-            addMember(ageGroup, style);
+        while (done){
+            medlemsId();
+            date();
+            ageGroup();
+            style();
+            recordTime();
+            addMember(ageGroup,style);
             System.out.println("Er du færdig?");
-            String finish = input.nextLine();
-            if (finish.equalsIgnoreCase("ja")) {
+            String finish = input.nextLine().toLowerCase();
+            if (finish.toLowerCase().startsWith("j")||finish.toLowerCase().startsWith("ye")) {
                 done = false;
             }
         }
-        System.out.println("\033[0;1m" +"#"+getMedlemsID()+" Er nu tilføjet til listen for "+getAgeGroup()+", Og "+getStyle()+ "\033[0;0m");
+        nowAdded();
+    }
 
+    public void recordCompetition() throws IOException {
+        setToStringStatus(5);
+        showAllMembers();
+
+        while (doneComp){
+            medlemsId();
+            rank();
+            date();
+            location();
+            ageGroup();
+            style();
+            recordTime();
+            addMemberCom(ageGroup, style);
+
+            System.out.println("Er du færdig?");
+            String finish = input.nextLine().toLowerCase();
+            if (finish.toLowerCase().startsWith("j")||finish.toLowerCase().startsWith("ye")) {
+                doneComp = false;
+            }
+        }
+        nowAdded();
+
+    }
+
+    public void medlemsId(){
+        System.out.println("Indtast MedlemsID: ");
+        int medlemsId = Integer.parseInt(input.nextLine());
+        if (medlemsId > 0) {
+            setMedlemsID(medlemsId);
+        }
+    }
+
+    public void date(){
+        System.out.println("Indtast Dato:");
+        System.out.println("Det skal skrives således: 24112021");
+        int dateOfPrac = Integer.parseInt(input.nextLine());
+        setDate(dateOfPrac);
+    }
+
+    public void ageGroup(){
+        System.out.println("Er personen en Junior eller Senior svømmer?");
+        ageGroup = input.nextLine().toLowerCase(Locale.ROOT);
+        if (ageGroup.toLowerCase().startsWith("j")) {
+            setAgeGroup("Junior");
+        } else if (ageGroup.startsWith("s")) {
+            setAgeGroup("Senior");
+        }
+    }
+
+    public void style(){
+        System.out.println("Indtast Svømmedisciplin: ");
+        System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
+        style = input.nextLine().toLowerCase(Locale.ROOT);
+        if (style.toLowerCase().startsWith("cr")) {
+            setStyle("Crawl");
+        } else if (style.toLowerCase().startsWith("bu")) {
+            setStyle("Butterfly");
+        } else if (style.toLowerCase().startsWith("br")) {
+            setStyle("Brystsvømning");
+        } else if (style.toLowerCase().startsWith("ryg")||style.toLowerCase().startsWith("back")) {
+            setStyle("Rygcrawl");
+        }
+    }
+
+    public void recordTime(){
+        System.out.println("Indtast tid:");
+        int time = Integer.parseInt(input.nextLine());
+        if (time > 0 && time < 999999) {
+            setTime(time);
+        }
+    }
+
+    public void rank(){
+        System.out.println("Indtast Placering:");
+        int place = Integer.parseInt(input.nextLine());
+        if (place != 0){
+            setPlace(place);
+        }
+    }
+
+    public void location(){
+        System.out.println("Indtast hvilken stævne det er:");
+        String location = input.nextLine();
+        setLocation(location);
+    }
+
+    public void nowAdded(){
+        System.out.println("\033[0;1m" +"#"+getMedlemsID()+" Er nu tilføjet til listen for "+getAgeGroup()+", "+getStyle()+ "\033[0;0m");
     }
 
     public void addMember(String ageGroup, String style) throws IOException{
@@ -154,72 +207,7 @@ public class Coach extends Member {
             addTimes(TrainingResults.seniorBackstroke,seniorBackstroke);
             addTimes(TrainingResults.allPracticesTimes,allPracticeTimes);
         }
-    }
 
-    public void recordCompetion() throws IOException {
-        setToStringStatus(5);
-        Scanner input = new Scanner(System.in);
-        int counter = -1;
-        for (Member member : MemberList.competitiveList) {
-            counter++;
-            if (member.getBalance() < 0) {
-                System.out.println("\033[0;1m" +"#" + counter + ", " + "\033[0;0m"+ member);
-            }
-        }
-
-        while (doneComp) {
-            System.out.println("Indtast MedlemsID:");
-            int medlemsId = Integer.parseInt(input.nextLine());
-            if (medlemsId > 0) {
-                setMedlemsID(medlemsId);
-            }
-            System.out.println("Indtast Placering:");
-            int place = Integer.parseInt(input.nextLine());
-            if (place != 0){
-                setPlace(place);
-            }
-            System.out.println("Indtast Dato:");
-            int dateOfComp = Integer.parseInt(input.nextLine());
-            if (dateOfComp != 0){
-                setDate(dateOfComp);
-            }
-            System.out.println("Indtast hvilken stævne det er:");
-            String location = input.nextLine();
-            setLocation(location);
-            System.out.println("Er personen en Junior eller Senior svømmer?");
-            String ageGroup = input.nextLine().toLowerCase(Locale.ROOT);
-            if (ageGroup.toLowerCase().startsWith("j")) {
-                setAgeGroup("Junior");
-            } else if (ageGroup.toLowerCase().startsWith("s")) {
-                setAgeGroup("Senior");
-            }
-
-            System.out.println("Indtast Svømmedisciplin: ");
-            System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
-            String style = input.nextLine().toLowerCase(Locale.ROOT);
-            if (style.toLowerCase().startsWith("cr")) {
-                setStyle("Crawl");
-            } else if (style.toLowerCase().startsWith("bu")) {
-                setStyle("Butterfly");
-            } else if (style.toLowerCase().startsWith("br")) {
-                setStyle("Brystsvømning");
-            } else if (style.toLowerCase().startsWith("ba") || style.toLowerCase().startsWith("ryg")) {
-                setStyle("Rygcrawl");
-            }
-
-            System.out.println("Indtast tid:");
-            int time = Integer.parseInt(input.nextLine());
-            if (time > 0 && time < 9999) {
-                setTime(time);
-            }
-            addMemberCom(ageGroup, style);
-            System.out.println("Er du færdig?");
-            String finish = input.nextLine();
-            if (finish.equalsIgnoreCase("ja")) {
-                doneComp = false;
-            }
-        }
-        System.out.println("\033[0;1m" +"#"+getMedlemsID()+" Er nu tilføjet til listen for"+getAgeGroup()+", "+getStyle()+ "\033[0;0m");
     }
 
     public void addMemberCom(String ageGroup, String style) throws IOException
@@ -327,4 +315,129 @@ public class Coach extends Member {
             list.add(member);
         }
     }
+
+     /*public void recordPractise() throws IOException{
+        setToStringStatus(4);
+        Scanner input = new Scanner(System.in);
+
+        int counter = -1;
+        for (Member member : MemberList.competitiveList) {
+            counter++;
+            if (member.getBalance() < 0) {
+                System.out.println("\033[0;1m" +"#" + counter + ", " + "\033[0;0m"+ member);
+            }
+        }
+
+        while (done) {
+            System.out.println("Indtast MedlemsID: ");
+            int medlemsId = Integer.parseInt(input.nextLine());
+            if (medlemsId > 0) {
+                setMedlemsID(medlemsId);
+            }
+            System.out.println("Indtast Dato:");
+            System.out.println("Det skal skrives således: 24112021");
+            int dateOfPrac = Integer.parseInt(input.nextLine());
+            setDate(dateOfPrac);
+            System.out.println("Er personen en Junior eller Senior svømmer?");
+            String ageGroup = input.nextLine().toLowerCase(Locale.ROOT);
+            if (ageGroup.toLowerCase().startsWith("j")) {
+                setAgeGroup("Junior");
+            } else if (ageGroup.startsWith("s")) {
+                setAgeGroup("Senior");
+            }
+
+            System.out.println("Indtast Svømmedisciplin: ");
+            System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
+            String style = input.nextLine().toLowerCase(Locale.ROOT);
+            if (style.toLowerCase().startsWith("cr")) {
+                setStyle("Crawl");
+            } else if (style.toLowerCase().startsWith("bu")) {
+                setStyle("Butterfly");
+            } else if (style.toLowerCase().startsWith("br")) {
+                setStyle("Brystsvømning");
+            } else if (style.toLowerCase().startsWith("ryg")||style.toLowerCase().startsWith("back")) {
+                setStyle("Rygcrawl");
+            }
+
+            System.out.println("Indtast tid:");
+            int time = Integer.parseInt(input.nextLine());
+            if (time > 0 && time < 999999) {
+                setTime(time);
+            }
+            addMember(ageGroup, style);
+            System.out.println("Er du færdig?");
+            String finish = input.nextLine();
+            if (finish.equalsIgnoreCase("ja")) {
+                done = false;
+            }
+        }
+        System.out.println("\033[0;1m" +"#"+getMedlemsID()+" Er nu tilføjet til listen for "+getAgeGroup()+", Og "+getStyle()+ "\033[0;0m");
+
+    }*/
+
+     /* public void recordCompetion() throws IOException {
+        setToStringStatus(5);
+        Scanner input = new Scanner(System.in);
+        int counter = -1;
+        for (Member member : MemberList.competitiveList) {
+            counter++;
+            if (member.getBalance() < 0) {
+                System.out.println("\033[0;1m" +"#" + counter + ", " + "\033[0;0m"+ member);
+            }
+        }
+
+        while (doneComp) {
+            System.out.println("Indtast MedlemsID:");
+            int medlemsId = Integer.parseInt(input.nextLine());
+            if (medlemsId > 0) {
+                setMedlemsID(medlemsId);
+            }
+            System.out.println("Indtast Placering:");
+            int place = Integer.parseInt(input.nextLine());
+            if (place != 0){
+                setPlace(place);
+            }
+            System.out.println("Indtast Dato:");
+            int dateOfComp = Integer.parseInt(input.nextLine());
+            if (dateOfComp != 0){
+                setDate(dateOfComp);
+            }
+            System.out.println("Indtast hvilken stævne det er:");
+            String location = input.nextLine();
+            setLocation(location);
+            System.out.println("Er personen en Junior eller Senior svømmer?");
+            String ageGroup = input.nextLine().toLowerCase(Locale.ROOT);
+            if (ageGroup.toLowerCase().startsWith("j")) {
+                setAgeGroup("Junior");
+            } else if (ageGroup.toLowerCase().startsWith("s")) {
+                setAgeGroup("Senior");
+            }
+
+            System.out.println("Indtast Svømmedisciplin: ");
+            System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
+            String style = input.nextLine().toLowerCase(Locale.ROOT);
+            if (style.toLowerCase().startsWith("cr")) {
+                setStyle("Crawl");
+            } else if (style.toLowerCase().startsWith("bu")) {
+                setStyle("Butterfly");
+            } else if (style.toLowerCase().startsWith("br")) {
+                setStyle("Brystsvømning");
+            } else if (style.toLowerCase().startsWith("ba") || style.toLowerCase().startsWith("ryg")) {
+                setStyle("Rygcrawl");
+            }
+
+            System.out.println("Indtast tid:");
+            int time = Integer.parseInt(input.nextLine());
+            if (time > 0 && time < 9999) {
+                setTime(time);
+            }
+            addMemberCom(ageGroup, style);
+            System.out.println("Er du færdig?");
+            String finish = input.nextLine();
+            if (finish.equalsIgnoreCase("ja")) {
+                doneComp = false;
+            }
+        }
+        System.out.println("\033[0;1m" +"#"+getMedlemsID()+" Er nu tilføjet til listen for"+getAgeGroup()+", "+getStyle()+ "\033[0;0m");
+    }*/
 }
