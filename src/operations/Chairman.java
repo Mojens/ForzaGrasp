@@ -209,7 +209,6 @@ public class Chairman extends Member {
             }
             }
 
-
     public boolean butterfly(String input){
         if (input.toLowerCase(Locale.ROOT).contains("but")||input.toLowerCase().contains("fly") && input.contains(" ")
                 || input.contains(",")){
