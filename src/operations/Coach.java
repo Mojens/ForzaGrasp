@@ -103,7 +103,6 @@ public class Coach extends Member {
         System.out.println("\033[0;1m" +"#"+getMedlemsID()+" Er nu tilføjet til listen for "+getAgeGroup()+", Og "+getStyle()+ "\033[0;0m");
 
     }
-
     public void addMember(String ageGroup, String style) throws IOException{
         if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("cr")) {
             Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
