@@ -16,7 +16,6 @@ public class StartMenu implements MenuRun {
     MenuRun cashierMenu = new CashierMenu();
     MenuRun coachMenu = new CoachMenu();
     MenuRun chairmanMenu = new ChairmanMenu();
-    Chairman chairman = new Chairman();
     String[] menuItem = new String[10];
 
     menuItem[1] = "Kasserer";

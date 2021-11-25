@@ -48,6 +48,3 @@ public class MenuSettings {
     return input.nextInt();
   }
 }
-/**
-  @Mohammad Adel Murtada
- */

@@ -96,10 +96,6 @@ public class Member implements Comparable{
         this.date = date;
     }
 
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
-
     public void setLocation(String location) {
         this.location = location;
     }
@@ -124,7 +120,6 @@ public class Member implements Comparable{
         return memberType;
     }
 
-
     public int getToStringStatus() {
         return toStringStatus;
     }
@@ -136,11 +131,6 @@ public class Member implements Comparable{
     public double getBalance() {
         return balance;
     }
-
-    public double getDistance() {
-        return distance;
-    }
-
 
     public int getAge() {
         return age;
@@ -163,9 +153,6 @@ public class Member implements Comparable{
     }
 
     public String getStyle() {
-        return style;
-    }
-    public String setStyle() {
         return style;
     }
 
