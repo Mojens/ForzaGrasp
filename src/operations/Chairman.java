@@ -46,10 +46,10 @@ public class Chairman extends Member {
             System.out.println("Indtast om personen er aktiv eller passiv: ");
             String statusString = input.nextLine();
 
-            if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Active")) {
+            if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Aktiv")) {
                 setStatus("Aktiv");
                 secondDone = false;
-            } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passive")||statusString.contains("Passive")) {
+            } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passiv")||statusString.contains("Passiv")) {
                 setStatus("Passiv");
                 secondDone = false;
             } else {

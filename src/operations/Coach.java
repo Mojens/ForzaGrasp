@@ -76,15 +76,16 @@ public class Coach extends Member {
             }
 
             System.out.println("Indtast Svømmedisciplin: ");
+            System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
             String style = input.nextLine();
             if (style.startsWith("Cr") || style.startsWith("cr")) {
                 setStyle("Crawl");
             } else if (style.startsWith("Bu") || style.startsWith("bu")) {
                 setStyle("Butterfly");
             } else if (style.startsWith("Br") || style.startsWith("br")) {
-                setStyle("Breaststroke");
+                setStyle("Brystsvømning");
             } else if (style.startsWith("Ba") || style.startsWith("ba")) {
-                setStyle("Backstroke");
+                setStyle("Rygcrawl");
             }
 
             System.out.println("Indtast tid:");
@@ -197,15 +198,16 @@ public class Coach extends Member {
             }
 
             System.out.println("Indtast Svømmedisciplin: ");
+            System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
             String style = input.nextLine();
             if (style.startsWith("Cr") || style.startsWith("cr")) {
                 setStyle("Crawl");
             } else if (style.startsWith("Bu") || style.startsWith("bu")) {
                 setStyle("Butterfly");
             } else if (style.startsWith("Br") || style.startsWith("br")) {
-                setStyle("Breaststroke");
+                setStyle("Brystsvømning");
             } else if (style.startsWith("Ba") || style.startsWith("ba")) {
-                setStyle("Backstroke");
+                setStyle("Rygcrawl");
             }
 
             System.out.println("Indtast tid:");
