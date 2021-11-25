@@ -45,8 +45,6 @@ public class Coach extends Member {
     public static final String seniorBackstrokeComp = "Files/seniorBackstrokeCompTimes.csv";
     public static final String seniorbreaststrokeComp = "Files/seniorBreaststrokeCompTimes.csv";
 
-
-
     public void recordPractise() throws IOException{
         setToStringStatus(4);
         Scanner input = new Scanner(System.in);
@@ -102,7 +100,7 @@ public class Coach extends Member {
                 done = false;
             }
         }
-        System.out.println("\033[0;1m" +"#"+getMedlemsID()+" Er nu tilføjet til listen for"+getAgeGroup()+", "+getStyle()+ "\033[0;0m");
+        System.out.println("\033[0;1m" +"#"+getMedlemsID()+" Er nu tilføjet til listen for "+getAgeGroup()+", Og "+getStyle()+ "\033[0;0m");
 
     }
 
@@ -277,7 +275,6 @@ public class Coach extends Member {
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
         }
     }
-
     public void showAllMembers() {
         System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
             "Svømmedisciplin:, Saldo:, Status:"+ "\033[0;0m");
