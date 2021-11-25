@@ -194,8 +194,8 @@ public class Member implements Comparable{
         Scanner sc = new Scanner(line).useDelimiter(", ");
 
         this.medlemsID = Integer.parseInt(sc.next());
-        this.style = sc.next();
         this.ageGroup = sc.next();
+        this.style = sc.next();
         this.time = Integer.parseInt(sc.next());
         this.date = Integer.parseInt(sc.next());
         this.toStringStatus = 4;
@@ -207,8 +207,8 @@ public class Member implements Comparable{
 
         this.medlemsID = sc.nextInt();
         this.place = Integer.parseInt(sc.next());
-        this.style = sc.next();
         this.ageGroup = sc.next();
+        this.style = sc.next();
         this.time = Integer.parseInt(sc.next());
         this.location = sc.next();
         this.date = Integer.parseInt(sc.next());
