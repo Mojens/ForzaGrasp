@@ -139,19 +139,19 @@ public class Coach extends Member {
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.seniorCrawl, seniorCrawl);
             addTimes(TrainingResults.allPracticesTimes, allPracticeTimes);
-        } else if (ageGroup.toLowercase().startsWith("s") && style.equalsIgnoreCase("bu") || style.equalsIgnoreCase("Bu") && time < 7000 && time > 0) {
+        } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("bu")) {
             Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.seniorButterfly.add(member);
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.seniorButterfly,seniorButterfly);
             addTimes(TrainingResults.allPracticesTimes,allPracticeTimes);
-        } else if (medlemsId > 0 && ageGroup.startsWith("s") || ageGroup.startsWith("S") && style.equalsIgnoreCase("br") || style.equalsIgnoreCase("Br") && time < 7000 && time > 0) {
+        } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("br")) {
             Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.seniorBreaststroke.add(member);
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.seniorBreaststroke,seniorbreaststroke);
             addTimes(TrainingResults.allPracticesTimes,allPracticeTimes);
-        } else if (medlemsId > 0 && ageGroup.startsWith("s") || ageGroup.startsWith("S") && style.equalsIgnoreCase("ba") || style.equalsIgnoreCase("Ba") && time < 7000 && time > 0) {
+        } else if (ageGroup.toLowerCase().startsWith("s")&& style.toLowerCase().startsWith("ba") || style.toLowerCase().startsWith("ryg")) {
             Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.seniorBackstroke.add(member);
             TrainingResults.allPracticesTimes.add(member);
