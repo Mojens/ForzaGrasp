@@ -191,23 +191,23 @@ public class Coach extends Member {
             String location = input.nextLine();
             setLocation(location);
             System.out.println("Er personen en Junior eller Senior svømmer?");
-            String ageGroup = input.nextLine();
-            if (ageGroup.startsWith("J") || ageGroup.startsWith("j")) {
+            String ageGroup = input.nextLine().toLowerCase(Locale.ROOT);
+            if (ageGroup.toLowerCase().startsWith("j")) {
                 setAgeGroup("Junior");
-            } else if (ageGroup.startsWith("S") || ageGroup.startsWith("s")) {
+            } else if (ageGroup.toLowerCase().startsWith("s")) {
                 setAgeGroup("Senior");
             }
 
             System.out.println("Indtast Svømmedisciplin: ");
             System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
-            String style = input.nextLine();
-            if (style.startsWith("Cr") || style.startsWith("cr")) {
+            String style = input.nextLine().toLowerCase(Locale.ROOT);
+            if (style.toLowerCase().startsWith("cr")) {
                 setStyle("Crawl");
-            } else if (style.startsWith("Bu") || style.startsWith("bu")) {
+            } else if (style.toLowerCase().startsWith("bu")) {
                 setStyle("Butterfly");
-            } else if (style.startsWith("Br") || style.startsWith("br")) {
+            } else if (style.toLowerCase().startsWith("br")) {
                 setStyle("Brystsvømning");
-            } else if (style.startsWith("Ba") || style.startsWith("ba")) {
+            } else if (style.toLowerCase().startsWith("ba") || style.toLowerCase().startsWith("ryg")) {
                 setStyle("Rygcrawl");
             }
 
@@ -216,7 +216,7 @@ public class Coach extends Member {
             if (time > 0 && time < 9999) {
                 setTime(time);
             }
-            addMemberCom(medlemsId,place, ageGroup, style, time,location,dateOfComp);
+            addMemberCom(ageGroup, style);
             System.out.println("Er du færdig?");
             String finish = input.nextLine();
             if (finish.equalsIgnoreCase("ja")) {
@@ -229,46 +229,55 @@ public class Coach extends Member {
 
     }
 
-    public void addMemberCom(int medlemsId,int place, String ageGroup, String style, int time, String location, int date) throws IOException
+    public void addMemberCom(String ageGroup, String style) throws IOException
     {
-        if (medlemsId > 0 && ageGroup.startsWith("j") || ageGroup.startsWith("J") && style.equalsIgnoreCase("cr") || style.equalsIgnoreCase("Cr") && time < 7000 && time > 0) {
+        if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("cr")) {
             Member member = new Member(getMedlemsID(),getPlace(), getAgeGroup(), getStyle(),getTime(), getLocation(), getDate(), getToStringStatus());
             CompetitionResults.jrCrawl.add(member);
+            CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.jrCrawl,jrCrawlComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
-        } else if (medlemsId > 0 && ageGroup.startsWith("j") || ageGroup.startsWith("J") && style.equalsIgnoreCase("bu") || style.equalsIgnoreCase("Bu") && time < 7000 && time > 0) {
+
+        } else if (ageGroup.toLowerCase().startsWith("j")&& style.toLowerCase().startsWith("bu")) {
             Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
             CompetitionResults.jrButterfly.add(member);
+            CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.jrButterfly,jrButterflyComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
-        } else if (medlemsId > 0 && ageGroup.startsWith("j") || ageGroup.startsWith("J") && style.equalsIgnoreCase("br") || style.equalsIgnoreCase("Br") && time < 7000 && time > 0) {
+        } else if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("br")) {
             Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
             CompetitionResults.jrBreaststroke.add(member);
+            CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.jrBreaststroke,jrbreaststrokeComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
-        } else if (medlemsId > 0 && ageGroup.startsWith("j") || ageGroup.startsWith("J") && style.equalsIgnoreCase("ba") || style.equalsIgnoreCase("Ba") && time < 7000 && time > 0) {
+        } else if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("ba") || style.toLowerCase().startsWith("ryg")) {
             Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
             CompetitionResults.jrBackstroke.add(member);
+            CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.jrBackstroke,jrBackstrokeComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
-        } else if (medlemsId > 0 && ageGroup.startsWith("s") || ageGroup.startsWith("S") && style.equalsIgnoreCase("cr") || style.equalsIgnoreCase("Cr") && time < 7000 && time > 0) {
+        } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("cr")) {
             Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
             CompetitionResults.seniorCrawl.add(member);
+            CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.seniorCrawl,seniorCrawlComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
-        } else if (medlemsId > 0 && ageGroup.startsWith("s") || ageGroup.startsWith("S") && style.equalsIgnoreCase("bu") || style.equalsIgnoreCase("Bu") && time < 7000 && time > 0) {
+        } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("bu")) {
             Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
             CompetitionResults.seniorButterfly.add(member);
+            CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.seniorButterfly,seniorButterflyComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
-        } else if (medlemsId > 0 && ageGroup.startsWith("s") || ageGroup.startsWith("S") && style.equalsIgnoreCase("br") || style.equalsIgnoreCase("Br") && time < 7000 && time > 0) {
+        } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("br")) {
             Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
             CompetitionResults.seniorBreaststroke.add(member);
+            CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.seniorBreaststroke,seniorbreaststrokeComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
-        } else if (medlemsId > 0 && ageGroup.startsWith("s") || ageGroup.startsWith("S") && style.equalsIgnoreCase("ba") || style.equalsIgnoreCase("Ba") && time < 7000 && time > 0) {
+        } else if (ageGroup.toLowerCase().startsWith("s")&& style.toLowerCase().startsWith("ba") || style.toLowerCase().startsWith("ryg")) {
             Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
             CompetitionResults.seniorBackstroke.add(member);
+            CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.seniorBackstroke,seniorBackstrokeComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
         }
