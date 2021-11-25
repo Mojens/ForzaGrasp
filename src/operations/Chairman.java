@@ -61,10 +61,8 @@ public class Chairman extends Member {
 
         if (getAge() < 18) {
             setAgeGroup("Junior");
-        } else if (getAge() >= 18 && getAge() < 60) {
+        } else if (getAge() >= 18) {
             setAgeGroup("Senior");
-        } else if (getAge() >= 60 && getAge() < 101){
-            setAgeGroup("Pensionist");
         }
 
 
@@ -72,7 +70,7 @@ public class Chairman extends Member {
             setBalance(-1000);
         } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv")) {
             setBalance(-1600);
-        } else if (getAgeGroup().equalsIgnoreCase("Pensionist") && getStatus().equalsIgnoreCase("Aktiv")) {
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge()>60) {
             setBalance(-1200);
         } else {
             setBalance(-500);
@@ -139,10 +137,8 @@ public class Chairman extends Member {
 
         if (getAge() < 18) {
             setAgeGroup("Junior");
-        } else if (getAge() >= 18 && getAge() < 100) {
+        } else if (getAge() >= 18) {
             setAgeGroup("Senior");
-        } else if (getAge() > 100){
-            System.out.println("Fejl");
         }
 
 
@@ -150,7 +146,7 @@ public class Chairman extends Member {
             setBalance(-1000);
         } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Active")) {
             setBalance(-1600);
-        } else if (getAgeGroup().equalsIgnoreCase("Pensionist") && getStatus().equalsIgnoreCase("Active")) {
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Active") && getAge()>60) {
             setBalance(-1200);
         } else
             setBalance(-500);

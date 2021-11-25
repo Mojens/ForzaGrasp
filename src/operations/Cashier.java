@@ -24,7 +24,7 @@ private final String allMembersFile = "Files/AllMembers.csv";
         sum = sum + 1000;
       }else if (member.getAgeGroup().equalsIgnoreCase("Senior") && member.getStatus().equalsIgnoreCase("Aktiv")){
         sum = sum + 1600;
-      }else if (member.getAgeGroup().equalsIgnoreCase("Pensionist") && member.getStatus().equalsIgnoreCase("Aktiv")){
+      }else if (member.getAgeGroup().equalsIgnoreCase("Senior") && member.getStatus().equalsIgnoreCase("Aktiv")&&getAge()>60){
         sum = sum + 1600/1.25;
       }else{
         sum = sum + 500;
