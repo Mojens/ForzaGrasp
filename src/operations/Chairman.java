@@ -210,8 +210,8 @@ public class Chairman extends Member {
             }
 
     public boolean butterfly(String input){
-        if (input.toLowerCase(Locale.ROOT).contains("but")||input.toLowerCase().contains("fly") && input.contains(" ")
-                || input.contains(",")){
+        if (input.toLowerCase().contains("but")||input.toLowerCase().contains("fly") && input.contains(" ")
+                | input.contains(",")){
             return true;
         }
 
@@ -220,7 +220,7 @@ public class Chairman extends Member {
 
     public boolean crawl(String input){
         if (input.matches("(?s).*\\bcrawl\\b.*")||input.toLowerCase().contains("free")
-                || input.toLowerCase().contains("front") && input.contains(" ") || input.contains(",") ){
+                || input.toLowerCase().contains("front") && input.contains(" ") | input.contains(",") ){
             return true;
         }
 
@@ -228,8 +228,8 @@ public class Chairman extends Member {
     }
 
     public boolean backstroke(String input){
-        if (input.toLowerCase(Locale.ROOT).contains("back")||input.toLowerCase().contains("ryg") && input.contains(" ")
-                || input.contains(",")){
+        if (input.toLowerCase().contains("back")||input.toLowerCase().contains("ryg") && input.contains(" ")
+                | input.contains(",")){
             return true;
         }
 
@@ -237,8 +237,8 @@ public class Chairman extends Member {
     }
 
     public boolean breast(String input){
-        if (input.toLowerCase(Locale.ROOT).contains("brea")||input.toLowerCase().contains("bry") && input.contains(" ")
-                || input.contains(",")){
+        if (input.toLowerCase().contains("brea")||input.toLowerCase().contains("bry") && input.contains(" ")
+                | input.contains(",")){
             return true;
         }
 
