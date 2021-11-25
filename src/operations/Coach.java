@@ -125,7 +125,7 @@ public class Coach extends Member {
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.jrBreaststroke,jrbreaststroke);
             addTimes(TrainingResults.allPracticesTimes,allPracticeTimes);
-        } else if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("ba") || style.toLowerCase().startsWith("ryg")) {
+        } else if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("ba") | style.toLowerCase().startsWith("ryg")) {
             Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.jrBackstroke.add(member);
             TrainingResults.allPracticesTimes.add(member);
@@ -149,7 +149,7 @@ public class Coach extends Member {
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.seniorBreaststroke,seniorbreaststroke);
             addTimes(TrainingResults.allPracticesTimes,allPracticeTimes);
-        } else if (ageGroup.toLowerCase().startsWith("s")&& style.toLowerCase().startsWith("ba") || style.toLowerCase().startsWith("ryg")) {
+        } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("ba") | style.toLowerCase().startsWith("ryg")) {
             Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.seniorBackstroke.add(member);
             TrainingResults.allPracticesTimes.add(member);

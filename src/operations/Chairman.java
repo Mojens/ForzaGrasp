@@ -10,8 +10,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.PatternSyntaxException;
+import java.util.regex.Pattern;
 
 public class Chairman extends Member {
     public final String competiviveFile = "Files/CompetiviveList.csv";
@@ -20,6 +22,8 @@ public class Chairman extends Member {
     boolean secondDone = true;
     boolean styleInput = true;
 
+
+
     public void registerCasual() throws IOException {
         Scanner input = new Scanner(System.in);
         setToStringStatus(2);
@@ -27,7 +31,8 @@ public class Chairman extends Member {
         setStyle("Ingen");
 
         System.out.println("Indtast fulde navn: ");
-        setName(input.nextLine());
+        String nameInput = input.nextLine();
+        setName(nameInput);
 
         while (done){
         System.out.println("Indtast alder: ");
@@ -61,16 +66,16 @@ public class Chairman extends Member {
 
         if (getAge() < 18) {
             setAgeGroup("Junior");
-        } else if (getAge() >= 18) {
+        } else if (getAge() >= 18 && getAge() < 110) {
             setAgeGroup("Senior");
         }
 
 
         if (getAgeGroup().equalsIgnoreCase("Junior") && getStatus().equalsIgnoreCase("Aktiv")) {
             setBalance(-1000);
-        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv")) {
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge() < 60) {
             setBalance(-1600);
-        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge()>60) {
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge() >= 60) {
             setBalance(-1200);
         } else {
             setBalance(-500);
@@ -91,7 +96,7 @@ public class Chairman extends Member {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Indtast fulde navn: ");
-        setName(input.nextLine());
+        //setName(input.nextLine());
 
         while (done){
             System.out.println("Indtast alder: ");
