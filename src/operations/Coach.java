@@ -102,9 +102,7 @@ public class Coach extends Member {
                 done = false;
             }
         }
-        for (Member cleaned : TrainingResults.allPracticesTimes) {
-            System.out.println(cleaned.toString());
-        }
+        System.out.println("\033[0;1m" +"#"+getMedlemsID()+" Er nu tilføjet til listen for"+getAgeGroup()+", "+getStyle()+ "\033[0;0m");
 
     }
 
@@ -223,10 +221,7 @@ public class Coach extends Member {
                 doneComp = false;
             }
         }
-        for (Member cleaned : CompetitionResults.competitionList) {
-            System.out.println(cleaned.toString());
-        }
-
+        System.out.println("\033[0;1m" +"#"+getMedlemsID()+" Er nu tilføjet til listen for"+getAgeGroup()+", "+getStyle()+ "\033[0;0m");
     }
 
     public void addMemberCom(String ageGroup, String style) throws IOException
