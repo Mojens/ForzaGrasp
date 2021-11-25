@@ -284,75 +284,11 @@ public class Coach extends Member {
         }
     }
 
-    //Junior top 5 Crawl
-    public void top5JrCrawl(){
-        Collections.sort(TrainingResults.jrCrawl);
-        int counterOne = 1;
-        for (Member jrCrawl : TrainingResults.jrCrawl.subList(0,5)) {
-            System.out.println("\033[0;1m" + "#" + counterOne++ + "\033[0;0m" + ": " + jrCrawl);
-        }
-    }
-
-    //Junior top 5 BreastStroke
-    public void top5JrBreastStroke(){
-        Collections.sort(TrainingResults.jrBreaststroke);
-        int counterFour = 1;
-        for (Member jrBreastStroke : TrainingResults.jrBreaststroke.subList(0,5)) {
-            System.out.println("\033[0;1m" + "#" + counterFour++ + "\033[0;0m" + ": " + jrBreastStroke);
-        }
-    }
-
-    //Junior top 5 BackStroke
-    public void top5JrBackStroke(){
-        Collections.sort(TrainingResults.jrBackstroke);
-        int counterThree = 1;
-        for (Member jrBackStroke : TrainingResults.jrBackstroke.subList(0,5)) {
-            System.out.println("\033[0;1m" + "#" + counterThree++ + "\033[0;0m" + ": " + jrBackStroke);
-        }
-    }
-
-    //Junior top 5 Butterfly
-    public void top5JrButterfly(){
-        Collections.sort(TrainingResults.jrButterfly);
-        int counterTwo = 1;
-        for (Member jrButterfly : TrainingResults.jrButterfly.subList(0,5)) {
-            System.out.println("\033[0;1m" + "#" + counterTwo++ + "\033[0;0m" + ": " + jrButterfly);
-        }
-    }
-
-    //Senioer top 5 Crawl
-    public void top5SrCrawl(){
-        Collections.sort(TrainingResults.seniorCrawl);
-        int counterTwo = 1;
-        for (Member seniorCrawl : TrainingResults.seniorCrawl.subList(0,5)) {
-            System.out.println("\033[0;1m" + "#" + counterTwo++ + "\033[0;0m" + ": " + seniorCrawl);
-        }
-    }
-
-    //Senioer top 5 BreastStroke
-    public void top5SrBreastStroke(){
-        Collections.sort(TrainingResults.seniorBreaststroke);
-        int counterTwo = 1;
-        for (Member seniorBreastStroke : TrainingResults.seniorBreaststroke.subList(0,5)) {
-            System.out.println("\033[0;1m" + "#" + counterTwo++ + "\033[0;0m" + ": " + seniorBreastStroke);
-        }
-    }
-
-    //Senioer top 5 BackStroke
-    public void top5SrBackStroke(){
-        Collections.sort(TrainingResults.seniorBackstroke);
-        int counterTwo = 1;
-        for (Member seniorBackStroke : TrainingResults.seniorBackstroke.subList(0,5)) {
-            System.out.println("\033[0;1m" + "#" + counterTwo++ + "\033[0;0m" + ": " + seniorBackStroke);
-        }
-    }
-
-    //Senioer top 5 Butterfly
-    public void topSrButterfly(){
-        Collections.sort(TrainingResults.seniorButterfly);
-        int counterTwo = 1;
-        for (Member seniorButterfly : TrainingResults.seniorButterfly.subList(0,5)) {
-            System.out.println("\033[0;1m" + "#" + counterTwo++ + "\033[0;0m" + ": " + seniorButterfly);
+    public void showTop5(ArrayList<Member> list){
+        Collections.sort(list);
+        int counter = 1;
+        for (Member member : list.subList(0,5)){
+            System.out.println("\033[0;1m" + "#" + counter++ + "\033[0;0m" + ": " + member);
         }
     }
 

@@ -4,6 +4,8 @@ import core.MenuSettings;
 import interfaces.MenuRun;
 import operations.Coach;
 import util.MemberList;
+import util.TrainingResults;
+
 import java.io.IOException;
 
 /**
@@ -103,7 +105,7 @@ public class CoachMenu implements MenuRun {
         coach.line();
         System.out.println("\u001B[0;1m"+"Crawl"+ "\033[0;0m"  +" Top 5 for Junior: \n");
         System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
-        coach.top5JrCrawl();
+        coach.showTop5(TrainingResults.jrCrawl);
         coach.line();
         top5MenuRun();
           checkChoice = true;
@@ -112,7 +114,7 @@ public class CoachMenu implements MenuRun {
           coach.line();
           System.out.println("\u001B[0;1m"+"Rygcrawl"+ "\033[0;0m" +" Top 5 for Junior: \n");
           System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
-          coach.top5JrBackStroke();
+          coach.showTop5(TrainingResults.jrBackstroke);
           top5MenuRun();
           coach.line();
           checkChoice = true;
@@ -121,7 +123,7 @@ public class CoachMenu implements MenuRun {
           coach.line();
           System.out.println("\u001B[0;1m"+"Butterfly"+ "\033[0;0m" +"Top 5 for Junior: \n");
           System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
-          coach.top5JrButterfly();
+          coach.showTop5(TrainingResults.jrButterfly);
           coach.line();
           top5MenuRun();
           checkChoice = true;
@@ -129,8 +131,8 @@ public class CoachMenu implements MenuRun {
         case 4:
           coach.line();
           System.out.println("\u001B[0;1m"+"Brystsvømming"+ "\033[0;0m" + "Top 5 for Junior: \n");
-          System.out.println("\033[0;1m"+"Crawl"+ "\033[0;0m" +" Top 5 for Junior: ");
-          coach.top5SrBreastStroke();
+          System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
+          coach.showTop5(TrainingResults.jrBreaststroke);
           coach.line();
           top5MenuRun();
           checkChoice = true;
@@ -138,8 +140,8 @@ public class CoachMenu implements MenuRun {
         case 5:
           coach.line();
           System.out.println("\u001B[0;1m"+"Crawl"+ "\033[0;0m" +" Top 5 for Senior: \n");
-          System.out.println("\033[0;1m"+"Crawl"+ "\033[0;0m" +" Top 5 for Senior: ");
-          coach.top5SrCrawl();
+          System.out.println("\u001B[0;1m" + "Senior Informationer : "+ "\033[0;0m"+"\n");
+          coach.showTop5(TrainingResults.seniorCrawl);
           coach.line();
           top5MenuRun();
           checkChoice = true;
@@ -147,8 +149,8 @@ public class CoachMenu implements MenuRun {
         case 6:
           coach.line();
           System.out.println("\u001B[0;1m"+"Rygcrawl"+ "\033[0;0m" +" Top 5 for Senior: \n");
-          System.out.println("\033[0;1m"+"Crawl"+ "\033[0;0m" +" Top 5 for Senior: ");
-          coach.top5SrBackStroke();
+          System.out.println("\u001B[0;1m" + "Senior Informationer : "+ "\033[0;0m"+"\n");
+          coach.showTop5(TrainingResults.seniorBackstroke);
           coach.line();
           top5MenuRun();
           checkChoice = true;
@@ -156,8 +158,8 @@ public class CoachMenu implements MenuRun {
         case 7:
           coach.line();
           System.out.println("\u001B[0;1m"+"Butterfly"+ "\033[0;0m" +" Top 5 for Senior: \n");
-          System.out.println("\033[0;1m"+"Crawl"+ "\033[0;0m" +" Top 5 for Senior: ");
-          coach.topSrButterfly();
+          System.out.println("\u001B[0;1m" + "Senior Informationer : "+ "\033[0;0m"+"\n");
+          coach.showTop5(TrainingResults.seniorButterfly);
           top5MenuRun();
           coach.line();
           checkChoice = true;
@@ -165,8 +167,8 @@ public class CoachMenu implements MenuRun {
         case 8:
           coach.line();
           System.out.println("\u001B[0;1m"+"Brystsvømming"+ "\033[0;0m" +" Top 5 for Senior: \n");
-          System.out.println("\033[0;1m"+"Crawl"+ "\033[0;0m" +" Top 5 for Senior: ");
-          coach.top5JrBreastStroke();
+          System.out.println("\u001B[0;1m" + "Senior Informationer : "+ "\033[0;0m"+"\n");
+          coach.showTop5(TrainingResults.seniorBreaststroke);
           coach.line();
           top5MenuRun();
           checkChoice = true;
