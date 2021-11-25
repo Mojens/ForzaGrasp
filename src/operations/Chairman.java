@@ -10,8 +10,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -70,11 +68,11 @@ public class Chairman extends Member {
         }
 
 
-        if (getAgeGroup().equalsIgnoreCase("Junior") && getStatus().equalsIgnoreCase("Active")) {
+        if (getAgeGroup().equalsIgnoreCase("Junior") && getStatus().equalsIgnoreCase("Aktiv")) {
             setBalance(-1000);
-        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Active")) {
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv")) {
             setBalance(-1600);
-        } else if (getAgeGroup().equalsIgnoreCase("Pensionist") && getStatus().equalsIgnoreCase("Active")) {
+        } else if (getAgeGroup().equalsIgnoreCase("Pensionist") && getStatus().equalsIgnoreCase("Aktiv")) {
             setBalance(-1200);
         } else {
             setBalance(-500);
@@ -111,14 +109,13 @@ public class Chairman extends Member {
         }
 
         while (styleInput){
-            System.out.println("Indtast svømmediscplinen såldes hvis der er mere end 1");
-            System.out.println("'Crawl Butterfly' Altså seperet med et mellemrum");
-            String inputStyle = input.nextLine();
-            if (inputStyle.startsWith("crawl")||inputStyle.startsWith("breast")||inputStyle.startsWith("back")||inputStyle.contains("butterfly")){
-                setStyle(inputStyle.toUpperCase(Locale.ROOT));
+            System.out.println("Indtast svømmediscipliner");
+            String inputStyle = input.nextLine().toLowerCase();
+            checkStyleInput(inputStyle);
+            if (inputStyle.contains("")){
                 styleInput = false;
-            } else if (inputStyle.equalsIgnoreCase("No")||inputStyle.equalsIgnoreCase("None")){
-                setStyle("NONE");
+            } else if (inputStyle.equalsIgnoreCase("Nej")||inputStyle.equalsIgnoreCase("None")||inputStyle.equalsIgnoreCase("ingen")){
+                setStyle("Ingen");
                 styleInput = true;
             }
         }
@@ -177,6 +174,79 @@ public class Chairman extends Member {
             counter++;
             System.out.println("#"+counter+", " + MemberList.allMembers.get(i));
         }
+    }
+
+    public void checkStyleInput(String inputStyle){
+            if (crawl(inputStyle) && breast(inputStyle) && butterfly(inputStyle) && backstroke(inputStyle)){
+                setStyle("Brystsvømning Butterfly Crawl Rygcrawl");
+            } else if (crawl(inputStyle) && breast(inputStyle) && butterfly(inputStyle)){
+                setStyle("Brystsvømning Butterfly Crawl");
+            } else if (crawl(inputStyle) && breast(inputStyle) && backstroke(inputStyle)) {
+                setStyle("Brystsvømning Crawl Rygcrawl");
+            } else if (crawl(inputStyle) && butterfly(inputStyle) && backstroke(inputStyle)){
+                setStyle("Butterfly Crawl Rygcrawl");
+            } else if (butterfly(inputStyle) && backstroke(inputStyle) && breast(inputStyle)){
+                setStyle("Brystsvømning Butterfly Rygcrawl");
+            } else if (crawl(inputStyle) && breast(inputStyle)){
+                setStyle("Brystsvømning Crawl");
+            } else if (crawl(inputStyle) && backstroke(inputStyle)){
+                setStyle("Crawl Rygcrawl");
+            } else if (crawl(inputStyle) && butterfly(inputStyle)){
+                setStyle("Butterfly Crawl");
+            } else if (breast(inputStyle)&& backstroke(inputStyle)){
+                setStyle("Brystsvømning Rygcrawl");
+            } else if (breast(inputStyle) && butterfly(inputStyle)){
+                setStyle("Brystsvømning Butterfly");
+            } else if (butterfly(inputStyle) && backstroke(inputStyle)){
+                setStyle("Butterfly Rygcrawl");
+            } else if (breast(inputStyle)){
+                setStyle("Brystsvømning");
+            } else if (crawl(inputStyle)){
+                setStyle("Crawl");
+            } else if (backstroke(inputStyle)){
+                setStyle("Rygcrawl");
+            } else if (butterfly(inputStyle)){
+                setStyle("Butterfly");
+            } else {
+                setStyle("Ingen");
+            }
+            }
+
+
+    public boolean butterfly(String input){
+        if (input.toLowerCase(Locale.ROOT).contains("but")||input.toLowerCase().contains("fly") && input.contains(" ")
+                || input.contains(",")){
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean crawl(String input){
+        if (input.matches("(?s).*\\bcrawl\\b.*")||input.toLowerCase().contains("free")
+                || input.toLowerCase().contains("front") && input.contains(" ") || input.contains(",") ){
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean backstroke(String input){
+        if (input.toLowerCase(Locale.ROOT).contains("back")||input.toLowerCase().contains("ryg") && input.contains(" ")
+                || input.contains(",")){
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean breast(String input){
+        if (input.toLowerCase(Locale.ROOT).contains("brea")||input.toLowerCase().contains("bry") && input.contains(" ")
+                || input.contains(",")){
+            return true;
+        }
+
+        return false;
     }
 
     public void addToCompetitiveFile(Member member) throws IOException {
