@@ -121,7 +121,7 @@ public class CoachMenu implements MenuRun {
           break;
         case 3:
           coach.line();
-          System.out.println("\u001B[0;1m"+"Butterfly"+ "\033[0;0m" +"Top 5 for Junior: \n");
+          System.out.println("\u001B[0;1m"+"Butterfly"+ "\033[0;0m" +" Top 5 for Junior: \n");
           System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
           coach.showTop5(TrainingResults.jrButterfly);
           coach.line();
@@ -130,7 +130,7 @@ public class CoachMenu implements MenuRun {
           break;
         case 4:
           coach.line();
-          System.out.println("\u001B[0;1m"+"Brystsvømming"+ "\033[0;0m" + "Top 5 for Junior: \n");
+          System.out.println("\u001B[0;1m"+"Brystsvømming"+ "\033[0;0m" + " Top 5 for Junior: \n");
           System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
           coach.showTop5(TrainingResults.jrBreaststroke);
           coach.line();
