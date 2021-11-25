@@ -71,7 +71,7 @@ public class ChairmanMenu implements MenuRun {
           break;
 
         default:
-          System.out.println("\nDet skal være et tal 1,2,3 eller 9");
+          System.out.println("\nDet skal være et tal");
           System.out.println("Prøv igen");
           menuSettings.printMenu();
           choice = menuSettings.readChoice();

@@ -32,7 +32,7 @@ public class MenuSettings {
   public int readChoice() {
     Scanner input = new Scanner(System.in);
     while (!input.hasNextInt()) {
-      System.out.println("\nDet skal være et tal 1,2,3 eller 9");
+      System.out.println("\nDet skal være et tal");
       System.out.println("Prøv igen");
       System.out.println(menuHeader);
 
