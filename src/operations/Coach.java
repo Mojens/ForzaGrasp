@@ -286,6 +286,8 @@ public class Coach extends Member {
     }
 
     public void showTop5(ArrayList<Member> list){
+        System.out.println("\033[0;1m" +"MedlemsID:, SvømmeDisciplin, Aldersgruppe:, tid:, " +
+            "Dato:,"+ "\033[0;0m");
         Collections.sort(list);
         int counter = 1;
         for (Member member : list.subList(0,5)){
