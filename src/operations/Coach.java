@@ -9,10 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @Author Simon, Malthe og Mohammad
@@ -23,7 +20,7 @@ public class Coach extends Member {
     private boolean doneComp = true;
     private Scanner input = new Scanner(System.in);
 
-    public static final String allPracticeTimes = "Files/AllPracticeTimes.csv";
+    public static String allPracticeTimes = "Files/AllPracticeTimes.csv";
     public static final String allCompetitionTimes = "Files/AllCompetitionTimes.csv";
 
     public static final String jrCrawl = "Files/JuniorCrawlTimes.csv";
@@ -52,8 +49,7 @@ public class Coach extends Member {
         showAllMembers();
 
         while (done){
-            medlemsId();
-            //getMemberInfo();
+            name();
             date();
             ageGroup();
             style();
@@ -73,7 +69,7 @@ public class Coach extends Member {
         showAllMembers();
 
         while (doneComp){
-            medlemsId();
+            name();
             rank();
             date();
             location();
@@ -92,27 +88,9 @@ public class Coach extends Member {
 
     }
 
-    public void getMemberInfo() {
-        int counter = -1;
-        for (Member member : MemberList.competitiveList) {
-            counter++;
-            if (member.getBalance() < 0) {
-                System.out.println("\033[0;1m" + "#" + counter + "\033[0;0m" + " " + member);
-            }
-            System.out.println("Indtast MedlemsID: ");
-            int medlemsId = Integer.parseInt(input.nextLine());
-            MemberList.competitiveList.get(medlemsId).getName();
-            setMedlemsID(medlemsId);
-            setName(member.getName());
-
-        }
-    }
-    public void medlemsId(){
-        System.out.println("Indtast MedlemsID: ");
-        int medlemsId = Integer.parseInt(input.nextLine());
-        if (medlemsId > 0) {
-            setMedlemsID(medlemsId);
-        }
+    public void name(){
+        System.out.println("Indtast Navn: ");
+        setName(capitalizeWord(input.nextLine()));
     }
 
     public void date(){
@@ -169,54 +147,54 @@ public class Coach extends Member {
     }
 
     public void nowAdded(){
-        System.out.println("\033[0;1m" +"#"+getMedlemsID()+" Er nu tilføjet til listen for "+getAgeGroup()+", "+getStyle()+ "\033[0;0m");
+        System.out.println("\033[0;1m" + getName()+ "\033[0;0m" + " Er nu tilføjet til listen for "+"\033[0;1m" +getAgeGroup()+", "+getStyle()+ "\033[0;0m");
     }
 
     public void addMember(String ageGroup, String style) throws IOException{
         if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("cr")) {
-            Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
+            Member member = new Member(getName(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.jrCrawl.add(member);
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.jrCrawl,jrCrawl);
             addTimes(TrainingResults.allPracticesTimes,allPracticeTimes);
         } else if (ageGroup.toLowerCase().startsWith("j")&& style.toLowerCase().startsWith("bu")) {
-            Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
+            Member member = new Member(getName(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.jrButterfly.add(member);
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.jrButterfly,jrButterfly);
             addTimes(TrainingResults.allPracticesTimes,allPracticeTimes);
         } else if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("br")) {
-            Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
+            Member member = new Member(getName(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.jrBreaststroke.add(member);
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.jrBreaststroke,jrbreaststroke);
             addTimes(TrainingResults.allPracticesTimes,allPracticeTimes);
         } else if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("ba") | style.toLowerCase().startsWith("ryg")) {
-            Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
+            Member member = new Member(getName(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.jrBackstroke.add(member);
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.jrBackstroke,jrBackstroke);
             addTimes(TrainingResults.allPracticesTimes,allPracticeTimes);
         } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("cr")) {
-            Member member = new Member(getMedlemsID(), getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
+            Member member = new Member(getName(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.seniorCrawl.add(member);
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.seniorCrawl, seniorCrawl);
             addTimes(TrainingResults.allPracticesTimes, allPracticeTimes);
         } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("bu")) {
-            Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
+            Member member = new Member(getName(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.seniorButterfly.add(member);
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.seniorButterfly,seniorButterfly);
             addTimes(TrainingResults.allPracticesTimes,allPracticeTimes);
         } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("br")) {
-            Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
+            Member member = new Member(getName(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.seniorBreaststroke.add(member);
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.seniorBreaststroke,seniorbreaststroke);
             addTimes(TrainingResults.allPracticesTimes,allPracticeTimes);
         } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("ba") | style.toLowerCase().startsWith("ryg")) {
-            Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
+            Member member = new Member(getName(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.seniorBackstroke.add(member);
             TrainingResults.allPracticesTimes.add(member);
             addTimes(TrainingResults.seniorBackstroke,seniorBackstroke);
@@ -228,50 +206,50 @@ public class Coach extends Member {
     public void addMemberCom(String ageGroup, String style) throws IOException
     {
         if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("cr")) {
-            Member member = new Member(getMedlemsID(),getPlace(), getAgeGroup(), getStyle(),getTime(), getLocation(), getDate(), getToStringStatus());
+            Member member = new Member(getName(),getPlace(), getAgeGroup(), getStyle(),getTime(), getLocation(), getDate(), getToStringStatus());
             CompetitionResults.jrCrawl.add(member);
             CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.jrCrawl,jrCrawlComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
 
         } else if (ageGroup.toLowerCase().startsWith("j")&& style.toLowerCase().startsWith("bu")) {
-            Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
+            Member member = new Member(getName(),getPlace(), getAgeGroup(), getStyle(),getTime(), getLocation(), getDate(), getToStringStatus());
             CompetitionResults.jrButterfly.add(member);
             CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.jrButterfly,jrButterflyComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
         } else if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("br")) {
-            Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
+            Member member = new Member(getName(),getPlace(), getAgeGroup(), getStyle(),getTime(), getLocation(), getDate(), getToStringStatus());
             CompetitionResults.jrBreaststroke.add(member);
             CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.jrBreaststroke,jrbreaststrokeComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
         } else if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("ba") || style.toLowerCase().startsWith("ryg")) {
-            Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
+            Member member = new Member(getName(),getPlace(), getAgeGroup(), getStyle(),getTime(), getLocation(), getDate(), getToStringStatus());
             CompetitionResults.jrBackstroke.add(member);
             CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.jrBackstroke,jrBackstrokeComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
         } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("cr")) {
-            Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
+            Member member = new Member(getName(),getPlace(), getAgeGroup(), getStyle(),getTime(), getLocation(), getDate(), getToStringStatus());
             CompetitionResults.seniorCrawl.add(member);
             CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.seniorCrawl,seniorCrawlComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
         } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("bu")) {
-            Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
+            Member member = new Member(getName(),getPlace(), getAgeGroup(), getStyle(),getTime(), getLocation(), getDate(), getToStringStatus());
             CompetitionResults.seniorButterfly.add(member);
             CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.seniorButterfly,seniorButterflyComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
         } else if (ageGroup.toLowerCase().startsWith("s") && style.toLowerCase().startsWith("br")) {
-            Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
+            Member member = new Member(getName(),getPlace(), getAgeGroup(), getStyle(),getTime(), getLocation(), getDate(), getToStringStatus());
             CompetitionResults.seniorBreaststroke.add(member);
             CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.seniorBreaststroke,seniorbreaststrokeComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
-        } else if (ageGroup.toLowerCase().startsWith("s")&& style.toLowerCase().startsWith("ba") || style.toLowerCase().startsWith("ryg")) {
-            Member member = new Member(getMedlemsID(),getPlace(), getStyle(), getAgeGroup(), getTime(),getLocation(),getDate(), getToStringStatus());
+        } else if (ageGroup.toLowerCase().startsWith("s")&& style.toLowerCase().startsWith("ba") | style.toLowerCase().startsWith("ryg")) {
+            Member member = new Member(getName(),getPlace(), getAgeGroup(), getStyle(),getTime(), getLocation(), getDate(), getToStringStatus());
             CompetitionResults.seniorBackstroke.add(member);
             CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.seniorBackstroke,seniorBackstrokeComp);
@@ -289,8 +267,8 @@ public class Coach extends Member {
     }
 
     public void showTop5(ArrayList<Member> list){
-        System.out.println("\033[0;1m" +"MedlemsID:, SvømmeDisciplin, Aldersgruppe:, tid:, " +
-            "Dato:,"+ "\033[0;0m");
+        System.out.println("\033[0;1m" +"Navn:  Aldersgruppe:  SvømmeDisciplin:  Dato: " +
+            "Tid:"+ "\033[0;0m");
         Collections.sort(list);
         int counter = 1;
         for (Member member : list.subList(0,5)){

@@ -11,7 +11,6 @@ public class Member implements Comparable{
     public String ageGroup;
     private double balance;
     public String style;
-    private double distance;
     private int time;
     private int place;
     private String location;
@@ -48,13 +47,13 @@ public class Member implements Comparable{
                     + style + ", "
                     + balance + ", " + status + "\n";
         }else if (getToStringStatus() == 4){
-            return medlemsID + ", "
-                    +ageGroup + ", "
+            return name + ", "
+                    + ageGroup + ", "
                     + style + ", "
                     + date + ", "
                     + time+"\n";
         } else if(getToStringStatus() == 5){
-            return medlemsID + ", "
+            return name + ", "
                     + place + ", "
                     +ageGroup + ", "
                     + style + ", "
@@ -160,17 +159,10 @@ public class Member implements Comparable{
         return status;
     }
 
-    public int getMedlemsID() {
-        return medlemsID;
-    }
-
     public int getTime() {
         return time;
     }
 
-    public void setMedlemsID(int medlemsID) {
-        this.medlemsID = medlemsID;
-    }
 
     public Member(){
 
@@ -190,10 +182,10 @@ public class Member implements Comparable{
 
     }
 
-    public void setDataFromLinePrac(String line){
+    public void setDataFromLinePrac(String line) {
         Scanner sc = new Scanner(line).useDelimiter(", ");
 
-        this.medlemsID = Integer.parseInt(sc.next());
+        this.name = sc.next();
         this.ageGroup = sc.next();
         this.style = sc.next();
         this.date = Integer.parseInt(sc.next());
@@ -205,7 +197,7 @@ public class Member implements Comparable{
     public void setDataFromLineComp(String line){
         Scanner sc = new Scanner(line).useDelimiter(", ");
 
-        this.medlemsID = sc.nextInt();
+        this.name = sc.next();
         this.place = Integer.parseInt(sc.next());
         this.ageGroup = sc.next();
         this.style = sc.next();
@@ -241,18 +233,18 @@ public class Member implements Comparable{
     }
     // practice Times
 
-    public Member(int medlemsID,String ageGroup, String style, int time, int date, int toStringStatus){
-        this.medlemsID = medlemsID;
-        this.style = style;
+    public Member(String name,String ageGroup, String style, int time, int date, int toStringStatus){
+        this.name = name;
         this.ageGroup = ageGroup;
+        this.style = style;
         this.time = time;
         this.date = date;
         this.toStringStatus = toStringStatus;
     }
         //Comptetition info and times
 
-    public Member(int medlemsID, int place, String ageGroup, String style, int time, String location, int date, int toStringStatus){
-        this.medlemsID = medlemsID;
+    public Member(String name, int place, String ageGroup, String style, int time, String location, int date, int toStringStatus){
+        this.name = name;
         this.place = place;
         this.style = style;
         this.ageGroup = ageGroup;
