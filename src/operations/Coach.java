@@ -92,10 +92,10 @@ public class Coach extends Member {
 
             System.out.println("Indtast tid:");
             int time = Integer.parseInt(input.nextLine());
-            if (time > 0 && time < 9999) {
+            if (time > 0 && time < 999999) {
                 setTime(time);
             }
-            addMember(medlemsId, dateOfPrac, ageGroup, style, time);
+            addMember(ageGroup, style);
             System.out.println("Er du færdig?");
             String finish = input.nextLine();
             if (finish.equalsIgnoreCase("ja")) {
@@ -108,7 +108,7 @@ public class Coach extends Member {
 
     }
 
-    public void addMember(int medlemsId, int dateOfPrac, String ageGroup, String style, int time) throws IOException{
+    public void addMember(String ageGroup, String style) throws IOException{
         if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("cr")) {
             Member member = new Member(getMedlemsID(),getAgeGroup(), getStyle(), getTime(), getDate(), getToStringStatus());
             TrainingResults.jrCrawl.add(member);
