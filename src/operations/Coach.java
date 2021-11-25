@@ -65,6 +65,7 @@ public class Coach extends Member {
                 setMedlemsID(medlemsId);
             }
             System.out.println("Indtast Dato:");
+            System.out.println("Det skal skrives således: 24112021");
             int dateOfPrac = Integer.parseInt(input.nextLine());
             setDate(dateOfPrac);
             System.out.println("Er personen en Junior eller Senior svømmer?");

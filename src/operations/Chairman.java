@@ -107,7 +107,8 @@ public class Chairman extends Member {
         }
 
         while (styleInput){
-            System.out.println("Indtast svømmediscipliner");
+            System.out.println("Indtast svømmedisciplin: ");
+            System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
             String inputStyle = input.nextLine().toLowerCase();
             checkStyleInput(inputStyle);
             if (inputStyle.contains("")){
@@ -122,10 +123,10 @@ public class Chairman extends Member {
             System.out.println("Indtast om personen er aktiv eller passiv: ");
             String statusString = input.nextLine();
 
-            if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Active")) {
+            if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("aktiv")||statusString.contains("Aktiv")) {
                 setStatus("Aktiv");
                 secondDone = false;
-            } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passive")||statusString.contains("Passive")) {
+            } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passiv")||statusString.contains("Passiv")) {
                 setStatus("Passiv");
                 secondDone = false;
             } else {
@@ -142,11 +143,11 @@ public class Chairman extends Member {
         }
 
 
-        if (getAgeGroup().equalsIgnoreCase("Junior") && getStatus().equalsIgnoreCase("Active")) {
+        if (getAgeGroup().equalsIgnoreCase("Junior") && getStatus().equalsIgnoreCase("Aktiv")) {
             setBalance(-1000);
-        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Active")) {
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge()<=60) {
             setBalance(-1600);
-        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Active") && getAge()>60) {
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge()>60) {
             setBalance(-1200);
         } else
             setBalance(-500);
