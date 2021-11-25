@@ -10,10 +10,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.PatternSyntaxException;
-import java.util.regex.Pattern;
 
 public class Chairman extends Member {
     public final String competiviveFile = "Files/CompetiviveList.csv";
@@ -21,30 +19,54 @@ public class Chairman extends Member {
     boolean done = true;
     boolean secondDone = true;
     boolean styleInput = true;
+    private Scanner input = new Scanner(System.in);
 
+    public void registerCasual() throws IOException{
+        setToStringStatus(2);
+        setMemberType("Motionist");
+        setStyle("Ingen");
 
+        name();
+        age();
+        ageGroup();
+        status();
+        balance();
 
-    public void registerCasual() throws IOException {
+        Member member = new Member(getName(), getAge(), getAgeGroup(), getMemberType(), getStyle(),getBalance(), getStatus(), getToStringStatus());
+        MemberList.casualList.add(member);
+        MemberList.allMembers.add(member);
+        new Chairman().addToAllMembersFile(member);
+
+        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen");
+
+    }
+
+    /*public void registerCasual() throws IOException {
         Scanner input = new Scanner(System.in);
         setToStringStatus(2);
         setMemberType("Motionist");
         setStyle("Ingen");
 
-        System.out.println("Indtast fulde navn: ");
-        String nameInput = input.nextLine();
-        setName(nameInput);
+        System.out.println("Indtast fulde navn:");
+        setName(capitalizeWord(input.nextLine()));
 
         while (done){
         System.out.println("Indtast alder: ");
         int age = Integer.parseInt(input.nextLine());
-        if (age<100){
+        if (age<106){
             setAge(age);
             done = false;
         } else {
-            System.out.println("Over 100?");
+            System.out.println("Over 105?");
             done = true;
         }
 
+        }
+
+        if (getAge() < 18) {
+            setAgeGroup("Junior");
+        } else if (getAge() >= 18 && getAge() < 110) {
+            setAgeGroup("Senior");
         }
 
         while (secondDone){
@@ -61,13 +83,6 @@ public class Chairman extends Member {
                 System.out.println("Prøv Igen");
                 secondDone = true;
             }
-        }
-
-
-        if (getAge() < 18) {
-            setAgeGroup("Junior");
-        } else if (getAge() >= 18 && getAge() < 110) {
-            setAgeGroup("Senior");
         }
 
 
@@ -88,9 +103,11 @@ public class Chairman extends Member {
 
         System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen");
 
-    }
+    }*/
 
-    public void registerCompetitive() throws IOException {
+
+
+    /*public void registerCompetitive() throws IOException {
         setToStringStatus(2);
         setMemberType("Konkurrence");
         Scanner input = new Scanner(System.in);
@@ -157,6 +174,27 @@ public class Chairman extends Member {
         } else
             setBalance(-500);
 
+
+        Member member = new Member(getName(), getAge(), getAgeGroup(),getMemberType(),getStyle(), getBalance(), getStatus(), getToStringStatus());
+        MemberList.competitiveList.add(member);
+        MemberList.allMembers.add(member);
+
+        new Chairman().addToCompetitiveFile(member);
+        new Chairman().addToAllMembersFile(member);
+
+        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen");
+    }*/
+
+    public void registerCompetitive() throws IOException {
+        setToStringStatus(2);
+        setMemberType("Konkurrence");
+
+        name();
+        age();
+        ageGroup();
+        style();
+        status();
+        balance();
 
         Member member = new Member(getName(), getAge(), getAgeGroup(),getMemberType(),getStyle(), getBalance(), getStatus(), getToStringStatus());
         MemberList.competitiveList.add(member);
@@ -248,6 +286,90 @@ public class Chairman extends Member {
         }
 
         return false;
+    }
+
+    public void age(){
+        while (done){
+            System.out.println("Indtast alder: ");
+            int age = Integer.parseInt(input.nextLine());
+            if (age<106){
+                setAge(age);
+                done = false;
+            } else {
+                System.out.println("Over 105?");
+                done = true;
+            }
+
+        }
+    }
+
+    public void name(){
+        System.out.println("Indtast fulde navn:");
+        setName(capitalizeWord(input.nextLine()));
+    }
+
+    public void ageGroup(){
+        if (getAge() < 18) {
+            setAgeGroup("Junior");
+        } else if (getAge() >= 18 && getAge() < 110) {
+            setAgeGroup("Senior");
+        }
+    }
+
+    public void status(){
+        while (secondDone){
+            System.out.println("Indtast om personen er aktiv eller passiv: ");
+            String statusString = input.nextLine().toLowerCase(Locale.ROOT);
+
+            if (statusString.toLowerCase().startsWith("a")) {
+                setStatus("Aktiv");
+                secondDone = false;
+            } else if (statusString.toLowerCase().startsWith("p")) {
+                setStatus("Passiv");
+                secondDone = false;
+            } else {
+                System.out.println("Prøv Igen");
+                secondDone = true;
+            }
+        }
+    }
+
+    public void balance(){
+        if (getAgeGroup().equalsIgnoreCase("Junior") && getStatus().equalsIgnoreCase("Aktiv")) {
+            setBalance(-1000);
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge() < 60) {
+            setBalance(-1600);
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge() >= 60) {
+            setBalance(-1200);
+        } else {
+            setBalance(-500);
+        }
+    }
+
+    public void style(){
+        while (styleInput){
+            System.out.println("Indtast svømmedisciplin: ");
+            System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
+            String inputStyle = input.nextLine().toLowerCase();
+            checkStyleInput(inputStyle);
+            if (inputStyle.contains("")){
+                styleInput = false;
+            } else if (inputStyle.equalsIgnoreCase("Nej")||inputStyle.equalsIgnoreCase("None")||inputStyle.equalsIgnoreCase("ingen")){
+                setStyle("Ingen");
+                styleInput = true;
+            }
+        }
+    }
+
+    public static String capitalizeWord(String str){
+        String words[]=str.split("\\s");
+        String capitalizeWord="";
+        for(String w:words){
+            String first=w.substring(0,1);
+            String afterfirst=w.substring(1);
+            capitalizeWord+=first.toUpperCase()+afterfirst+" ";
+        }
+        return capitalizeWord.trim();
     }
 
     public void addToCompetitiveFile(Member member) throws IOException {
