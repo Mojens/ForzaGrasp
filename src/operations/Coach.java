@@ -53,6 +53,7 @@ public class Coach extends Member {
 
         while (done){
             medlemsId();
+            //getMemberInfo();
             date();
             ageGroup();
             style();
@@ -91,6 +92,21 @@ public class Coach extends Member {
 
     }
 
+    public void getMemberInfo() {
+        int counter = -1;
+        for (Member member : MemberList.competitiveList) {
+            counter++;
+            if (member.getBalance() < 0) {
+                System.out.println("\033[0;1m" + "#" + counter + "\033[0;0m" + " " + member);
+            }
+            System.out.println("Indtast MedlemsID: ");
+            int medlemsId = Integer.parseInt(input.nextLine());
+            MemberList.competitiveList.get(medlemsId).getName();
+            setMedlemsID(medlemsId);
+            setName(member.getName());
+
+        }
+    }
     public void medlemsId(){
         System.out.println("Indtast MedlemsID: ");
         int medlemsId = Integer.parseInt(input.nextLine());
@@ -149,8 +165,7 @@ public class Coach extends Member {
 
     public void location(){
         System.out.println("Indtast hvilken stævne det er:");
-        String location = input.nextLine();
-        setLocation(location);
+        setLocation(capitalizeWord(input.nextLine()));
     }
 
     public void nowAdded(){
@@ -294,6 +309,17 @@ public class Coach extends Member {
     public void line() {
         System.out.println("\n----------------------------" +
                 "-------------------------------" + "\n");
+    }
+
+    public static String capitalizeWord(String str){
+        String[] words =str.split("\\s");
+        String capitalizeWord="";
+        for(String w:words){
+            String first=w.substring(0,1);
+            String afterfirst=w.substring(1);
+            capitalizeWord+=first.toUpperCase()+afterfirst+" ";
+        }
+        return capitalizeWord.trim();
     }
 
     public void loadAllPracticeInfo(String file, ArrayList<Member> list) throws IOException {

@@ -41,148 +41,6 @@ public class Chairman extends Member {
 
     }
 
-    /*public void registerCasual() throws IOException {
-        Scanner input = new Scanner(System.in);
-        setToStringStatus(2);
-        setMemberType("Motionist");
-        setStyle("Ingen");
-
-        System.out.println("Indtast fulde navn:");
-        setName(capitalizeWord(input.nextLine()));
-
-        while (done){
-        System.out.println("Indtast alder: ");
-        int age = Integer.parseInt(input.nextLine());
-        if (age<106){
-            setAge(age);
-            done = false;
-        } else {
-            System.out.println("Over 105?");
-            done = true;
-        }
-
-        }
-
-        if (getAge() < 18) {
-            setAgeGroup("Junior");
-        } else if (getAge() >= 18 && getAge() < 110) {
-            setAgeGroup("Senior");
-        }
-
-        while (secondDone){
-            System.out.println("Indtast om personen er aktiv eller passiv: ");
-            String statusString = input.nextLine();
-
-            if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Aktiv")) {
-                setStatus("Aktiv");
-                secondDone = false;
-            } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passiv")||statusString.contains("Passiv")) {
-                setStatus("Passiv");
-                secondDone = false;
-            } else {
-                System.out.println("Prøv Igen");
-                secondDone = true;
-            }
-        }
-
-
-        if (getAgeGroup().equalsIgnoreCase("Junior") && getStatus().equalsIgnoreCase("Aktiv")) {
-            setBalance(-1000);
-        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge() < 60) {
-            setBalance(-1600);
-        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge() >= 60) {
-            setBalance(-1200);
-        } else {
-            setBalance(-500);
-        }
-
-        Member member = new Member(getName(), getAge(), getAgeGroup(), getMemberType(), getStyle(),getBalance(), getStatus(), getToStringStatus());
-        MemberList.casualList.add(member);
-        MemberList.allMembers.add(member);
-        new Chairman().addToAllMembersFile(member);
-
-        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen");
-
-    }*/
-
-    /*public void registerCompetitive() throws IOException {
-        setToStringStatus(2);
-        setMemberType("Konkurrence");
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Indtast fulde navn: ");
-        //setName(input.nextLine());
-
-        while (done){
-            System.out.println("Indtast alder: ");
-            int age = Integer.parseInt(input.nextLine());
-            if (age<100){
-                setAge(age);
-                done = false;
-            } else {
-                System.out.println("Over 100?");
-                done = true;
-            }
-
-        }
-
-        while (styleInput){
-            System.out.println("Indtast svømmedisciplin: ");
-            System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
-            String inputStyle = input.nextLine().toLowerCase();
-            checkStyleInput(inputStyle);
-            if (inputStyle.contains("")){
-                styleInput = false;
-            } else if (inputStyle.equalsIgnoreCase("Nej")||inputStyle.equalsIgnoreCase("None")||inputStyle.equalsIgnoreCase("ingen")){
-                setStyle("Ingen");
-                styleInput = true;
-            }
-        }
-
-        while (secondDone){
-            System.out.println("Indtast om personen er aktiv eller passiv: ");
-            String statusString = input.nextLine();
-
-            if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("aktiv")||statusString.contains("Aktiv")) {
-                setStatus("Aktiv");
-                secondDone = false;
-            } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passiv")||statusString.contains("Passiv")) {
-                setStatus("Passiv");
-                secondDone = false;
-            } else {
-                System.out.println("Prøv igen");
-                secondDone = true;
-            }
-        }
-
-
-        if (getAge() < 18) {
-            setAgeGroup("Junior");
-        } else if (getAge() >= 18) {
-            setAgeGroup("Senior");
-        }
-
-
-        if (getAgeGroup().equalsIgnoreCase("Junior") && getStatus().equalsIgnoreCase("Aktiv")) {
-            setBalance(-1000);
-        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge()<=60) {
-            setBalance(-1600);
-        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge()>60) {
-            setBalance(-1200);
-        } else
-            setBalance(-500);
-
-
-        Member member = new Member(getName(), getAge(), getAgeGroup(),getMemberType(),getStyle(), getBalance(), getStatus(), getToStringStatus());
-        MemberList.competitiveList.add(member);
-        MemberList.allMembers.add(member);
-
-        new Chairman().addToCompetitiveFile(member);
-        new Chairman().addToAllMembersFile(member);
-
-        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen");
-    }*/
-
     public void registerCompetitive() throws IOException {
         setToStringStatus(2);
         setMemberType("Konkurrence");
@@ -360,7 +218,7 @@ public class Chairman extends Member {
     }
 
     public static String capitalizeWord(String str){
-        String words[]=str.split("\\s");
+        String[] words =str.split("\\s");
         String capitalizeWord="";
         for(String w:words){
             String first=w.substring(0,1);
@@ -408,5 +266,147 @@ public class Chairman extends Member {
             MemberList.competitiveList.add(member);
         }
     }
+
+    /*public void registerCasual() throws IOException {
+        Scanner input = new Scanner(System.in);
+        setToStringStatus(2);
+        setMemberType("Motionist");
+        setStyle("Ingen");
+
+        System.out.println("Indtast fulde navn:");
+        setName(capitalizeWord(input.nextLine()));
+
+        while (done){
+        System.out.println("Indtast alder: ");
+        int age = Integer.parseInt(input.nextLine());
+        if (age<106){
+            setAge(age);
+            done = false;
+        } else {
+            System.out.println("Over 105?");
+            done = true;
+        }
+
+        }
+
+        if (getAge() < 18) {
+            setAgeGroup("Junior");
+        } else if (getAge() >= 18 && getAge() < 110) {
+            setAgeGroup("Senior");
+        }
+
+        while (secondDone){
+            System.out.println("Indtast om personen er aktiv eller passiv: ");
+            String statusString = input.nextLine();
+
+            if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("active")||statusString.contains("Aktiv")) {
+                setStatus("Aktiv");
+                secondDone = false;
+            } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passiv")||statusString.contains("Passiv")) {
+                setStatus("Passiv");
+                secondDone = false;
+            } else {
+                System.out.println("Prøv Igen");
+                secondDone = true;
+            }
+        }
+
+
+        if (getAgeGroup().equalsIgnoreCase("Junior") && getStatus().equalsIgnoreCase("Aktiv")) {
+            setBalance(-1000);
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge() < 60) {
+            setBalance(-1600);
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge() >= 60) {
+            setBalance(-1200);
+        } else {
+            setBalance(-500);
+        }
+
+        Member member = new Member(getName(), getAge(), getAgeGroup(), getMemberType(), getStyle(),getBalance(), getStatus(), getToStringStatus());
+        MemberList.casualList.add(member);
+        MemberList.allMembers.add(member);
+        new Chairman().addToAllMembersFile(member);
+
+        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen");
+
+    }*/
+
+    /*public void registerCompetitive() throws IOException {
+        setToStringStatus(2);
+        setMemberType("Konkurrence");
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Indtast fulde navn: ");
+        //setName(input.nextLine());
+
+        while (done){
+            System.out.println("Indtast alder: ");
+            int age = Integer.parseInt(input.nextLine());
+            if (age<100){
+                setAge(age);
+                done = false;
+            } else {
+                System.out.println("Over 100?");
+                done = true;
+            }
+
+        }
+
+        while (styleInput){
+            System.out.println("Indtast svømmedisciplin: ");
+            System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
+            String inputStyle = input.nextLine().toLowerCase();
+            checkStyleInput(inputStyle);
+            if (inputStyle.contains("")){
+                styleInput = false;
+            } else if (inputStyle.equalsIgnoreCase("Nej")||inputStyle.equalsIgnoreCase("None")||inputStyle.equalsIgnoreCase("ingen")){
+                setStyle("Ingen");
+                styleInput = true;
+            }
+        }
+
+        while (secondDone){
+            System.out.println("Indtast om personen er aktiv eller passiv: ");
+            String statusString = input.nextLine();
+
+            if (statusString.startsWith("a")||statusString.startsWith("A")||statusString.contains("aktiv")||statusString.contains("Aktiv")) {
+                setStatus("Aktiv");
+                secondDone = false;
+            } else if (statusString.startsWith("p")||statusString.startsWith("P")||statusString.contains("passiv")||statusString.contains("Passiv")) {
+                setStatus("Passiv");
+                secondDone = false;
+            } else {
+                System.out.println("Prøv igen");
+                secondDone = true;
+            }
+        }
+
+
+        if (getAge() < 18) {
+            setAgeGroup("Junior");
+        } else if (getAge() >= 18) {
+            setAgeGroup("Senior");
+        }
+
+
+        if (getAgeGroup().equalsIgnoreCase("Junior") && getStatus().equalsIgnoreCase("Aktiv")) {
+            setBalance(-1000);
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge()<=60) {
+            setBalance(-1600);
+        } else if (getAgeGroup().equalsIgnoreCase("Senior") && getStatus().equalsIgnoreCase("Aktiv") && getAge()>60) {
+            setBalance(-1200);
+        } else
+            setBalance(-500);
+
+
+        Member member = new Member(getName(), getAge(), getAgeGroup(),getMemberType(),getStyle(), getBalance(), getStatus(), getToStringStatus());
+        MemberList.competitiveList.add(member);
+        MemberList.allMembers.add(member);
+
+        new Chairman().addToCompetitiveFile(member);
+        new Chairman().addToAllMembersFile(member);
+
+        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen");
+    }*/
 
 }

@@ -66,7 +66,7 @@ private final String allMembersFile = "Files/AllMembers.csv";
       }
 
       while (done) {
-        System.out.println("Skriv Memberid'et på den person du vil indbetale til: ");
+        System.out.println("Skriv MemberID'et på den person du vil indbetale til: ");
         int memberID = input.nextInt();
         System.out.println("Skriv den nye saldo: ");
         double deposit = Double.parseDouble(input.next());
