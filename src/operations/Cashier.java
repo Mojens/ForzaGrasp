@@ -70,13 +70,13 @@ private final String allMembersFile = "Files/AllMembers.csv";
     boolean checkAnswer = true;
     int memberID = 0;
     double deposit = 0;
-    new Cashier().showMembersInDebt();
     while (done) {
       while (checkAnswer) {
-        System.out.println("Skriv "+ "\033[0;1m" +"MemberID'et"+ "\033[0;0m" +"på den person du vil indbetale til: ");
+        new Cashier().showMembersInDebt();
+        System.out.println("Skriv "+ "\033[0;1m" +"MemberID'et "+ "\033[0;0m" +"på den person du vil indbetale til: ");
         memberID = input.nextInt();
         if (memberID > MemberList.allMembers.size()-1 || memberID < 0) {
-          System.out.println("\033[0;1m" +"Medlems ID'et" + "\033[0;0m"+"eksistere ikke");
+          System.out.println("\033[0;1m" +"Medlems ID'et " + "\033[0;0m"+"eksistere ikke");
           System.out.println("Prøv igen");
           checkAnswer = true;
         } else if (memberID <= MemberList.allMembers.size()) {
@@ -91,6 +91,7 @@ private final String allMembersFile = "Files/AllMembers.csv";
       input.nextLine();
       String checkInput = input.nextLine();
       if (checkInput.equalsIgnoreCase("ja")) {
+        checkAnswer = true;
         MemberList.allMembers.get(memberID).setBalance(deposit);
         addToAllMembersFile();
         System.out.println("Saldo er nu ændret: ");
@@ -103,9 +104,10 @@ private final String allMembersFile = "Files/AllMembers.csv";
           checkAnswer = false;
         }
       }else{
-        new Cashier().showMembersInDebt();
-        done = true;
+
         checkAnswer = true;
+        done = true;
+
       }
     }
   }
