@@ -51,13 +51,10 @@ private final String allMembersFile = "Files/AllMembers.csv";
 
   }
 
-  public void makePayment() throws IOException {
-    Scanner input = new Scanner(System.in);
-    boolean done = true;
-    boolean checkAnswer = true;
+  public void showMembersDebt(){
     System.out.println("\033[0;1m" + "medlemmer, der er i gæld:" + "\033[0;0m" + "\n");
-    System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
-        "Svømmedisciplin:, Saldo:, Status:"+ "\033[0;0m");
+    System.out.println("\033[0;1m" + "MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
+        "Svømmedisciplin:, Saldo:, Status:" + "\033[0;0m");
     int counter = -1;
     for (Member member : MemberList.allMembers) {
       counter++;
@@ -65,34 +62,50 @@ private final String allMembersFile = "Files/AllMembers.csv";
         System.out.println("\033[0;1m" + "#" + counter + "\033[0;0m" + " " + member);
       }
     }
-      while (done) {
-        while (checkAnswer) {
-          System.out.println("Skriv MemberID'et på den person du vil indbetale til: ");
-          int memberID = input.nextInt();
-          if (memberID > MemberList.allMembers.size()+1 || memberID < 0) {
-            System.out.println("Medlems ID'et eksistere ikke");
-            System.out.println("Prøv igen");
-            checkAnswer = true;
-          } else if (memberID <= MemberList.allMembers.size()) {
-            checkAnswer = false;
-            System.out.println("Skriv den nye saldo: ");
-            double deposit = Double.parseDouble(input.next());
-            MemberList.allMembers.get(memberID).setBalance(deposit);
-          }
-        }
-            addToAllMembersFile();
-            System.out.println("Er du færdig? ");
-            input.nextLine();
-            String isDone = input.nextLine();
-            if (isDone.equalsIgnoreCase("ja")) {
-              done = false;
-              checkAnswer = false;
-            } else {
-              done = true;
-              checkAnswer = true;
-            }
+  }
+
+  public void makePayment() throws IOException {
+    Scanner input = new Scanner(System.in);
+    boolean done = true;
+    boolean checkAnswer = true;
+    int memberID = 0;
+    new Cashier().showMembersDebt();
+    while (done) {
+      while (checkAnswer) {
+        System.out.println("Skriv MemberID'et på den person du vil indbetale til: ");
+        memberID = input.nextInt();
+        if (memberID > MemberList.allMembers.size() + 1 || memberID < 0) {
+          System.out.println("Medlems ID'et eksistere ikke");
+          System.out.println("Prøv igen");
+          checkAnswer = true;
+        } else if (memberID <= MemberList.allMembers.size()) {
+          checkAnswer = false;
+          System.out.println("Skriv den nye saldo: ");
+          double deposit = Double.parseDouble(input.next());
+          MemberList.allMembers.get(memberID).setBalance(deposit);
         }
       }
+      System.out.println("Du har valgt denne medlem: ");
+      System.out.println(MemberList.allMembers.get(memberID));
+      System.out.println("Er det den rigtige medlem ?");
+      input.nextLine();
+      String checkInput = input.nextLine();
+      if (checkInput.equalsIgnoreCase("ja")) {
+        addToAllMembersFile();
+        System.out.println("Er du færdig?");
+        String isDone = input.nextLine();
+        if (isDone.equalsIgnoreCase("ja")) {
+          done = false;
+          checkAnswer = false;
+        }
+      }else{
+        new Cashier().showMembersDebt();
+        done = true;
+        checkAnswer = true;
+      }
+    }
+  }
+
 
 
 
