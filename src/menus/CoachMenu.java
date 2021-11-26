@@ -27,7 +27,8 @@ public class CoachMenu implements MenuRun {
     menuItem[5] = "Log Ud";
     menuItem[9] = "Luk programmet";
 
-    MenuSettings menuSettings = new MenuSettings("Venligst vælg en af de muligheder\n",
+    MenuSettings menuSettings = new MenuSettings("Du er nu logget ind som "+"\033[0;1m" +"Træner"+"\033[0;0m"
+        +"\nVenligst vælg en af de muligheder forneden",
         "Skriv her: ", menuItem);
     menuSettings.printMenu();
 
@@ -37,24 +38,24 @@ public class CoachMenu implements MenuRun {
     do {
       switch (choice) {
         case 1:
-          System.out.println("Registrer Træningstid: \n");
+          System.out.println("Registrer "+"\033[0;1m" + "Træningstid:"+"\033[0;0m" +"\n");
           coach.recordPractice();
           coachMenu.menuRun();
           checkChoice = true;
           break;
         case 2:
-          System.out.println("Registrer Konkurrence informationer: \n");
+          System.out.println("Registrer "+"\033[0;1m" + "Konkurrence informationer:"+"\033[0;0m" +"\n");
           coach.recordCompetition();
           coachMenu.menuRun();
           checkChoice = true;
           break;
         case 3:
-          System.out.println("top 5 Svømmere: \n");
+          System.out.println("top 5 "+ "\033[0;1m" +"Svømmere: "+"\033[0;0m"+"\n");
           top5MenuRun();
           checkChoice = true;
           break;
         case 4:
-          System.out.println("Medlemdsliste: \n");
+          System.out.println("Se alle "+ "\033[0;1m" +"Medlemmer:"+"\033[0;0m" +"\n");
           coach.showAllMembers();
           coachMenu.menuRun();
           checkChoice = true;
@@ -93,7 +94,8 @@ public class CoachMenu implements MenuRun {
     menuItem[8] = "Top 5 - Senior - Brystsvømming";
     menuItem[9] = "Tilbage";
 
-    MenuSettings menuSettings = new MenuSettings("Venligst vælg en af de muligheder\n",
+    MenuSettings menuSettings = new MenuSettings("\033[0;1m" +"Du igang med at se Top 5"+"\033[0;0m"
+        +"\nVenligst vælg en af de muligheder forneden",
             "Skriv her: ", menuItem);
     menuSettings.printMenu();
 

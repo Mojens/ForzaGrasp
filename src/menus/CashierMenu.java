@@ -26,7 +26,8 @@ public class CashierMenu implements MenuRun {
     menuItem[5] = "Log Ud";
     menuItem[9] = "Luk programmet";
 
-    MenuSettings menuSettings = new MenuSettings("Venligst vælg en af de muligheder\n",
+    MenuSettings menuSettings = new MenuSettings("Du er nu logget ind som "+"\033[0;1m" +"Kasserer"+"\033[0;0m"
+        +"\nVenligst vælg en af de muligheder forneden",
         "Skriv her: ", menuItem);
     menuSettings.printMenu();
 
@@ -36,25 +37,25 @@ public class CashierMenu implements MenuRun {
     do {
       switch (choice) {
         case 1:
-          System.out.println("Kommende Indbetalinger: \n");
+          System.out.println("Kommende "+"\033[0;1m" + "Indbetalinger:"+"\033[0;0m" +"\n");
           cashier.forecastRev();
           cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 2:
-          System.out.println("Nuværende medlemmer med restance: \n");
+          System.out.println("Nuværende medlemmer med "+"\033[0;1m" +  "restance:"+"\033[0;0m" +"\n");
           cashier.checkDebt();
           cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 3:
-          System.out.println("Foretag Indbetaling: \n");
+          System.out.println("Foretag "+"\033[0;1m" + "Indbetaling:"+"\033[0;0m" +"\n");
           cashier.makePayment();
           cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 4:
-          System.out.println("Se alle Medlemmer: \n");
+          System.out.println("Se alle "+"\033[0;1m" +"Medlemmer: "+"\033[0;0m"+"\n");
           cashier.showAllMembers();
           cashierMenu.menuRun();
           checkChoice = true;

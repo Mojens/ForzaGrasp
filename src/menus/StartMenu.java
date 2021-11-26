@@ -23,8 +23,8 @@ public class StartMenu implements MenuRun {
     menuItem[3] = "Træner";
     menuItem[9] = "Luk programmet";
 
-    MenuSettings menuSettings = new MenuSettings("Venligst vælg den bruger " +
-        "du vil logge ind på", "Skriv her: ", menuItem);
+    MenuSettings menuSettings = new MenuSettings("Velkommen til "+"\033[0;1m" +"Svømmeklubben Delfinen"+"\033[0;0m"
+        +"\nVenligst vælg den bruger du vil logge ind på", "Skriv her: ", menuItem);
     menuSettings.printMenu();
 
     int choice = menuSettings.readChoice();
@@ -33,18 +33,17 @@ public class StartMenu implements MenuRun {
     do {
       switch (choice) {
         case 1:
-          System.out.println("Du logger ind som Kasserer\n");
-
+          System.out.println("Du logger ind som "+"\033[0;1m"+"Kasserer"+"\033[0;0m"+"\n");
           cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 2:
-          System.out.println("Du logger ind som Formand\n");
+          System.out.println("Du logger ind som "+"\033[0;1m"+"Formand"+"\033[0;0m"+"\n");
           chairmanMenu.menuRun();
           checkChoice = true;
           break;
         case 3:
-          System.out.println("Du logger ind som Træner\n");
+          System.out.println("Du logger ind som "+"\033[0;1m"+"Træner"+"\033[0;0m"+"\n");
           coachMenu.menuRun();
           checkChoice = true;
           break;
