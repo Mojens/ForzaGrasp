@@ -256,6 +256,7 @@ public class Coach extends Member {
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
         }
     }
+
     public void showAllMembers() {
         System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
             "Svømmedisciplin:, Saldo:, Status:"+ "\033[0;0m");
