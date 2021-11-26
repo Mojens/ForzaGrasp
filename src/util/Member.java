@@ -29,7 +29,7 @@ public class Member implements Comparable{
                     + age + ", "
                     + ageGroup + ", "
                     + balance + ", "
-                    + status+" \n";
+                    + status+"\n";
 
         }else if(getToStringStatus() == 2) {
             return
@@ -39,7 +39,7 @@ public class Member implements Comparable{
                     + memberType + ", "
                     + style + ", "
                     + balance + ", "
-                    + status + " \n";
+                    + status + "\n";
 
         }else if (getToStringStatus() == 3) {
             return name + ", " + age + ", "

@@ -55,13 +55,13 @@ public class Coach extends Member {
             style();
             recordTime();
             addMember(ageGroup,style);
+            nowAdded();
             System.out.println("Er du færdig?");
             String finish = input.nextLine().toLowerCase();
-            if (finish.toLowerCase().startsWith("j")||finish.toLowerCase().startsWith("ye")) {
+            if (finish.toLowerCase().startsWith("j")||finish.toLowerCase().startsWith("ja")) {
                 done = false;
             }
         }
-        nowAdded();
     }
 
     public void recordCompetition() throws IOException {
@@ -77,14 +77,14 @@ public class Coach extends Member {
             style();
             recordTime();
             addMemberCom(ageGroup, style);
-
+            nowAdded();
             System.out.println("Er du færdig?");
             String finish = input.nextLine().toLowerCase();
             if (finish.toLowerCase().startsWith("j")||finish.toLowerCase().startsWith("ye")) {
                 doneComp = false;
             }
         }
-        nowAdded();
+
 
     }
 
