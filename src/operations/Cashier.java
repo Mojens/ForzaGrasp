@@ -54,6 +54,7 @@ private final String allMembersFile = "Files/AllMembers.csv";
   public void makePayment() throws IOException {
     Scanner input = new Scanner(System.in);
     boolean done = true;
+    boolean checkAnswer = true;
     System.out.println("\033[0;1m" + "medlemmer, der er i gæld:" + "\033[0;0m" + "\n");
     System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
         "Svømmedisciplin:, Saldo:, Status:"+ "\033[0;0m");
@@ -63,26 +64,41 @@ private final String allMembersFile = "Files/AllMembers.csv";
       if (member.getBalance() < 0) {
         System.out.println("\033[0;1m" + "#" + counter + "\033[0;0m" + " " + member);
       }
+    }
 
       while (done) {
         System.out.println("Skriv MemberID'et på den person du vil indbetale til: ");
         int memberID = input.nextInt();
-        System.out.println("Skriv den nye saldo: ");
-        double deposit = Double.parseDouble(input.next());
-        MemberList.allMembers.get(memberID).setBalance(deposit);
-        addToAllMembersFile();
-        System.out.println("Er du færdig? ");
-        input.nextLine();
-        String isDone = input.nextLine();
-        if (isDone.equalsIgnoreCase("ja")) {
-          done = false;
-        } else {
-          done = true;
+
+        while (checkAnswer){
+          if (memberID > MemberList.allMembers.size() || memberID < 0){
+            System.out.println("Medlems ID'et eksistere ikke");
+            System.out.println("Prøv igen");
+            input.nextInt();
+            checkAnswer = true;
+          } else if (memberID < MemberList.allMembers.size()){
+            checkAnswer = false;
+            System.out.println("Skriv den nye saldo: ");
+            double deposit = Double.parseDouble(input.next());
+            MemberList.allMembers.get(memberID).setBalance(deposit);
+
+            addToAllMembersFile();
+            System.out.println("Er du færdig? ");
+            input.nextLine();
+            String isDone = input.nextLine();
+            if (isDone.equalsIgnoreCase("ja")) {
+              done = false;
+            } else {
+              done = true;
+            }
+          }
         }
+
+
       }
 
     }
-  }
+
 
   public void showAllMembers(){
     System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
