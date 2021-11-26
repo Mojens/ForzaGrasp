@@ -54,7 +54,7 @@ private final String allMembersFile = "Files/AllMembers.csv";
   public void showMembersInDebt(){
     System.out.println("\033[0;1m" + "medlemmer, der er i gæld:" + "\033[0;0m" + "\n");
     System.out.println("\033[0;1m" + "MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
-        "Svømmedisciplin:, Saldo:, Status:" + "\033[0;0m");
+        "Svømmedisciplin:, Saldo:, Status:" + "\033[0;0m"+"\n");
     int counter = -1;
     for (Member member : MemberList.allMembers) {
       counter++;

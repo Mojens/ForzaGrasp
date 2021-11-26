@@ -26,7 +26,7 @@ public class CashierMenu implements MenuRun {
     menuItem[5] = "Log Ud";
     menuItem[9] = "Luk programmet";
 
-    MenuSettings menuSettings = new MenuSettings("Du er nu logget ind som "+"\033[0;1m" +"Kasserer"+"\033[0;0m"
+    MenuSettings menuSettings = new MenuSettings("\nDu er nu logget ind som "+"\033[0;1m" +"Kasserer"+"\033[0;0m"
         +"\nVenligst vælg en af de "+"\033[0;1m" + "muligheder" +"\033[0;0m"+" forneden"+"\n",
         "Skriv her: ", menuItem);
     menuSettings.printMenu();
@@ -43,7 +43,7 @@ public class CashierMenu implements MenuRun {
           checkChoice = true;
           break;
         case 2:
-          System.out.println("Nuværende medlemmer med "+"\033[0;1m" +  "restance:"+"\033[0;0m" +"\n");
+          System.out.println("\nNuværende medlemmer med "+"\033[0;1m" +  "restance:"+"\033[0;0m" +"\n");
           cashier.checkDebt();
           cashierMenu.menuRun();
           checkChoice = true;

@@ -25,7 +25,7 @@ public class ChairmanMenu implements MenuRun {
     menuItem[4] = "Log Ud";
     menuItem[9] = "Luk programmet";
 
-    MenuSettings menuSettings = new MenuSettings("Du er nu logget ind som "+"\033[0;1m" +"Formand"+"\033[0;0m"
+    MenuSettings menuSettings = new MenuSettings("\nDu er nu logget ind som "+"\033[0;1m" +"Formand"+"\033[0;0m"
         +"\nVenligst vælg en af de "+"\033[0;1m" + "muligheder" +"\033[0;0m"+" forneden"+"\n",
             "Skriv her: ", menuItem);
     menuSettings.printMenu();

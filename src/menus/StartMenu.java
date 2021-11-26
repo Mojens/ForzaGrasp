@@ -35,17 +35,17 @@ public class StartMenu implements MenuRun {
     do {
       switch (choice) {
         case 1:
-          System.out.println("Du logger ind som "+"\033[0;1m"+"Kasserer"+"\033[0;0m"+"\n");
+          System.out.println("Du logger ind som "+"\033[0;1m"+"Kasserer"+"\033[0;0m"+"........"+"\n");
           cashierMenu.menuRun();
           checkChoice = true;
           break;
         case 2:
-          System.out.println("Du logger ind som "+"\033[0;1m"+"Formand"+"\033[0;0m"+"\n");
+          System.out.println("Du logger ind som "+"\033[0;1m"+"Formand"+"\033[0;0m"+"........"+"\n");
           chairmanMenu.menuRun();
           checkChoice = true;
           break;
         case 3:
-          System.out.println("Du logger ind som "+"\033[0;1m"+"Træner"+"\033[0;0m"+"\n");
+          System.out.println("Du logger ind som "+"\033[0;1m"+"Træner"+"\033[0;0m"+"........"+"\n");
           coachMenu.menuRun();
           checkChoice = true;
           break;

@@ -35,7 +35,7 @@ public class Chairman extends Member {
         MemberList.allMembers.add(member);
         new Chairman().addToAllMembersFile(member);
 
-        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen");
+        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen"+"\n");
 
     }
 
@@ -57,7 +57,7 @@ public class Chairman extends Member {
         new Chairman().addToCompetitiveFile(member);
         new Chairman().addToAllMembersFile(member);
 
-        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen");
+        System.out.println("\033[0;1m" + getName() + "\033[0;0m" + " Er nu tilføjet til listen"+"\n");
     }
 
     public void showAllMembers(){
@@ -130,7 +130,6 @@ public class Chairman extends Member {
 
         return false;
     }
-
 
     public boolean backstroke(String input){
 
@@ -255,7 +254,6 @@ public class Chairman extends Member {
         bufferedWriter.close();
         fileWriter.close();
     }
-
 
     public void loadFromAllMemberfileToAllMembersList() throws IOException {
         Scanner reader = new Scanner(new File(allMembersFile));
