@@ -269,10 +269,15 @@ public class Coach extends Member {
     public void showTop5(ArrayList<Member> list){
         System.out.println("\033[0;1m" +"Navn:  Aldersgruppe:  SvømmeDisciplin:  Dato: " +
             "Tid:"+ "\033[0;0m");
-        Collections.sort(list);
         int counter = 1;
-        for (Member member : list.subList(0,5)){
-            System.out.println("\033[0;1m" + "#" + counter++ + "\033[0;0m" + ": " + member);
+        Collections.sort(list);
+        if (list.size()>=5) {
+            for (Member member : list.subList(0,5)) {
+                System.out.println("\033[0;1m" + "#" + counter++ + "\033[0;0m" + ": " + member);
+            }
+        }else{
+            System.out.println("\nDer er ikke en top 5 lige nu, prøv at tilføje flere "
+                +"\033[0;1m" +"Træningstider"+ "\033[0;0m");
         }
     }
 
