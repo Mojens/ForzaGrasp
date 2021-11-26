@@ -18,9 +18,9 @@ public class StartMenu implements MenuRun {
     MenuRun chairmanMenu = new ChairmanMenu();
     String[] menuItem = new String[10];
 
-    menuItem[1] = "Kasserer";
-    menuItem[2] = "Formand";
-    menuItem[3] = "Træner";
+    menuItem[1] = "\033[0;1m" + "Kasserer" + "\033[0;0m";
+    menuItem[2] = "\033[0;1m" + "Formand" + "\033[0;0m";
+    menuItem[3] = "\033[0;1m" + "Træner" + "\033[0;0m";
     menuItem[9] = "Luk programmet";
 
     MenuSettings menuSettings = new MenuSettings("Velkommen til "+"\033[0;1m" +"Svømmeklubben Delfinen"+"\033[0;0m"

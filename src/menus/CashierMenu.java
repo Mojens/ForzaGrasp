@@ -19,10 +19,10 @@ public class CashierMenu implements MenuRun {
     Cashier cashier = new Cashier();
     String[] menuItem = new String[10];
 
-    menuItem[1] = "Se kommende Indbetalinger";
-    menuItem[2] = "Se Restance";
-    menuItem[3] = "Foretag indbetaling";
-    menuItem[4] = "Se alle medlemmere";
+    menuItem[1] = "Se "+ "\033[0;1m" +"kommende Indbetalinger"+"\033[0;0m";
+    menuItem[2] = "Se "+ "\033[0;1m" +"Restance"+"\033[0;0m";
+    menuItem[3] = "Foretag "+"\033[0;1m"+ "indbetaling"+"\033[0;0m";
+    menuItem[4] = "Se alle "+"\033[0;1m"+ "medlemmere"+"\033[0;0m";
     menuItem[5] = "Log Ud";
     menuItem[9] = "Luk programmet";
 

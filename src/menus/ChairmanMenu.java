@@ -19,9 +19,9 @@ public class ChairmanMenu implements MenuRun {
     Chairman chairman = new Chairman();
     String[] menuItem = new String[10];
 
-    menuItem[1] = "Registrer Motionist Svømmer";
-    menuItem[2] = "Registrer Konkurrence Svømmer";
-    menuItem[3] = "Se alle medlemmer";
+    menuItem[1] = "Registrer "+"\033[0;1m" + "Motionist Svømmer"+"\033[0;0m";
+    menuItem[2] = "Registrer "+"\033[0;1m" + "Konkurrence Svømmer"+"\033[0;0m";
+    menuItem[3] = "Se alle "+"\033[0;1m" + "medlemmer"+"\033[0;0m";
     menuItem[4] = "Log Ud";
     menuItem[9] = "Luk programmet";
 

@@ -20,10 +20,10 @@ public class CoachMenu implements MenuRun {
     Coach coach = new Coach();
     String[] menuItem = new String[10];
 
-    menuItem[1] = "Registrer Træningstid";
-    menuItem[2] = "Registrer Konkurrence informationer";
-    menuItem[3] = "Se top 5 Svømmere";
-    menuItem[4] = "Se Medlemdsliste";
+    menuItem[1] = "Registrer "+"\033[0;1m" + "Træningstid"+"\033[0;0m";
+    menuItem[2] = "Registrer "+"\033[0;1m" + "Konkurrence informationer"+"\033[0;0m";
+    menuItem[3] = "Se top 5 "+"\033[0;1m" + "Svømmere"+"\033[0;0m";
+    menuItem[4] = "Se alle "+"\033[0;1m" + "Medlemmer"+"\033[0;0m";
     menuItem[5] = "Log Ud";
     menuItem[9] = "Luk programmet";
 
@@ -84,14 +84,14 @@ public class CoachMenu implements MenuRun {
     String[] menuItem = new String[10];
     Coach coach = new Coach();
 
-    menuItem[1] = "Top 5 - Junior - Crawl";
-    menuItem[2] = "Top 5 - Junior - Rygcrawl";
-    menuItem[3] = "Top 5 - Junior - Butterfly";
-    menuItem[4] = "top 5 - Junior - Brystsvømming";
-    menuItem[5] = "Top 5 - Senior - Crawl";
-    menuItem[6] = "Top 5 - Senior - Rygcrawl";
-    menuItem[7] = "Top 5 - Senior - Butterfly";
-    menuItem[8] = "Top 5 - Senior - Brystsvømming";
+    menuItem[1] = "Top 5 - "+"\033[0;1m" + "Junior - Crawl"+"\033[0;0m";
+    menuItem[2] = "Top 5 - "+"\033[0;1m" + "Junior - Rygcrawl"+"\033[0;0m";
+    menuItem[3] = "Top 5 - "+"\033[0;1m" + "Junior - Butterfly"+"\033[0;0m";
+    menuItem[4] = "top 5 - "+"\033[0;1m" + "Junior - Brystsvømming"+"\033[0;0m";
+    menuItem[5] = "Top 5 - "+"\033[0;1m" + "Senior - Crawl"+"\033[0;0m";
+    menuItem[6] = "Top 5 - "+"\033[0;1m" + "Senior - Rygcrawl"+"\033[0;0m";
+    menuItem[7] = "Top 5 - "+"\033[0;1m" + "Senior - Butterfly"+"\033[0;0m";
+    menuItem[8] = "Top 5 - "+"\033[0;1m" + "Senior - Brystsvømming"+"\033[0;0m";
     menuItem[9] = "Tilbage";
 
     MenuSettings menuSettings = new MenuSettings("\033[0;1m" +"Du igang med at se Top 5"+"\033[0;0m"
