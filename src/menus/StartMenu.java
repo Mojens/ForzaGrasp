@@ -3,6 +3,7 @@ package menus;
 import core.MenuSettings;
 import interfaces.MenuRun;
 import operations.Chairman;
+import operations.Coach;
 
 import java.io.IOException;
 
@@ -24,7 +25,8 @@ public class StartMenu implements MenuRun {
     menuItem[9] = "Luk programmet";
 
     MenuSettings menuSettings = new MenuSettings("Velkommen til "+"\033[0;1m" +"Svømmeklubben Delfinen"+"\033[0;0m"
-        +"\nVenligst vælg den "+"\033[0;1m" + "bruger"+"\033[0;0m" +" du vil logge ind på", "Skriv her: ", menuItem);
+        +"\nVenligst vælg den "+"\033[0;1m" + "bruger"+"\033[0;0m" +" du vil logge ind på"+"\n",
+        "Skriv her: ", menuItem);
     menuSettings.printMenu();
 
     int choice = menuSettings.readChoice();
