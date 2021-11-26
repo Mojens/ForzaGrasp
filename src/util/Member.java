@@ -17,7 +17,6 @@ public class Member implements Comparable{
     private int date;
     private String status;
     private int toStringStatus;
-    private int medlemsID;
     private String memberType;
 
 
