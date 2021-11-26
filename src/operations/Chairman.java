@@ -6,10 +6,8 @@ package operations;
 
 import util.Member;
 import util.MemberList;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -243,6 +241,7 @@ public class Chairman extends Member {
         bufferedWriter.close();
         fileWriter.close();
     }
+
 
     public void loadFromAllMemberfileToAllMembersList() throws IOException {
         Scanner reader = new Scanner(new File(allMembersFile));

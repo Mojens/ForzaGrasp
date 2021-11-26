@@ -101,7 +101,7 @@ public class Coach extends Member {
     }
 
     public void ageGroup(){
-        System.out.println("Er personen en Junior eller Senior svømmer?");
+        System.out.println("Er personen Junior eller Senior svømmer?");
         ageGroup = input.nextLine().toLowerCase(Locale.ROOT);
         if (ageGroup.toLowerCase().startsWith("j")) {
             setAgeGroup("Junior");
@@ -224,7 +224,7 @@ public class Coach extends Member {
             CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.jrBreaststroke,jrbreaststrokeComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
-        } else if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("ba") || style.toLowerCase().startsWith("ryg")) {
+        } else if (ageGroup.toLowerCase().startsWith("j") && style.toLowerCase().startsWith("ryg")) {
             Member member = new Member(getName(),getPlace(), getAgeGroup(), getStyle(),getTime(), getLocation(), getDate(), getToStringStatus());
             CompetitionResults.jrBackstroke.add(member);
             CompetitionResults.competitionList.add(member);
@@ -248,7 +248,7 @@ public class Coach extends Member {
             CompetitionResults.competitionList.add(member);
             addTimes(CompetitionResults.seniorBreaststroke,seniorbreaststrokeComp);
             addTimes(CompetitionResults.competitionList,allCompetitionTimes);
-        } else if (ageGroup.toLowerCase().startsWith("s")&& style.toLowerCase().startsWith("ba") | style.toLowerCase().startsWith("ryg")) {
+        } else if (ageGroup.toLowerCase().startsWith("s")&& style.toLowerCase().startsWith("ryg")) {
             Member member = new Member(getName(),getPlace(), getAgeGroup(), getStyle(),getTime(), getLocation(), getDate(), getToStringStatus());
             CompetitionResults.seniorBackstroke.add(member);
             CompetitionResults.competitionList.add(member);
