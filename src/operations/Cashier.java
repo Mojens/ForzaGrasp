@@ -65,12 +65,10 @@ private final String allMembersFile = "Files/AllMembers.csv";
         System.out.println("\033[0;1m" + "#" + counter + "\033[0;0m" + " " + member);
       }
     }
-
       while (done) {
-        System.out.println("Skriv MemberID'et på den person du vil indbetale til: ");
-        int memberID = input.nextInt();
-
         while (checkAnswer){
+          System.out.println("Skriv MemberID'et på den person du vil indbetale til: ");
+          int memberID = input.nextInt();
           if (memberID > MemberList.allMembers.size() || memberID < 0){
             System.out.println("Medlems ID'et eksistere ikke");
             System.out.println("Prøv igen");
@@ -93,8 +91,6 @@ private final String allMembersFile = "Files/AllMembers.csv";
             }
           }
         }
-
-
       }
 
     }
