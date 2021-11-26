@@ -51,7 +51,7 @@ private final String allMembersFile = "Files/AllMembers.csv";
 
   }
 
-  public void showMembersDebt(){
+  public void showMembersInDebt(){
     System.out.println("\033[0;1m" + "medlemmer, der er i gæld:" + "\033[0;0m" + "\n");
     System.out.println("\033[0;1m" + "MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
         "Svømmedisciplin:, Saldo:, Status:" + "\033[0;0m");
@@ -69,20 +69,20 @@ private final String allMembersFile = "Files/AllMembers.csv";
     boolean done = true;
     boolean checkAnswer = true;
     int memberID = 0;
-    new Cashier().showMembersDebt();
+    double deposit = 0;
+    new Cashier().showMembersInDebt();
     while (done) {
       while (checkAnswer) {
         System.out.println("Skriv "+ "\033[0;1m" +"MemberID'et"+ "\033[0;0m" +"på den person du vil indbetale til: ");
         memberID = input.nextInt();
-        if (memberID > MemberList.allMembers.size() + 1 || memberID < 0) {
+        if (memberID > MemberList.allMembers.size()-1 || memberID < 0) {
           System.out.println("\033[0;1m" +"Medlems ID'et" + "\033[0;0m"+"eksistere ikke");
           System.out.println("Prøv igen");
           checkAnswer = true;
         } else if (memberID <= MemberList.allMembers.size()) {
           checkAnswer = false;
           System.out.println("Skriv den nye saldo: ");
-          double deposit = Double.parseDouble(input.next());
-          MemberList.allMembers.get(memberID).setBalance(deposit);
+          deposit = Double.parseDouble(input.next());
         }
       }
       System.out.println("Du har valgt denne medlem: ");
@@ -91,7 +91,11 @@ private final String allMembersFile = "Files/AllMembers.csv";
       input.nextLine();
       String checkInput = input.nextLine();
       if (checkInput.equalsIgnoreCase("ja")) {
+        MemberList.allMembers.get(memberID).setBalance(deposit);
         addToAllMembersFile();
+        System.out.println("Saldo er nu ændret: ");
+        System.out.println(MemberList.allMembers.get(memberID));
+
         System.out.println("Er du færdig?");
         String isDone = input.nextLine();
         if (isDone.equalsIgnoreCase("ja")) {
@@ -99,15 +103,12 @@ private final String allMembersFile = "Files/AllMembers.csv";
           checkAnswer = false;
         }
       }else{
-        new Cashier().showMembersDebt();
+        new Cashier().showMembersInDebt();
         done = true;
         checkAnswer = true;
       }
     }
   }
-
-
-
 
   public void showAllMembers(){
     System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
