@@ -107,8 +107,11 @@ public class Chairman extends Member {
             }
 
     public boolean butterfly(String input){
-        if (input.toLowerCase().contains("but")||input.toLowerCase().contains("fly") && input.contains(" ")
-                | input.contains(",")){
+        final boolean deli = input.contains(" ")
+                | input.contains(",");
+        if (input.toLowerCase().contains("but") && deli){
+            return true;
+        } else if (input.toLowerCase().contains("fly") && deli){
             return true;
         }
 
@@ -116,17 +119,25 @@ public class Chairman extends Member {
     }
 
     public boolean crawl(String input){
-        if (input.matches("(?s).*\\bcrawl\\b.*")||input.toLowerCase().contains("free")
-                || input.toLowerCase().contains("front") && input.contains(" ") | input.contains(",") ){
+        final boolean deli = input.contains(" ") | input.contains(",");
+        if (input.matches("(?s).*\\bcrawl\\b.*") && deli){
+            return true;
+        } else if (input.toLowerCase().contains("free") && deli){
+            return true;
+        } else if (input.toLowerCase().contains("front") && deli){
             return true;
         }
 
         return false;
     }
 
+
     public boolean backstroke(String input){
-        if (input.toLowerCase().contains("back")||input.toLowerCase().contains("ryg") && input.contains(" ")
-                | input.contains(",")){
+
+        final boolean deli = input.contains(",") | input.contains(" ");
+        if (input.toLowerCase().contains("ryg") && deli){
+            return true;
+        } else if (input.toLowerCase().contains("back") && deli){
             return true;
         }
 
@@ -134,8 +145,11 @@ public class Chairman extends Member {
     }
 
     public boolean breast(String input){
-        if (input.toLowerCase().contains("brea")||input.toLowerCase().contains("bry") && input.contains(" ")
-                | input.contains(",")){
+        final boolean deli = input.contains(",")
+                | input.contains(" ");
+        if (input.toLowerCase().contains("bryst") && deli){
+            return true;
+        } else if (input.toLowerCase().contains("breast") && deli) {
             return true;
         }
 
