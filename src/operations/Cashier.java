@@ -72,10 +72,10 @@ private final String allMembersFile = "Files/AllMembers.csv";
     new Cashier().showMembersDebt();
     while (done) {
       while (checkAnswer) {
-        System.out.println("Skriv MemberID'et på den person du vil indbetale til: ");
+        System.out.println("Skriv "+ "\033[0;1m" +"MemberID'et"+ "\033[0;0m" +"på den person du vil indbetale til: ");
         memberID = input.nextInt();
         if (memberID > MemberList.allMembers.size() + 1 || memberID < 0) {
-          System.out.println("Medlems ID'et eksistere ikke");
+          System.out.println("\033[0;1m" +"Medlems ID'et" + "\033[0;0m"+"eksistere ikke");
           System.out.println("Prøv igen");
           checkAnswer = true;
         } else if (memberID <= MemberList.allMembers.size()) {
