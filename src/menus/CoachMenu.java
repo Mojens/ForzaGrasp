@@ -117,8 +117,8 @@ public class CoachMenu implements MenuRun {
           System.out.println("\u001B[0;1m"+"Rygcrawl"+ "\033[0;0m" +" Top 5 for Junior: \n");
           System.out.println("\u001B[0;1m" + "Junior Informationer : "+ "\033[0;0m"+"\n");
           coach.showTop5(TrainingResults.jrBackstroke);
-          top5MenuRun();
           coach.line();
+          top5MenuRun();
           checkChoice = true;
           break;
         case 3:
@@ -162,8 +162,8 @@ public class CoachMenu implements MenuRun {
           System.out.println("\u001B[0;1m"+"Butterfly"+ "\033[0;0m" +" Top 5 for Senior: \n");
           System.out.println("\u001B[0;1m" + "Senior Informationer : "+ "\033[0;0m"+"\n");
           coach.showTop5(TrainingResults.seniorButterfly);
-          top5MenuRun();
           coach.line();
+          top5MenuRun();
           checkChoice = true;
           break;
         case 8:
