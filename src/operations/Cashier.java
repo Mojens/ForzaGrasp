@@ -66,33 +66,34 @@ private final String allMembersFile = "Files/AllMembers.csv";
       }
     }
       while (done) {
-        while (checkAnswer){
+        while (checkAnswer) {
           System.out.println("Skriv MemberID'et på den person du vil indbetale til: ");
           int memberID = input.nextInt();
-          if (memberID > MemberList.allMembers.size() || memberID < 0){
+          if (memberID > MemberList.allMembers.size() || memberID < 0) {
             System.out.println("Medlems ID'et eksistere ikke");
             System.out.println("Prøv igen");
-            input.nextInt();
             checkAnswer = true;
-          } else if (memberID < MemberList.allMembers.size()){
+          } else if (memberID < MemberList.allMembers.size()) {
             checkAnswer = false;
             System.out.println("Skriv den nye saldo: ");
             double deposit = Double.parseDouble(input.next());
             MemberList.allMembers.get(memberID).setBalance(deposit);
-
+          }
+        }
             addToAllMembersFile();
             System.out.println("Er du færdig? ");
             input.nextLine();
             String isDone = input.nextLine();
             if (isDone.equalsIgnoreCase("ja")) {
               done = false;
+              checkAnswer = false;
             } else {
               done = true;
+              checkAnswer = true;
             }
-          }
         }
       }
-    }
+
 
 
   public void showAllMembers(){
