@@ -69,11 +69,11 @@ private final String allMembersFile = "Files/AllMembers.csv";
         while (checkAnswer) {
           System.out.println("Skriv MemberID'et på den person du vil indbetale til: ");
           int memberID = input.nextInt();
-          if (memberID > MemberList.allMembers.size() || memberID < 0) {
+          if (memberID > MemberList.allMembers.size()+1 || memberID < 0) {
             System.out.println("Medlems ID'et eksistere ikke");
             System.out.println("Prøv igen");
             checkAnswer = true;
-          } else if (memberID < MemberList.allMembers.size()) {
+          } else if (memberID <= MemberList.allMembers.size()) {
             checkAnswer = false;
             System.out.println("Skriv den nye saldo: ");
             double deposit = Double.parseDouble(input.next());
