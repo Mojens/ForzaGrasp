@@ -85,9 +85,9 @@ private final String allMembersFile = "Files/AllMembers.csv";
           deposit = Double.parseDouble(input.next());
         }
       }
-      System.out.println("Du har valgt denne medlem: ");
+      System.out.println("Du har valgt dette medlem: ");
       System.out.println(MemberList.allMembers.get(memberID));
-      System.out.println("Er det den rigtige medlem ?");
+      System.out.println("Er det den rigtige medlem?");
       input.nextLine();
       String checkInput = input.nextLine();
       if (checkInput.equalsIgnoreCase("ja")) {
