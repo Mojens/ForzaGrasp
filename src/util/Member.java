@@ -14,7 +14,7 @@ public class Member implements Comparable{
     private int time;
     private int place;
     private String location;
-    private int date;
+    private String date;
     private String status;
     private int toStringStatus;
     private String memberType;
@@ -90,7 +90,7 @@ public class Member implements Comparable{
         this.balance = balance;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -134,7 +134,7 @@ public class Member implements Comparable{
         return age;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -187,7 +187,7 @@ public class Member implements Comparable{
         this.name = sc.next();
         this.ageGroup = sc.next();
         this.style = sc.next();
-        this.date = Integer.parseInt(sc.next());
+        this.date = sc.next();
         this.time = Integer.parseInt(sc.next());
         this.toStringStatus = 4;
 
@@ -202,7 +202,7 @@ public class Member implements Comparable{
         this.style = sc.next();
         this.time = Integer.parseInt(sc.next());
         this.location = sc.next();
-        this.date = Integer.parseInt(sc.next());
+        this.date = sc.next();
         this.toStringStatus = 5;
 
     }
@@ -232,7 +232,7 @@ public class Member implements Comparable{
     }
     // practice Times
 
-    public Member(String name,String ageGroup, String style, int time, int date, int toStringStatus){
+    public Member(String name,String ageGroup, String style, int time, String date, int toStringStatus){
         this.name = name;
         this.ageGroup = ageGroup;
         this.style = style;
@@ -242,7 +242,7 @@ public class Member implements Comparable{
     }
         //Comptetition info and times
 
-    public Member(String name, int place, String ageGroup, String style, int time, String location, int date, int toStringStatus){
+    public Member(String name, int place, String ageGroup, String style, int time, String location, String date, int toStringStatus){
         this.name = name;
         this.place = place;
         this.style = style;

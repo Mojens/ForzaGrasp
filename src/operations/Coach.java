@@ -9,6 +9,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 /**
@@ -18,7 +21,9 @@ import java.util.*;
 public class Coach extends Member {
     private boolean done = true;
     private boolean doneComp = true;
+    private boolean checkInput = true;
     private Scanner input = new Scanner(System.in);
+    private static final DateTimeFormatter PARSE_FORMATTER = DateTimeFormatter.ofPattern("d/M/uuuu");
 
     public static String allPracticeTimes = "Files/AllPracticeTimes.csv";
     public static final String allCompetitionTimes = "Files/AllCompetitionTimes.csv";
@@ -93,57 +98,139 @@ public class Coach extends Member {
         setName(capitalizeWord(input.nextLine()));
     }
 
-    public void date(){
-        System.out.println("Indtast Dato:");
-        System.out.println("Det skal skrives således: 24112021");
-        int dateOfPrac = Integer.parseInt(input.nextLine());
-        setDate(dateOfPrac);
+
+    public void date() {
+        checkInput = true;
+
+        while (checkInput){
+                System.out.println("Indtast Dato:");
+                System.out.println("Det skal skrives således: dd/mm/åååå");
+                String dateOfPrac = input.nextLine();
+                try {
+                    LocalDate.parse(dateOfPrac, PARSE_FORMATTER);
+                    System.out.println(dateOfPrac + " er valid");
+                    setDate(dateOfPrac);
+                    checkInput = false;
+                } catch (DateTimeParseException dtpe) {
+                    System.out.println("Forkert Format --> Venligst indtast i dette format 22/05/2022 ");
+                    checkInput = true;
+                }
+
+        }
+
+
     }
 
+
+
+
+
     public void ageGroup(){
-        System.out.println("Er personen Junior eller Senior svømmer?");
-        ageGroup = input.nextLine().toLowerCase(Locale.ROOT);
-        if (ageGroup.toLowerCase().startsWith("j")) {
-            setAgeGroup("Junior");
-        } else if (ageGroup.startsWith("s")) {
-            setAgeGroup("Senior");
+        checkInput = true;
+        while (checkInput){
+            System.out.println("Er personen Junior(j) eller Senior(s) svømmer?");
+            ageGroup = input.nextLine().toLowerCase(Locale.ROOT);
+            if (ageGroup.toLowerCase().startsWith("j")) {
+                setAgeGroup("Junior");
+                checkInput = false;
+            } else if (ageGroup.toLowerCase().startsWith("s")) {
+                setAgeGroup("Senior");
+                checkInput = false;
+            } else if (!(ageGroup.matches("[a-åA-Å]+"))){
+                System.out.println("Forkert Format --> Indtast venligst kun bogstaver");
+                checkInput = true;
+            } else if (!(ageGroup.toLowerCase().startsWith("j") || ageGroup.toLowerCase().startsWith("s"))){
+                System.out.println("Forkert indtastning --> j for Junior - s for Senior");
+                checkInput = true;
+            }
+
         }
+
     }
 
     public void style(){
+        checkInput = true;
+
+        while (checkInput){
         System.out.println("Indtast Svømmedisciplin: ");
         System.out.println("Crawl, Butterfly, Brystsvømning eller Rygcrawl");
         style = input.nextLine().toLowerCase(Locale.ROOT);
-        if (style.toLowerCase().startsWith("cr")) {
-            setStyle("Crawl");
-        } else if (style.toLowerCase().startsWith("bu")) {
-            setStyle("Butterfly");
-        } else if (style.toLowerCase().startsWith("br")) {
-            setStyle("Brystsvømning");
-        } else if (style.toLowerCase().startsWith("ryg")||style.toLowerCase().startsWith("back")) {
-            setStyle("Rygcrawl");
+            if (style.toLowerCase().startsWith("cr")) {
+                setStyle("Crawl");
+                checkInput = false;
+            } else if (style.toLowerCase().startsWith("bu")) {
+                setStyle("Butterfly");
+                checkInput = false;
+            } else if (style.toLowerCase().startsWith("br")) {
+                setStyle("Brystsvømning");
+                checkInput = false;
+            } else if (style.toLowerCase().startsWith("ryg")||style.toLowerCase().startsWith("back")) {
+                setStyle("Rygcrawl");
+                checkInput = false;
+            } else if (!(style.matches("[a-zA-Z]+"))){
+                System.out.println("Forkert format - Venligst indtast bogstaver");
+                checkInput = true;
+            }
         }
+
+
     }
 
     public void recordTime(){
-        System.out.println("Indtast tid:");
-        int time = Integer.parseInt(input.nextLine());
-        if (time > 0 && time < 999999) {
-            setTime(time);
+
+        checkInput = true;
+        while (checkInput){
+            System.out.println("Indtast tid:");
+            System.out.println("Eks. 204201 ---> 20 Min 42 Sek 01 Ms");
+        try {
+            int time = Integer.parseInt(input.nextLine());
+            if (time > 0 && time < 999999) {
+                setTime(time);
+                checkInput = false;
+            }
+        } catch(NumberFormatException e) {
+            System.out.println("Forket format - Indtast venligt kun tal");
+            checkInput = true;
         }
+        }
+
     }
 
     public void rank(){
-        System.out.println("Indtast Placering:");
-        int place = Integer.parseInt(input.nextLine());
-        if (place != 0){
-            setPlace(place);
+        checkInput = true;
+        while (checkInput){
+            System.out.println("Indtast Placering:");
+            try {
+                int place = Integer.parseInt(input.nextLine());
+                if (place != 0){
+                    setPlace(place);
+                    checkInput = false;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Forkert Format --> Venligst indtast et nummer");
+                checkInput = true;
+            }
         }
+
+
     }
 
     public void location(){
-        System.out.println("Indtast hvilken stævne det er:");
-        setLocation(capitalizeWord(input.nextLine()));
+
+        checkInput = true;
+        while (checkInput){
+        System.out.println("Indtast navnet på stævnet:");
+        String location = input.nextLine();
+        if(location.matches("[a-zA-Z]+")){
+        setLocation(capitalizeWord(location));
+        checkInput = false;
+
+        }else{
+            System.out.println("Forkert format - Venligst indtast bogstaver");
+            checkInput = true;
+        }
+        }
+
     }
 
     public void nowAdded(){
