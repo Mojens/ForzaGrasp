@@ -12,11 +12,9 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Chairman extends Member {
-    public final String competiviveFile = "Files/CompetiviveList.csv";
+    public final String competitiveFile = "Files/CompetitiveList.csv";
     private final String allMembersFile = "Files/AllMembers.csv";
-    boolean done = true;
-    boolean secondDone = true;
-    boolean styleInput = true;
+    boolean checkInput = true;
     private Scanner input = new Scanner(System.in);
 
     public void registerCasual() throws IOException{
@@ -127,6 +125,7 @@ public class Chairman extends Member {
         }
         return false;
     }
+
     public boolean backstroke(String input){
 
         final boolean deli = input.contains(",") || input.contains(" ");
@@ -151,47 +150,70 @@ public class Chairman extends Member {
     }
 
     public void age(){
-        while (done){
+        checkInput = true;
+
+        while (checkInput){
             System.out.println("Indtast alder: ");
             int age = Integer.parseInt(input.nextLine());
             if (age<106){
                 setAge(age);
-                done = false;
+                checkInput = false;
             } else {
                 System.out.println("Over 105?");
-                done = true;
+                checkInput = true;
             }
 
         }
     }
 
     public void name(){
-        System.out.println("Indtast fulde navn:");
-        setName(capitalizeWord(input.nextLine()));
-    }
+        checkInput = true;
+        while (checkInput){
+            System.out.println("Indtast Navn:");
+            String name = input.nextLine().toLowerCase();
+            if (name.matches(".*[a-zA-ZæøåÆØÅ]+[\\s]*") ){
+                setName(capitalizeWord(name));
+                checkInput = false;
+            } else {
+                System.out.println("Forkert Format --> Venligt indtast kun bogstaver");
+                checkInput = true;
+            }
 
-    public void ageGroup(){
-        if (getAge() < 18) {
-            setAgeGroup("Junior");
-        } else if (getAge() >= 18 && getAge() < 110) {
-            setAgeGroup("Senior");
         }
     }
 
+    public void ageGroup(){
+
+            if (getAge() < 18 && getAge() > 0) {
+                setAgeGroup("Junior");
+
+            } else if (getAge() >= 18 && getAge() < 110) {
+                setAgeGroup("Senior");
+
+            }
+
+    }
+
     public void status(){
-        while (secondDone){
-            System.out.println("Indtast om personen er aktiv eller passiv: ");
+        checkInput = true;
+
+        while (checkInput){
+            System.out.println("Indtast om personen er [a]Aktiv eller [p]Passiv: ");
             String statusString = input.nextLine().toLowerCase(Locale.ROOT);
 
             if (statusString.toLowerCase().startsWith("a")) {
                 setStatus("Aktiv");
-                secondDone = false;
+                checkInput = false;
             } else if (statusString.toLowerCase().startsWith("p")) {
                 setStatus("Passiv");
-                secondDone = false;
-            } else {
+                checkInput = false;
+            } else if (statusString.matches("[0-9]+")){
+                System.out.println("Forkert Format --> Venligst forsøg igen");
+                checkInput = true;
+            }
+            else {
                 System.out.println("Prøv Igen");
-                secondDone = true;
+                checkInput = true;
             }
         }
     }
@@ -209,16 +231,18 @@ public class Chairman extends Member {
     }
 
     public void style(){
-        while (styleInput){
+        checkInput = true;
+
+        while (checkInput){
             System.out.println("Indtast aktive svømmediscipliner: ");
             System.out.println("Crawl, Butterfly, Brystsvømning, Rygcrawl");
             String inputStyle = input.nextLine().toLowerCase();
             checkStyleInput(inputStyle);
             if (inputStyle.contains("")){
-                styleInput = false;
+                checkInput = false;
             } else if (inputStyle.equalsIgnoreCase("Nej")||inputStyle.equalsIgnoreCase("None")||inputStyle.equalsIgnoreCase("ingen")){
                 setStyle("Ingen");
-                styleInput = true;
+                checkInput = true;
             }
         }
     }
@@ -235,7 +259,7 @@ public class Chairman extends Member {
     }
 
     public void addToCompetitiveFile(Member member) throws IOException {
-        FileWriter fileWriter = new FileWriter(competiviveFile, true);
+        FileWriter fileWriter = new FileWriter(competitiveFile, true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.write(member.toString());
         bufferedWriter.close();
@@ -263,7 +287,7 @@ public class Chairman extends Member {
     }
 
     public void loadFromCompetitionListToAllCompetitionList() throws IOException {
-        Scanner reader = new Scanner(new File(competiviveFile));
+        Scanner reader = new Scanner(new File(competitiveFile));
         while (reader.hasNext()) {
             String lines = reader.nextLine();
             Member member = new Member();
