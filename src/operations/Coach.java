@@ -94,10 +94,21 @@ public class Coach extends Member {
     }
 
     public void name(){
-        System.out.println("Indtast Navn: ");
-        setName(capitalizeWord(input.nextLine()));
-    }
+        checkInput = true;
+        while (checkInput){
+            System.out.println("Indtast Navn:");
+            String name = input.nextLine().toLowerCase();
+            if (name.matches(".*[a-zA-ZæøåÆØÅ]+[\\s]*") ){
+                setName(capitalizeWord(name));
+                checkInput = false;
+            } else {
+                System.out.println("Forkert Format --> Venligt indtast kun bogstaver");
+                checkInput = true;
+            }
 
+        }
+
+    }
 
     public void date() {
         checkInput = true;
@@ -108,22 +119,14 @@ public class Coach extends Member {
                 String dateOfPrac = input.nextLine();
                 try {
                     LocalDate.parse(dateOfPrac, PARSE_FORMATTER);
-                    System.out.println(dateOfPrac + " er valid");
                     setDate(dateOfPrac);
                     checkInput = false;
                 } catch (DateTimeParseException dtpe) {
                     System.out.println("Forkert Format --> Venligst indtast i dette format 22/05/2022 ");
                     checkInput = true;
                 }
-
         }
-
-
     }
-
-
-
-
 
     public void ageGroup(){
         checkInput = true;
@@ -136,7 +139,7 @@ public class Coach extends Member {
             } else if (ageGroup.toLowerCase().startsWith("s")) {
                 setAgeGroup("Senior");
                 checkInput = false;
-            } else if (!(ageGroup.matches("[a-åA-Å]+"))){
+            } else if (!(ageGroup.matches(".*[a-zA-ZæøåÆØÅ]+[\\s]*"))){
                 System.out.println("Forkert Format --> Indtast venligst kun bogstaver");
                 checkInput = true;
             } else if (!(ageGroup.toLowerCase().startsWith("j") || ageGroup.toLowerCase().startsWith("s"))){
@@ -167,7 +170,7 @@ public class Coach extends Member {
             } else if (style.toLowerCase().startsWith("ryg")||style.toLowerCase().startsWith("back")) {
                 setStyle("Rygcrawl");
                 checkInput = false;
-            } else if (!(style.matches("[a-zA-Z]+"))){
+            } else if (!(style.matches(".*[a-zA-ZæøåÆØÅ]+[\\s]*"))){
                 System.out.println("Forkert format - Venligst indtast bogstaver");
                 checkInput = true;
             }
@@ -221,7 +224,7 @@ public class Coach extends Member {
         while (checkInput){
         System.out.println("Indtast navnet på stævnet:");
         String location = input.nextLine();
-        if(location.matches("[a-zA-Z]+")){
+        if(location.matches(".*[a-zA-ZæøåÆØÅ]+[\\s]*")){
         setLocation(capitalizeWord(location));
         checkInput = false;
 
@@ -345,7 +348,7 @@ public class Coach extends Member {
     }
 
     public void showAllMembers() {
-        System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
+        System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, Aldersgruppe:, Medlemstype:, " +
             "Svømmedisciplin:, Saldo:, Status:"+ "\033[0;0m");
         int counter = 0;
         for (int i = 0; i < MemberList.competitiveList.size(); i++) {

@@ -108,47 +108,42 @@ public class Chairman extends Member {
 
     public boolean butterfly(String input){
         final boolean deli = input.contains(" ")
-                | input.contains(",");
+                || input.contains(",");
         if (input.toLowerCase().contains("but") && deli){
             return true;
-        } else if (input.toLowerCase().contains("fly") && deli){
+        } else if (input.toLowerCase().contains("but")){
             return true;
         }
 
         return false;
     }
 
-    public boolean crawl(String input){
-        final boolean deli = input.contains(" ") | input.contains(",");
-        if (input.matches("(?s).*\\bcrawl\\b.*") && deli){
+    public boolean crawl(String input) {
+        final boolean deli = input.contains(" ") || input.contains(",");
+        if (input.matches("(?s).*\\bcrawl\\b.*") && deli) {
             return true;
-        } else if (input.toLowerCase().contains("free") && deli){
-            return true;
-        } else if (input.toLowerCase().contains("front") && deli){
+        } else if (input.matches("(?s).*\\bcrawl\\b.*")) {
             return true;
         }
-
         return false;
     }
-
     public boolean backstroke(String input){
 
-        final boolean deli = input.contains(",") | input.contains(" ");
-        if (input.toLowerCase().contains("ryg") && deli){
+        final boolean deli = input.contains(",") || input.contains(" ");
+        if (input.toLowerCase().contains("ryg") && deli) {
             return true;
-        } else if (input.toLowerCase().contains("back") && deli){
+        } else if (input.toLowerCase().contains("ryg")) {
             return true;
         }
-
         return false;
     }
 
     public boolean breast(String input){
         final boolean deli = input.contains(",")
-                | input.contains(" ");
+                || input.contains(" ");
         if (input.toLowerCase().contains("bryst") && deli){
             return true;
-        } else if (input.toLowerCase().contains("breast") && deli) {
+        } else if (input.toLowerCase().contains("bryst")) {
             return true;
         }
 
