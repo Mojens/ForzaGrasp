@@ -6,8 +6,9 @@ package operations;
 
 import util.Member;
 import util.MemberList;
-
+import java.time.LocalDate;
 import java.io.*;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -16,6 +17,7 @@ public class Chairman extends Member {
     private final String allMembersFile = "Files/AllMembers.csv";
     boolean checkInput = true;
     private Scanner input = new Scanner(System.in);
+    private final static DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public void registerCasual() throws IOException{
         setToStringStatus(2);
@@ -27,8 +29,9 @@ public class Chairman extends Member {
         ageGroup();
         status();
         balance();
+        autoDate(LocalDate.now());
 
-        Member member = new Member(getName(), getAge(), getAgeGroup(), getMemberType(), getStyle(),getBalance(), getStatus(), getToStringStatus());
+        Member member = new Member(getName(), getAge(), getAgeGroup(), getMemberType(), getStyle(),getBalance(), getAutoDate(), getStatus(), getToStringStatus());
         MemberList.casualList.add(member);
         MemberList.allMembers.add(member);
         new Chairman().addToAllMembersFile(member);
@@ -47,8 +50,9 @@ public class Chairman extends Member {
         style();
         status();
         balance();
+        autoDate(LocalDate.now());
 
-        Member member = new Member(getName(), getAge(), getAgeGroup(),getMemberType(),getStyle(), getBalance(), getStatus(), getToStringStatus());
+        Member member = new Member(getName(), getAge(), getAgeGroup(),getMemberType(),getStyle(), getBalance(), getAutoDate(), getStatus(), getToStringStatus());
         MemberList.competitiveList.add(member);
         MemberList.allMembers.add(member);
 
@@ -59,8 +63,8 @@ public class Chairman extends Member {
     }
 
     public void showAllMembers(){
-        System.out.println("\033[0;1m" +"MedlemsID:, Navn:, Alder:, aldersgruppe:, Medlems type:, " +
-            "Svømmedisciplin:, Saldo:, Status:"+ "\033[0;0m");
+        System.out.println("\033[0;1m" +"MedlemsID:  Navn:  Alder:  Aldersgruppe:  Medlems type:  " +
+            "Svømmedisciplin:  Saldo:  Dato:   Status:"+ "\033[0;0m");
         int counter = 0 ;
         for (int i = 0; i < MemberList.allMembers.size(); i++){
             counter++;
@@ -245,6 +249,11 @@ public class Chairman extends Member {
                 checkInput = true;
             }
         }
+    }
+
+    public void autoDate(LocalDate date){
+
+        setAutoDate(DATE_FORMATTER.format(date));
     }
 
     public static String capitalizeWord(String str){

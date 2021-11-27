@@ -1,4 +1,5 @@
 package util;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
@@ -15,6 +16,7 @@ public class Member implements Comparable{
     private int place;
     private String location;
     private String date;
+    private String autoDate;
     private String status;
     private int toStringStatus;
     private String memberType;
@@ -38,13 +40,17 @@ public class Member implements Comparable{
                     + memberType + ", "
                     + style + ", "
                     + balance + ", "
+                    + autoDate + ", "
                     + status + "\n";
 
         }else if (getToStringStatus() == 3) {
             return name + ", " + age + ", "
-                    + ageGroup + ", " + memberType + ", "
+                    + ageGroup + ", "
+                    + memberType + ", "
                     + style + ", "
-                    + balance + ", " + status + "\n";
+                    + balance + ", "
+                    + autoDate + ", "
+                    + status + "\n";
         }else if (getToStringStatus() == 4){
             return name + ", "
                     + ageGroup + ", "
@@ -68,6 +74,14 @@ public class Member implements Comparable{
 
     public void setToStringStatus(int toStringStatus) {
         this.toStringStatus = toStringStatus;
+    }
+
+    public void setAutoDate(String autoDate){
+        this.autoDate = autoDate;
+    }
+
+    public String getAutoDate() {
+        return autoDate;
     }
 
     public void setStatus(String status) {
@@ -176,6 +190,7 @@ public class Member implements Comparable{
         this.memberType = sc.next();
         this.style = sc.next();
         this.balance = Double.parseDouble(sc.next());
+        this.autoDate = sc.next();
         this.status = sc.next();
         this.toStringStatus = 2;
 
@@ -219,13 +234,14 @@ public class Member implements Comparable{
         return 0;
     }
 
-    public Member(String name, int age, String ageGroup, String memberType, String style, double balance, String status, int toStringStatus){
+    public Member(String name, int age, String ageGroup, String memberType, String style, double balance, String autoDate, String status, int toStringStatus){
         this.name = name;
         this.age = age;
         this.ageGroup = ageGroup;
         this.memberType = memberType;
         this.style = style;
         this.balance = balance;
+        this.autoDate = autoDate;
         this.status = status;
         this.toStringStatus = toStringStatus;
 
