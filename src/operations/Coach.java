@@ -367,7 +367,7 @@ public class Coach extends Member {
                 System.out.println("\033[0;1m" + "#" + counter++ + "\033[0;0m" + ": " + member);
             }
         }else{
-            System.out.println("\nDer er ikke en top 5 lige nu, prøv at tilføje flere "
+            System.out.println("\nDer er ikke en top 5 lige nu, venligst vend tilbage når der er flere trænings resultater "
                 +"\033[0;1m" +"Træningstider"+ "\033[0;0m");
         }
     }
