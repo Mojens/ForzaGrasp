@@ -20,8 +20,8 @@ https://github.com/chinesethunder
 
 
 <h2> Virksomhed </h2>
-* Interessantanalyse
-* Risikoanalyse og udvidet riskotabel (risiko plan)
+<h4> Interessantanalyse </h4>
+<h4> Risikoanalyse og udvidet riskotabel (risiko plan) </h4>
 
 
 <h2> Systemudvikling  </h2>
@@ -43,10 +43,10 @@ https://github.com/chinesethunder
    - UC06 - Registrer Konkurrence Info
   
 * 4 System Sequence Diagram af main success scenarie 
-   - Registrer Medlem - SSD
-   - Forventet Indbetaling - SSD
-   - Restance Overblik - SSD
-   - Registrer Konkurrence Info - SSD
+   - Registrer Medlem - SSD - Alternative Flow
+   - Forventet Indbetaling - SSD - Main Success Scenario
+   - Restance Overblik - SSD - Main Success Scenario
+   - Registrer Konkurrence Info - SSD - Main Success Scenario
    
 * Liste med Operation Contracts  
 
@@ -60,11 +60,9 @@ https://github.com/chinesethunder
 
 * Beskrivelse af hvordan GRASP er blevet implementeret i programet 
 
+* Review og Status for kode
+
 <h2> Programmering  </h2>
 
-**Vi har kodet alle 4 Use Cases**
-
-
-***Note til programmerings delen:***
-
+**Vi har kodet alle 6 Use Cases**
 
