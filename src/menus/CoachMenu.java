@@ -55,7 +55,7 @@ public class CoachMenu implements MenuRun {
           checkChoice = true;
           break;
         case 4:
-          System.out.println("Se alle "+ "\033[0;1m" +"Medlemmer:"+"\033[0;0m" +"\n");
+          System.out.println("Se alle "+ "\033[0;1m" +"Konkurrence Medlemmer:"+"\033[0;0m" +"\n");
           coach.showAllMembers();
           coachMenu.menuRun();
           checkChoice = true;
