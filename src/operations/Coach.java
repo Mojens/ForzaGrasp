@@ -348,8 +348,8 @@ public class Coach extends Member {
     }
 
     public void showAllMembers() {
-        System.out.println("\033[0;1m" +"MedlemsID:  Navn:  Alder:  Aldersgruppe:  Medlems type:  " +
-                "Svømmedisciplin:  Saldo:  Dato:   Status:"+ "\033[0;0m");
+        System.out.println("\033[0;1m" +"ID: Navn: Alder: Aldersgruppe: Medlemstype: " +
+                "Svømmedisciplin:  Saldo:  Dato:  Status:"+ "\033[0;0m");
         int counter = 0;
         for (int i = 0; i < MemberList.competitiveList.size(); i++) {
             counter++;
@@ -358,7 +358,7 @@ public class Coach extends Member {
     }
 
     public void showTop5(ArrayList<Member> list){
-        System.out.println("\033[0;1m" +"Navn:  Aldersgruppe:  SvømmeDisciplin:  Dato: " +
+        System.out.println("\033[0;1m" +"Navn: Aldersgruppe: Disciplin: Dato: " +
             "Tid:"+ "\033[0;0m");
         int counter = 1;
         Collections.sort(list);

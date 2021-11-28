@@ -63,8 +63,8 @@ public class Chairman extends Member {
     }
 
     public void showAllMembers(){
-        System.out.println("\033[0;1m" +"MedlemsID:  Navn:  Alder:  Aldersgruppe:  Medlems type:  " +
-            "Svømmedisciplin:  Saldo:  Dato:   Status:"+ "\033[0;0m");
+        System.out.println("\033[0;1m" +"ID: Navn: Alder: Aldersgruppe: Medlemstype: " +
+            "Svømmedisciplin:  Saldo:  Dato:  Status:"+ "\033[0;0m");
         int counter = 0 ;
         for (int i = 0; i < MemberList.allMembers.size(); i++){
             counter++;
